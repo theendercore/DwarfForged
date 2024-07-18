@@ -98,7 +98,10 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
         CUBE_ALL.forEach { gen.registerSimpleCubeAll(it) }
-        CRYSTALS.forEach { gen.registerAmethyst(it) }
+        CRYSTALS.forEach {
+            gen.registerAmethyst(it)
+            gen.registerItemModel(it)
+        }
     }
 
     private val SINGLE_LAYER = listOf(
