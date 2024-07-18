@@ -12,9 +12,11 @@ object DFItems {
     val CITRINE_SHARD = register("citrine_shard", Item(Item.Settings()))
 
     fun <T : Item> register(name: String, item: T): Item {
-        val regItem = Registries.ITEM.register(name, item)
+        val regItem = registerNoTab(name, item)
         tabItems.add(regItem)
         return regItem
     }
+
+    fun <T : Item> registerNoTab(name: String, item: T): Item = Registries.ITEM.register(name, item)
 
 }
