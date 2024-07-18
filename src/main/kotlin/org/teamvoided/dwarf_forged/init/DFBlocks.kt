@@ -3,9 +3,14 @@ package org.teamvoided.dwarf_forged.init
 import net.minecraft.block.AbstractBlock
 import net.minecraft.block.Block
 import net.minecraft.block.Blocks
+import net.minecraft.block.BuddingAmethystBlock
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
+import org.teamvoided.dwarf_forged.block.CrystalClusterBlock
+import org.teamvoided.dwarf_forged.block.LargeCrystalBudBlock
+import org.teamvoided.dwarf_forged.block.MediumCrystalBudBlock
+import org.teamvoided.dwarf_forged.block.SmallCrystalBudBlock
 import org.teamvoided.dwarf_forged.util.register
 
 object DFBlocks {
@@ -120,19 +125,18 @@ object DFBlocks {
     // --- --- --- CRYSTALS --- --- ---
 
     val BLUE_SKY_BLOCK = register("blue_sky_block", Block(copy(Blocks.AMETHYST_BLOCK)))
-    val BUDDING_BLUE_SKY = register("budding_blue_sky", Block(copy(Blocks.BUDDING_AMETHYST)))
-    val BLUE_SKY_CRYSTAL = register("blue_sky_cluster", Block(copy(Blocks.AMETHYST_CLUSTER)))
-    val LARGE_BLUE_SKY_BUD = register("large_blue_sky_bud", Block(copy(Blocks.LARGE_AMETHYST_BUD)))
-    val MEDIUM_BLUE_SKY_BUD = register("medium_blue_sky_bud", Block(copy(Blocks.MEDIUM_AMETHYST_BUD)))
-    val SMALL_BLUE_SKY_BUD = register("small_blue_sky_bud", Block(copy(Blocks.SMALL_AMETHYST_BUD)))
+    val BUDDING_BLUE_SKY = register("budding_blue_sky", BuddingAmethystBlock(copy(Blocks.BUDDING_AMETHYST)))
+    val BLUE_SKY_CRYSTAL = register("blue_sky_cluster", CrystalClusterBlock(copy(Blocks.AMETHYST_CLUSTER)))
+    val LARGE_BLUE_SKY_BUD = register("large_blue_sky_bud", LargeCrystalBudBlock(copy(Blocks.LARGE_AMETHYST_BUD)))
+    val MEDIUM_BLUE_SKY_BUD = register("medium_blue_sky_bud", MediumCrystalBudBlock(copy(Blocks.MEDIUM_AMETHYST_BUD)))
+    val SMALL_BLUE_SKY_BUD = register("small_blue_sky_bud", SmallCrystalBudBlock(copy(Blocks.SMALL_AMETHYST_BUD)))
 
-    val citrine_block = register("citrine_block", Block(copy(Blocks.AMETHYST_BLOCK)))
-    val budding_citrine = register("budding_citrine", Block(copy(Blocks.BUDDING_AMETHYST)))
-    val citrine_crystal = register("citrine_cluster", Block(copy(Blocks.AMETHYST_CLUSTER)))
-    val large_citrine_bud = register("large_citrine_bud", Block(copy(Blocks.LARGE_AMETHYST_BUD)))
-    val medium_citrine_bud = register("medium_citrine_bud", Block(copy(Blocks.MEDIUM_AMETHYST_BUD)))
-    val small_citrine_bud = register("small_citrine_bud", Block(copy(Blocks.SMALL_AMETHYST_BUD)))
-
+    val CITRINE_BLOCK = register("citrine_block", Block(copy(Blocks.AMETHYST_BLOCK)))
+    val BUDDING_CITRINE = register("budding_citrine", BuddingAmethystBlock(copy(Blocks.BUDDING_AMETHYST)))
+    val CITRINE_CRYSTAL = register("citrine_cluster", CrystalClusterBlock(copy(Blocks.AMETHYST_CLUSTER)))
+    val LARGE_CITRINE_BUD = register("large_citrine_bud", LargeCrystalBudBlock(copy(Blocks.LARGE_AMETHYST_BUD)))
+    val MEDIUM_CITRINE_BUD = register("medium_citrine_bud", MediumCrystalBudBlock(copy(Blocks.MEDIUM_AMETHYST_BUD)))
+    val SMALL_CITRINE_BUD = register("small_citrine_bud", SmallCrystalBudBlock(copy(Blocks.SMALL_AMETHYST_BUD)))
 
     fun copy(block: Block): AbstractBlock.Settings = AbstractBlock.Settings.copy(block)
 
