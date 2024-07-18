@@ -28,9 +28,9 @@ repositories {
 println("Task: " + gradle.startParameter.taskNames.joinToString(","))
 
 modSettings {
-    entrypoint("main", "org.teamvoided.template.Template::init")
-    entrypoint("client", "org.teamvoided.template.TemplateClient::init")
-    entrypoint("fabric-datagen", "org.teamvoided.template.data.gen.TemplateData")
+    entrypoint("main", "org.teamvoided.dwarf_forged.DwarfForged::init")
+    entrypoint("client", "org.teamvoided.dwarf_forged.DwarfForgedClient::init")
+    entrypoint("fabric-datagen", "org.teamvoided.dwarf_forged.data.gen.DwarfForgedData")
 
     mixinFile("${modId()}.client.mixins.json")
 //    mixinFile("${modId()}.mixins.json")
