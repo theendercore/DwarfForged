@@ -7,6 +7,7 @@ import org.teamvoided.dwarf_forged.util.register
 import org.teamvoided.dwarf_forged.util.text
 
 object DFTabs {
+    fun init() {}
     val DF_TAB = register("dwarf_forged",
         FabricItemGroup.builder()
             .icon { DFItems.BLUE_SKY_SHARD.defaultStack }
