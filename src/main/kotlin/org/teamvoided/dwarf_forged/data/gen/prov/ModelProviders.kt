@@ -7,6 +7,7 @@ import net.minecraft.data.client.model.BlockStateModelGenerator
 import net.minecraft.data.client.model.Models
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
+import org.teamvoided.dwarf_forged.util.DFBlockLists.CRYSTALS
 
 class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
     private val CUBE_ALL = listOf(
@@ -83,17 +84,6 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.BUDDING_BLUE_SKY,
         DFBlocks.CITRINE_BLOCK,
         DFBlocks.BUDDING_CITRINE
-    )
-
-    private val CRYSTALS = listOf(
-        DFBlocks.BLUE_SKY_CRYSTAL,
-        DFBlocks.LARGE_BLUE_SKY_BUD,
-        DFBlocks.MEDIUM_BLUE_SKY_BUD,
-        DFBlocks.SMALL_BLUE_SKY_BUD,
-        DFBlocks.CITRINE_CRYSTAL,
-        DFBlocks.LARGE_CITRINE_BUD,
-        DFBlocks.MEDIUM_CITRINE_BUD,
-        DFBlocks.SMALL_CITRINE_BUD,
     )
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
