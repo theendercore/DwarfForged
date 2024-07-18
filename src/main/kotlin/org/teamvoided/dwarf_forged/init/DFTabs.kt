@@ -11,7 +11,7 @@ object DFTabs {
     val DF_TAB = register("dwarf_forged",
         FabricItemGroup.builder()
             .icon { DFItems.BLUE_SKY_SHARD.defaultStack }
-            .name("DwarfForged".text())
+            .name("Dwarf Forged".text())
             .entries { _, entries -> entries.addStacks(DFItems.tabItems.map { it.defaultStack }) }
     )
 
