@@ -102,7 +102,6 @@ object DFBlocks {
     val PLATINUM_ORE = register("platinum_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_PLATINUM_ORE = register("deepslate_platinum_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
 
-
     val TITANIUM_ORE = register("titanium_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_TITANIUM_ORE = register("deepslate_titanium_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
 
@@ -138,10 +137,12 @@ object DFBlocks {
     val LARGE_CITRINE_BUD = register("large_citrine_bud", LargeCrystalBudBlock(copy(Blocks.LARGE_AMETHYST_BUD)))
     val MEDIUM_CITRINE_BUD = register("medium_citrine_bud", MediumCrystalBudBlock(copy(Blocks.MEDIUM_AMETHYST_BUD)))
     val SMALL_CITRINE_BUD = register("small_citrine_bud", SmallCrystalBudBlock(copy(Blocks.SMALL_AMETHYST_BUD)))
-    val BUDDING_CITRINE = register("budding_citrine", BuddingCrystalBlock(
-        copy(Blocks.BUDDING_AMETHYST),
-        listOf(SMALL_CITRINE_BUD, MEDIUM_CITRINE_BUD, LARGE_CITRINE_BUD, CITRINE_CRYSTAL)
-    ))
+    val BUDDING_CITRINE = register(
+        "budding_citrine", BuddingCrystalBlock(
+            copy(Blocks.BUDDING_AMETHYST),
+            listOf(SMALL_CITRINE_BUD, MEDIUM_CITRINE_BUD, LARGE_CITRINE_BUD, CITRINE_CRYSTAL)
+        )
+    )
 
     fun copy(block: Block): AbstractBlock.Settings = AbstractBlock.Settings.copy(block)
 
