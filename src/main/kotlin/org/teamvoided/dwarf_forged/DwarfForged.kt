@@ -1,5 +1,6 @@
 package org.teamvoided.dwarf_forged
 
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.util.Identifier
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -22,4 +23,6 @@ object DwarfForged {
     }
 
     fun id(path: String) = Identifier.of(MODID, path)
+
+    fun isDev(): Boolean = FabricLoader.getInstance().isDevelopmentEnvironment && false
 }
