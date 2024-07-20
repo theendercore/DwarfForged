@@ -79,6 +79,7 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.ARGILLITE,
         DFBlocks.CLAYSTONE,
         DFBlocks.BLUE_SCHIST,
+        DFBlocks.COBBLED_BLUE_SCHIST,
         DFBlocks.VARIOLITE,
         DFBlocks.BLUE_SKY_BLOCK,
         DFBlocks.BUDDING_BLUE_SKY,

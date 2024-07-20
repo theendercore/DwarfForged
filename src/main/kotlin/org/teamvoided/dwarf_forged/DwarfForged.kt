@@ -24,5 +24,5 @@ object DwarfForged {
 
     fun id(path: String) = Identifier.of(MODID, path)
 
-    fun isDev(): Boolean = FabricLoader.getInstance().isDevelopmentEnvironment && false
+    fun isDev(): Boolean = FabricLoader.getInstance().isDevelopmentEnvironment
 }

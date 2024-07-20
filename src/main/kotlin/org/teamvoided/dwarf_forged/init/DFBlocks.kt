@@ -116,6 +116,7 @@ object DFBlocks {
     val ARGILLITE = register("argillite", Block(copy(Blocks.STONE)))
     val CLAYSTONE = register("claystone", Block(copy(Blocks.STONE)))
     val BLUE_SCHIST = register("blue_schist", Block(copy(Blocks.STONE)))
+    val COBBLED_BLUE_SCHIST = register("cobbled_blue_schist", Block(copy(Blocks.STONE)))
     val VARIOLITE = register("variolite", Block(copy(Blocks.STONE)))
 
     // --- --- --- CRYSTALS --- --- ---
