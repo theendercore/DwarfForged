@@ -89,6 +89,7 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
             .forceAddTag(DFBlockTags.GEM_ORES)
+            .forceAddTag(DFBlockTags.GEM_BLOCKS)
     }
 
     private fun conventionalTags() {
