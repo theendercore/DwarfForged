@@ -16,41 +16,54 @@ object DFBlocks {
 
     val RUBY_ORE = register("ruby_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_RUBY_ORE = register("deepslate_ruby_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val RUBY_BLOCK = register("ruby_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val SAPPHIRE_ORE = register("sapphire_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_SAPPHIRE_ORE = register("deepslate_sapphire_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val SAPPHIRE_BLOCK = register("sapphire_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val KYANITE_ORE = register("kyanite_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_KYANITE_ORE = register("deepslate_kyanite_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val KYANITE_BLOCK = register("kyanite_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val MOONSTONE_ORE = register("moonstone_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_MOONSTONE_ORE = register("deepslate_moonstone_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val MOONSTONE_BLOCK = register("moonstone_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val JADE_ORE = register("jade_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_JADE_ORE = register("deepslate_jade_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val JADE_BLOCK = register("jade_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val NETHER_SMOKY_QUARTZ_ORE = register("nether_smoky_quartz_ore", Block(copy(Blocks.NETHER_QUARTZ_ORE)))
+    val SMOKY_QUARTZ_BLOCK = register("smoky_quartz_block", Block(copy(Blocks.QUARTZ_BLOCK)))
 
     val EUCLASE_ORE = register("euclase_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_EUCLASE_ORE = register("deepslate_euclase_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val EUCLASE_BLOCK = register("euclase_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val BORACITE_ORE = register("boracite_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_BORACITE_ORE = register("deepslate_boracite_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val BORACITE_BLOCK = register("boracite_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val TOPAZ_ORE = register("topaz_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_TOPAZ_ORE = register("deepslate_topaz_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val TOPAZ_BLOCK = register("topaz_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val TOURMALINE_ORE = register("tourmaline_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_TOURMALINE_ORE = register("deepslate_tourmaline_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val TOURMALINE_BLOCK = register("tourmaline_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val SPINEL_ORE = register("spinel_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_SPINEL_ORE = register("deepslate_spinel_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val SPINEL_BLOCK = register("spinel_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val HEMATITE_ORE = register("hematite_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_HEMATITE_ORE = register("deepslate_hematite_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val HEMATITE_BLOCK = register("hematite_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val CARNELIAN_ORE = register("carnelian_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_CARNELIAN_ORE = register("deepslate_carnelian_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val CARNELIAN_BLOCK = register("carnelian_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     // --- --- --- METALS --- --- ---
 
@@ -78,9 +91,6 @@ object DFBlocks {
     val URANIUM_ORE = register("uranium_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_URANIUM_ORE = register("deepslate_uranium_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
 
-    val EINSTEINIUM_ORE = register("einsteinium_ore", Block(copy(Blocks.IRON_ORE)))
-    val DEEPSLATE_EINSTEINIUM_ORE = register("deepslate_einsteinium_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
-
     val LEAD_ORE = register("lead_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_LEAD_ORE = register("deepslate_lead_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
 
@@ -104,6 +114,17 @@ object DFBlocks {
 
     val TITANIUM_ORE = register("titanium_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_TITANIUM_ORE = register("deepslate_titanium_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
+
+    // --- --- --- HUMAN ORES --- --- ---
+
+    val EINSTEINIUM_ORE = register("einsteinium_ore", Block(copy(Blocks.IRON_ORE)))
+    val DEEPSLATE_EINSTEINIUM_ORE = register("deepslate_einsteinium_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
+
+    val ASTRALITE_ORE = register("astralite_ore", Block(copy(Blocks.IRON_ORE)))
+    val DEEPSLATE_ASTRALITE_ORE = register("deepslate_astralite_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
+
+    val GRASS_ORE = register("grass_ore", Block(copy(Blocks.IRON_ORE)))
+    val DEEPSLATE_GRASS_ORE = register("deepslate_grass_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
 
     // --- --- --- ROCKS --- --- ---
 
