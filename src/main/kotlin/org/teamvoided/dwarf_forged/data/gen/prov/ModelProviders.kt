@@ -7,7 +7,9 @@ import net.minecraft.data.client.model.BlockStateModelGenerator
 import net.minecraft.data.client.model.Models
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
+import org.teamvoided.dwarf_forged.util.DFBlockLists
 import org.teamvoided.dwarf_forged.util.DFBlockLists.CRYSTALS
+import org.teamvoided.dwarf_forged.util.DFItemLists
 
 class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
     private val CUBE_ALL = listOf(
@@ -74,22 +76,11 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.DEEPSLATE_ASTRALITE_ORE,
         DFBlocks.GRASS_ORE,
         DFBlocks.DEEPSLATE_GRASS_ORE,
-        DFBlocks.PUMICE,
-        DFBlocks.MARBLE,
-        DFBlocks.TEKTITE,
-        DFBlocks.TERRARIA_BLUE_GRANITE,
-        DFBlocks.BLAIRMORITE,
-        DFBlocks.PYROXENITE,
-        DFBlocks.ARGILLITE,
-        DFBlocks.CLAYSTONE,
-        DFBlocks.BLUE_SCHIST,
-        DFBlocks.COBBLED_BLUE_SCHIST,
-        DFBlocks.VARIOLITE,
         DFBlocks.BLUE_SKY_BLOCK,
         DFBlocks.BUDDING_BLUE_SKY,
         DFBlocks.CITRINE_BLOCK,
         DFBlocks.BUDDING_CITRINE
-    )
+    ) + DFBlockLists.GEM_BLOCKS + DFBlockLists.ROSCKS
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
         CUBE_ALL.forEach { gen.registerSimpleCubeAll(it) }
@@ -102,7 +93,7 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
     private val SINGLE_LAYER = listOf(
         DFItems.BLUE_SKY_SHARD,
         DFItems.CITRINE_SHARD,
-    )
+    ) + DFItemLists.GEMS
 
     override fun generateItemModels(gen: ItemModelGenerator) {
         SINGLE_LAYER.forEach { gen.register(it, Models.SINGLE_LAYER_ITEM) }
