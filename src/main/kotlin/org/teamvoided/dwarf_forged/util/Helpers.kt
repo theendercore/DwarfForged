@@ -2,6 +2,7 @@ package org.teamvoided.dwarf_forged.util
 
 import net.minecraft.item.Item
 import net.minecraft.item.ItemConvertible
+import net.minecraft.item.ItemGroup
 import net.minecraft.registry.Holder
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -27,3 +28,8 @@ val <T> TagKey<T>.path get() = this.id.path
 
 
 fun String.text() = Text.translatable(this)
+
+fun ItemGroup.ItemStackCollector.addItems(vararg items: ItemConvertible): ItemGroup.ItemStackCollector {
+    items.forEach { this.addItem(it) }
+    return this
+}
