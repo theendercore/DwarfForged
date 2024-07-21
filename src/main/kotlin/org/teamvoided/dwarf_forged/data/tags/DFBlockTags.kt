@@ -25,6 +25,23 @@ object DFBlockTags {
     val HEMATITE_ORES = create("hematite_ores")
     val CARNELIAN_ORES = create("carnelian_ores")
 
+    val GEM_BLOCKS = create("gem_blocks")
+
+    val RUBY_BLOCK = conventional("storage_blocks/ruby")
+    val SAPPHIRE_BLOCK = conventional("storage_blocks/sapphire")
+    val KYANITE_BLOCK = conventional("storage_blocks/kyanite")
+    val MOONSTONE_BLOCK = conventional("storage_blocks/moonstone")
+    val JADE_BLOCK = conventional("storage_blocks/jade")
+    val SMOKY_QUARTZ_BLOCK = conventional("storage_blocks/smoky_quartz")
+    val EUCLASE_BLOCK = conventional("storage_blocks/euclase")
+    val BORACITE_BLOCK = conventional("storage_blocks/boracite")
+    val TOPAZ_BLOCK = conventional("storage_blocks/topaz")
+    val TOURMALINE_BLOCK = conventional("storage_blocks/tourmaline")
+    val SPINEL_BLOCK = conventional("storage_blocks/spinel")
+    val HEMATITE_BLOCK = conventional("storage_blocks/hematite")
+    val CARNELIAN_BLOCK = conventional("storage_blocks/carnelian")
 
     fun create(name: String): TagKey<Block> = RegistryKeys.BLOCK.tag(id(name))
+    fun conventional(name: String): TagKey<Block> = RegistryKeys.BLOCK.tag(id("c", name))
+
 }

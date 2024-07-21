@@ -27,7 +27,38 @@ object DFItemTags {
 
     val GEMS = create("gems")
 
+    val GEMS_RUBY = conventional("gems/ruby")
+    val GEMS_SAPPHIRE = conventional("gems/sapphire")
+    val GEMS_KYANITE = conventional("gems/kyanite")
+    val GEMS_MOONSTONE = conventional("gems/moonstone")
+    val GEMS_JADE = conventional("gems/jade")
+    val GEMS_SMOKY_QUARTZ = conventional("gems/smoky_quartz")
+    val GEMS_EUCLASE = conventional("gems/euclase")
+    val GEMS_BORACITE = conventional("gems/boracite")
+    val GEMS_TOPAZ = conventional("gems/topaz")
+    val GEMS_TOURMALINE = conventional("gems/tourmaline")
+    val GEMS_SPINEL = conventional("gems/spinel")
+    val GEMS_HEMATITE = conventional("gems/hematite")
+    val GEMS_CARNELIAN = conventional("gems/carnelian")
+
+    val GEM_BLOCKS = create("gem_blocks")
+
+    val RUBY_BLOCK = conventional("storage_blocks/ruby")
+    val SAPPHIRE_BLOCK = conventional("storage_blocks/sapphire")
+    val KYANITE_BLOCK = conventional("storage_blocks/kyanite")
+    val MOONSTONE_BLOCK = conventional("storage_blocks/moonstone")
+    val JADE_BLOCK = conventional("storage_blocks/jade")
+    val SMOKY_QUARTZ_BLOCK = conventional("storage_blocks/smoky_quartz")
+    val EUCLASE_BLOCK = conventional("storage_blocks/euclase")
+    val BORACITE_BLOCK = conventional("storage_blocks/boracite")
+    val TOPAZ_BLOCK = conventional("storage_blocks/topaz")
+    val TOURMALINE_BLOCK = conventional("storage_blocks/tourmaline")
+    val SPINEL_BLOCK = conventional("storage_blocks/spinel")
+    val HEMATITE_BLOCK = conventional("storage_blocks/hematite")
+    val CARNELIAN_BLOCK = conventional("storage_blocks/carnelian")
+
     fun create(name: String): TagKey<Item> = RegistryKeys.ITEM.tag(id(name))
+    fun conventional(name: String): TagKey<Item> = RegistryKeys.ITEM.tag(id("c", name))
 
     val ALL_TAGS = listOf(
         DWARF_FORGED_ORES,
@@ -45,6 +76,33 @@ object DFItemTags {
         SPINEL_ORES,
         HEMATITE_ORES,
         CARNELIAN_ORES,
-        GEMS
+        GEMS,
+        GEMS_RUBY,
+        GEMS_SAPPHIRE,
+        GEMS_KYANITE,
+        GEMS_MOONSTONE,
+        GEMS_JADE,
+        GEMS_SMOKY_QUARTZ,
+        GEMS_EUCLASE,
+        GEMS_BORACITE,
+        GEMS_TOPAZ,
+        GEMS_TOURMALINE,
+        GEMS_SPINEL,
+        GEMS_HEMATITE,
+        GEMS_CARNELIAN,
+        GEM_BLOCKS,
+        RUBY_BLOCK,
+        SAPPHIRE_BLOCK,
+        KYANITE_BLOCK,
+        MOONSTONE_BLOCK,
+        JADE_BLOCK,
+        SMOKY_QUARTZ_BLOCK,
+        EUCLASE_BLOCK,
+        BORACITE_BLOCK,
+        TOPAZ_BLOCK,
+        TOURMALINE_BLOCK,
+        SPINEL_BLOCK,
+        HEMATITE_BLOCK,
+        CARNELIAN_BLOCK
     )
 }

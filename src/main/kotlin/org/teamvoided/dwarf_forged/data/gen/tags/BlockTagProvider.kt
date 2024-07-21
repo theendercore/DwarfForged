@@ -2,6 +2,7 @@ package org.teamvoided.dwarf_forged.data.gen.tags
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags
 import net.minecraft.registry.HolderLookup
 import net.minecraft.registry.tag.BlockTags
 import org.teamvoided.dwarf_forged.data.tags.DFBlockTags
@@ -11,16 +12,17 @@ import java.util.concurrent.CompletableFuture
 class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) :
     FabricTagProvider.BlockTagProvider(o, r) {
     override fun configure(wrapperLookup: HolderLookup.Provider) {
-        gemOres()
+        gems()
 
         getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
             .forceAddTag(DFBlockTags.GEM_ORES)
 
 
         mineable()
+        conventionalTags()
     }
 
-    private fun gemOres() {
+    private fun gems() {
         getOrCreateTagBuilder(DFBlockTags.RUBY_ORES).add(DFBlocks.RUBY_ORE, DFBlocks.DEEPSLATE_RUBY_ORE)
         getOrCreateTagBuilder(DFBlockTags.SAPPHIRE_ORES).add(DFBlocks.SAPPHIRE_ORE, DFBlocks.DEEPSLATE_SAPPHIRE_ORE)
         getOrCreateTagBuilder(DFBlockTags.KYANITE_ORES).add(DFBlocks.KYANITE_ORE, DFBlocks.DEEPSLATE_KYANITE_ORE)
@@ -50,13 +52,49 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.SPINEL_ORES)
             .forceAddTag(DFBlockTags.HEMATITE_ORES)
             .forceAddTag(DFBlockTags.CARNELIAN_ORES)
+
+        getOrCreateTagBuilder(DFBlockTags.GEM_BLOCKS).add(
+            DFBlocks.RUBY_BLOCK,
+            DFBlocks.SAPPHIRE_BLOCK,
+            DFBlocks.KYANITE_BLOCK,
+            DFBlocks.MOONSTONE_BLOCK,
+            DFBlocks.JADE_BLOCK,
+            DFBlocks.SMOKY_QUARTZ_BLOCK,
+            DFBlocks.EUCLASE_BLOCK,
+            DFBlocks.BORACITE_BLOCK,
+            DFBlocks.TOPAZ_BLOCK,
+            DFBlocks.TOURMALINE_BLOCK,
+            DFBlocks.SPINEL_BLOCK,
+            DFBlocks.HEMATITE_BLOCK,
+            DFBlocks.CARNELIAN_BLOCK
+        )
+
+        getOrCreateTagBuilder(DFBlockTags.RUBY_BLOCK).add(DFBlocks.RUBY_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.SAPPHIRE_BLOCK).add(DFBlocks.SAPPHIRE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.KYANITE_BLOCK).add(DFBlocks.KYANITE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.MOONSTONE_BLOCK).add(DFBlocks.MOONSTONE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.JADE_BLOCK).add(DFBlocks.JADE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.SMOKY_QUARTZ_BLOCK).add(DFBlocks.SMOKY_QUARTZ_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.EUCLASE_BLOCK).add(DFBlocks.EUCLASE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.BORACITE_BLOCK).add(DFBlocks.BORACITE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.TOPAZ_BLOCK).add(DFBlocks.TOPAZ_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.TOURMALINE_BLOCK).add(DFBlocks.TOURMALINE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.SPINEL_BLOCK).add(DFBlocks.SPINEL_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.HEMATITE_BLOCK).add(DFBlocks.HEMATITE_BLOCK)
     }
 
-    fun mineable() {
+    private fun mineable() {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
             .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
             .forceAddTag(DFBlockTags.GEM_ORES)
+    }
+
+    private fun conventionalTags() {
+        getOrCreateTagBuilder(ConventionalBlockTags.ORES)
+            .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
+        getOrCreateTagBuilder(ConventionalBlockTags.STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.GEM_BLOCKS)
     }
 }
