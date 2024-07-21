@@ -6,11 +6,12 @@ import org.teamvoided.dwarf_forged.util.register
 
 object DFItems {
     val tabItems = mutableListOf<Item>()
-    fun init() {}
+    fun init() = Unit
 
     val BLUE_SKY_SHARD = register("blue_sky_shard", Item())
     val CITRINE_SHARD = register("citrine_shard", Item())
 
+    // --- --- --- GEMS --- --- ---
     val RUBY = register("ruby", Item())
     val SAPPHIRE = register("sapphire", Item())
     val KYANITE = register("kyanite", Item())
@@ -24,6 +25,38 @@ object DFItems {
     val SPINEL = register("spinel", Item())
     val HEMATITE = register("hematite", Item())
     val CARNELIAN = register("carnelian", Item())
+
+    // --- --- --- RAW METALS --- --- ---
+    val RAW_SILVER = register("raw_silver", Item())
+    val RAW_COBALT = register("raw_cobalt", Item())
+    val RAW_TUNGSTEN = register("raw_tungsten", Item())
+    val RAW_IRIDIUM = register("raw_iridium", Item())
+    val RAW_THALLIUM = register("raw_thallium", Item())
+    val RAW_BISMUTH = register("raw_bismuth", Item())
+    val RAW_PLUTONIUM = register("raw_plutonium", Item())
+    val RAW_URANIUM = register("raw_uranium", Item())
+    val RAW_LEAD = register("raw_lead", Item())
+    val RAW_TIN = register("raw_tin", Item())
+    val RAW_PALLADIUM = register("raw_palladium", Item())
+    val RAW_ZINC = register("raw_zinc", Item())
+    val RAW_NICKEL = register("raw_nickel", Item())
+    val RAW_ALUMINIUM = register("raw_aluminium", Item())
+    val RAW_PLATINUM = register("raw_platinum", Item())
+    val RAW_TITANIUM = register("raw_titanium", Item())
+
+    // --- --- --- INGOTS --- --- ---
+    val SILVER_INGOT = register("silver_ingot", Item())
+
+    // --- --- --- NUGGETS --- --- ---
+
+    // --- --- --- RAW HUMAN ORES --- --- ---
+    val RAW_EINSTEINIUM = register("raw_einsteinium", Item())
+    val RAW_ASTRALITE = register("raw_astralite", Item())
+    val RAW_GRASS = register("raw_grass", Item())
+
+
+    // --- --- --- HUMAN INGOTS --- --- ---
+    val ASTRALITE_INGOT = register("astralite_ingot", Item())
 
     fun <T : Item> register(name: String, item: T): Item {
         val regItem = registerNoTab(name, item)

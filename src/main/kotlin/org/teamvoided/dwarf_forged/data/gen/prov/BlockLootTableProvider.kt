@@ -10,9 +10,11 @@ import java.util.concurrent.CompletableFuture
 
 class BlockLootTableProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) :
     FabricBlockLootTableProvider(o, r) {
-    private val dropSelf = DFBlockLists.GEM_BLOCKS + DFBlockLists.GEM_BLOCKS
+    private val dropSelf = DFBlockLists.GEM_BLOCKS + DFBlockLists.GEM_BLOCKS +
+            DFBlockLists.RAW_BLOCKS + DFBlockLists.METAL_BLOCKS + DFBlockLists.RAW_HUMAN_ORES + DFBlockLists.HUMAN_BLOCKS
 
     private val ores = mapOf(
+        // --- --- --- GEMS --- --- ---
         DFBlocks.RUBY_ORE to DFItems.RUBY,
         DFBlocks.DEEPSLATE_RUBY_ORE to DFItems.RUBY,
 
@@ -50,6 +52,65 @@ class BlockLootTableProvider(o: FabricDataOutput, r: CompletableFuture<HolderLoo
 
         DFBlocks.CARNELIAN_ORE to DFItems.CARNELIAN,
         DFBlocks.DEEPSLATE_CARNELIAN_ORE to DFItems.CARNELIAN,
+
+        // --- --- --- METALS --- --- ---
+        DFBlocks.SILVER_ORE to DFItems.RAW_SILVER,
+        DFBlocks.DEEPSLATE_SILVER_ORE to DFItems.RAW_SILVER,
+
+        DFBlocks.COBALT_ORE to DFItems.RAW_COBALT,
+        DFBlocks.DEEPSLATE_COBALT_ORE to DFItems.RAW_COBALT,
+
+        DFBlocks.TUNGSTEN_ORE to DFItems.RAW_TUNGSTEN,
+        DFBlocks.DEEPSLATE_TUNGSTEN_ORE to DFItems.RAW_TUNGSTEN,
+
+        DFBlocks.IRIDIUM_ORE to DFItems.RAW_IRIDIUM,
+        DFBlocks.DEEPSLATE_IRIDIUM_ORE to DFItems.RAW_IRIDIUM,
+
+        DFBlocks.THALLIUM_ORE to DFItems.RAW_THALLIUM,
+        DFBlocks.DEEPSLATE_THALLIUM_ORE to DFItems.RAW_THALLIUM,
+
+        DFBlocks.BISMUTH_ORE to DFItems.RAW_BISMUTH,
+        DFBlocks.DEEPSLATE_BISMUTH_ORE to DFItems.RAW_BISMUTH,
+
+        DFBlocks.PLUTONIUM_ORE to DFItems.RAW_PLUTONIUM,
+        DFBlocks.DEEPSLATE_PLUTONIUM_ORE to DFItems.RAW_PLUTONIUM,
+
+        DFBlocks.URANIUM_ORE to DFItems.RAW_URANIUM,
+        DFBlocks.DEEPSLATE_URANIUM_ORE to DFItems.RAW_URANIUM,
+
+        DFBlocks.LEAD_ORE to DFItems.RAW_LEAD,
+        DFBlocks.DEEPSLATE_LEAD_ORE to DFItems.RAW_LEAD,
+
+        DFBlocks.TIN_ORE to DFItems.RAW_TIN,
+        DFBlocks.DEEPSLATE_TIN_ORE to DFItems.RAW_TIN,
+
+        DFBlocks.PALLADIUM_ORE to DFItems.RAW_PALLADIUM,
+        DFBlocks.DEEPSLATE_PALLADIUM_ORE to DFItems.RAW_PALLADIUM,
+
+        DFBlocks.ZINC_ORE to DFItems.RAW_ZINC,
+        DFBlocks.DEEPSLATE_ZINC_ORE to DFItems.RAW_ZINC,
+
+        DFBlocks.NICKEL_ORE to DFItems.RAW_NICKEL,
+        DFBlocks.DEEPSLATE_NICKEL_ORE to DFItems.RAW_NICKEL,
+
+        DFBlocks.ALUMINIUM_ORE to DFItems.RAW_ALUMINIUM,
+        DFBlocks.DEEPSLATE_ALUMINIUM_ORE to DFItems.RAW_ALUMINIUM,
+
+        DFBlocks.PLATINUM_ORE to DFItems.RAW_PLATINUM,
+        DFBlocks.DEEPSLATE_PLATINUM_ORE to DFItems.RAW_PLATINUM,
+
+        DFBlocks.TITANIUM_ORE to DFItems.RAW_TITANIUM,
+        DFBlocks.DEEPSLATE_TITANIUM_ORE to DFItems.RAW_TITANIUM,
+
+        // --- --- --- HUMANS --- --- ---
+        DFBlocks.EINSTEINIUM_ORE to DFItems.RAW_EINSTEINIUM,
+        DFBlocks.DEEPSLATE_EINSTEINIUM_ORE to DFItems.RAW_EINSTEINIUM,
+
+        DFBlocks.ASTRALITE_ORE to DFItems.RAW_ASTRALITE,
+        DFBlocks.DEEPSLATE_ASTRALITE_ORE to DFItems.RAW_ASTRALITE,
+
+        DFBlocks.GRASS_ORE to DFItems.RAW_GRASS,
+        DFBlocks.DEEPSLATE_GRASS_ORE to DFItems.RAW_GRASS,
     )
 
     override fun generate() {

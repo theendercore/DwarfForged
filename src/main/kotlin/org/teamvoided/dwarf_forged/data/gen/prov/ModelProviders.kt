@@ -13,6 +13,7 @@ import org.teamvoided.dwarf_forged.util.DFItemLists
 
 class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
     private val CUBE_ALL = listOf(
+        // --- --- --- GEMS --- --- ---
         DFBlocks.RUBY_ORE,
         DFBlocks.DEEPSLATE_RUBY_ORE,
         DFBlocks.SAPPHIRE_ORE,
@@ -38,6 +39,7 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.DEEPSLATE_HEMATITE_ORE,
         DFBlocks.CARNELIAN_ORE,
         DFBlocks.DEEPSLATE_CARNELIAN_ORE,
+        // --- --- --- METAL ORES --- --- ---
         DFBlocks.SILVER_ORE,
         DFBlocks.DEEPSLATE_SILVER_ORE,
         DFBlocks.COBALT_ORE,
@@ -70,17 +72,20 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.DEEPSLATE_PLATINUM_ORE,
         DFBlocks.TITANIUM_ORE,
         DFBlocks.DEEPSLATE_TITANIUM_ORE,
+        // --- --- --- HUMAN ORE --- --- ---
         DFBlocks.EINSTEINIUM_ORE,
         DFBlocks.DEEPSLATE_EINSTEINIUM_ORE,
         DFBlocks.ASTRALITE_ORE,
         DFBlocks.DEEPSLATE_ASTRALITE_ORE,
         DFBlocks.GRASS_ORE,
         DFBlocks.DEEPSLATE_GRASS_ORE,
+        // --- --- --- ROCKS --- --- ---
         DFBlocks.BLUE_SKY_BLOCK,
         DFBlocks.BUDDING_BLUE_SKY,
         DFBlocks.CITRINE_BLOCK,
         DFBlocks.BUDDING_CITRINE
-    ) + DFBlockLists.GEM_BLOCKS + DFBlockLists.ROSCKS
+    ) + DFBlockLists.GEM_BLOCKS + DFBlockLists.RAW_BLOCKS + DFBlockLists.METAL_BLOCKS + DFBlockLists.RAW_HUMAN_ORES +
+            DFBlockLists.HUMAN_BLOCKS + DFBlockLists.ROSCKS
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
         CUBE_ALL.forEach { gen.registerSimpleCubeAll(it) }
@@ -90,10 +95,9 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         }
     }
 
-    private val SINGLE_LAYER = listOf(
-        DFItems.BLUE_SKY_SHARD,
-        DFItems.CITRINE_SHARD,
-    ) + DFItemLists.GEMS
+    private val SINGLE_LAYER = listOf(DFItems.BLUE_SKY_SHARD, DFItems.CITRINE_SHARD) + DFItemLists.GEMS +
+            DFItemLists.RAW_METALS + DFItemLists.METAL_INGOTS +
+            DFItemLists.RAW_HUMAN_ORES + DFItemLists.HUMAN_INGOTS
 
     override fun generateItemModels(gen: ItemModelGenerator) {
         SINGLE_LAYER.forEach { gen.register(it, Models.SINGLE_LAYER_ITEM) }

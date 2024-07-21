@@ -10,11 +10,17 @@ import org.apache.commons.lang3.text.WordUtils
 import org.teamvoided.dwarf_forged.data.tags.DFItemTags
 import org.teamvoided.dwarf_forged.init.DFItems
 import org.teamvoided.dwarf_forged.init.DFTabs
+import org.teamvoided.dwarf_forged.util.DFBlockLists
 import java.util.concurrent.CompletableFuture
 
 class EnLangProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) : FabricLanguageProvider(o, r) {
+    private val blockOfList = (DFBlockLists.METAL_BLOCKS + DFBlockLists.RAW_BLOCKS +
+            DFBlockLists.RAW_HUMAN_ORES + DFBlockLists.HUMAN_BLOCKS).map { it.asItem() }
+
     override fun generateTranslations(lookup: HolderLookup.Provider, gen: TranslationBuilder) {
-        DFItems.tabItems.forEach { gen.add(it.translationKey, lang(it.id)) }
+        blockOfList.forEach { gen.add(it.translationKey, blockOf(it)) }
+
+        DFItems.tabItems.filter { !blockOfList.contains(it) }.forEach { gen.add(it.translationKey, lang(it.id)) }
 
         DFTabs.DF_TAB.key.ifPresent { gen.add(it, "Dwarf Forged") }
 
@@ -24,4 +30,6 @@ class EnLangProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
     private fun lang(item: Identifier): String = WordUtils.capitalize(item.path.replace("_", " "))
 
     private val Item.id get() = Registries.ITEM.getId(this)
+
+    private fun blockOf(block: Item): String = "Block of ${lang(block.asItem().id).replace(" Block", "")}"
 }

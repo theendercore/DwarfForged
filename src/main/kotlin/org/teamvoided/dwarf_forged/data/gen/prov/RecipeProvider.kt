@@ -14,10 +14,11 @@ import java.util.concurrent.CompletableFuture
 
 class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(o, r) {
     override fun generateRecipes(gen: RecipeExporter) {
-       gemOres(gen)
+        gems(gen)
+        metals(gen)
     }
 
-    fun gemOres(gen: RecipeExporter) {
+    fun gems(gen: RecipeExporter) {
         gen.revCompacting3x3(DFItems.RUBY, DFBlocks.RUBY_BLOCK)
         gen.revCompacting3x3(DFItems.SAPPHIRE, DFBlocks.SAPPHIRE_BLOCK)
         gen.revCompacting3x3(DFItems.KYANITE, DFBlocks.KYANITE_BLOCK)
@@ -46,4 +47,32 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         gen.smeltAndBlastOre(DFItemTags.HEMATITE_ORES, DFItems.HEMATITE)
         gen.smeltAndBlastOre(DFItemTags.CARNELIAN_ORES, DFItems.CARNELIAN)
     }
+
+    fun metals(gen: RecipeExporter) {
+        gen.revCompacting3x3(DFItems.RAW_SILVER, DFBlocks.RAW_SILVER_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_COBALT, DFBlocks.RAW_COBALT_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_TUNGSTEN, DFBlocks.RAW_TUNGSTEN_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_IRIDIUM, DFBlocks.RAW_IRIDIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_THALLIUM, DFBlocks.RAW_THALLIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_BISMUTH, DFBlocks.RAW_BISMUTH_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_PLUTONIUM, DFBlocks.RAW_PLUTONIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_URANIUM, DFBlocks.RAW_URANIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_LEAD, DFBlocks.RAW_LEAD_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_TIN, DFBlocks.RAW_TIN_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_PALLADIUM, DFBlocks.RAW_PALLADIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_ZINC, DFBlocks.RAW_ZINC_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_NICKEL, DFBlocks.RAW_NICKEL_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_ALUMINIUM, DFBlocks.RAW_ALUMINIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_PLATINUM, DFBlocks.RAW_PLATINUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_TITANIUM, DFBlocks.RAW_TITANIUM_BLOCK)
+
+        gen.revCompacting3x3(DFItems.SILVER_INGOT, DFBlocks.SILVER_BLOCK)
+
+        gen.revCompacting3x3(DFItems.RAW_EINSTEINIUM, DFBlocks.RAW_EINSTEINIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_ASTRALITE, DFBlocks.RAW_ASTRALITE_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_GRASS, DFBlocks.RAW_GRASS_BLOCK)
+
+        gen.revCompacting3x3(DFItems.ASTRALITE_INGOT, DFBlocks.ASTRALITE_BLOCK)
+    }
+
 }

@@ -18,4 +18,34 @@ object DFItemLists {
         DFItems.HEMATITE,
         DFItems.CARNELIAN
     )
+    val RAW_METALS = listOf(
+        DFItems.RAW_SILVER,
+        DFItems.RAW_COBALT,
+        DFItems.RAW_TUNGSTEN,
+        DFItems.RAW_IRIDIUM,
+        DFItems.RAW_THALLIUM,
+        DFItems.RAW_BISMUTH,
+        DFItems.RAW_PLUTONIUM,
+        DFItems.RAW_URANIUM,
+        DFItems.RAW_LEAD,
+        DFItems.RAW_TIN,
+        DFItems.RAW_PALLADIUM,
+        DFItems.RAW_ZINC,
+        DFItems.RAW_NICKEL,
+        DFItems.RAW_ALUMINIUM,
+        DFItems.RAW_PLATINUM,
+        DFItems.RAW_TITANIUM,
+    )
+    val METAL_INGOTS = listOf(
+        DFItems.SILVER_INGOT,
+    )
+
+    val RAW_HUMAN_ORES = listOf(
+        DFItems.RAW_EINSTEINIUM,
+        DFItems.RAW_ASTRALITE,
+        DFItems.RAW_GRASS,
+    )
+    val HUMAN_INGOTS = listOf(
+        DFItems.ASTRALITE_INGOT,
+    )
 }
