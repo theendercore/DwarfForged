@@ -7,6 +7,10 @@ import org.teamvoided.dwarf_forged.DwarfForged.id
 import org.teamvoided.dwarf_forged.util.tag
 
 object DFItemTags {
+
+    val DWARF_FORGED_ORES = create("dwarf_forged_ores")
+    val GEM_ORES = create("gem_ores")
+
     val RUBY_ORES = create("ruby_ores")
     val SAPPHIRE_ORES = create("sapphire_ores")
     val KYANITE_ORES = create("kyanite_ores")
@@ -21,14 +25,13 @@ object DFItemTags {
     val HEMATITE_ORES = create("hematite_ores")
     val CARNELIAN_ORES = create("carnelian_ores")
 
-
-
-
-
+    val GEMS = create("gems")
 
     fun create(name: String): TagKey<Item> = RegistryKeys.ITEM.tag(id(name))
 
     val ALL_TAGS = listOf(
+        DWARF_FORGED_ORES,
+        GEM_ORES,
         RUBY_ORES,
         SAPPHIRE_ORES,
         KYANITE_ORES,
@@ -41,6 +44,7 @@ object DFItemTags {
         TOURMALINE_ORES,
         SPINEL_ORES,
         HEMATITE_ORES,
-        CARNELIAN_ORES
+        CARNELIAN_ORES,
+        GEMS
     )
 }

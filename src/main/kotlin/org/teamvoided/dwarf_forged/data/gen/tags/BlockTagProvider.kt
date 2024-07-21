@@ -3,6 +3,7 @@ package org.teamvoided.dwarf_forged.data.gen.tags
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.minecraft.registry.HolderLookup
+import net.minecraft.registry.tag.BlockTags
 import org.teamvoided.dwarf_forged.data.tags.DFBlockTags
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import java.util.concurrent.CompletableFuture
@@ -11,6 +12,12 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
     FabricTagProvider.BlockTagProvider(o, r) {
     override fun configure(wrapperLookup: HolderLookup.Provider) {
         gemOres()
+
+        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
+            .forceAddTag(DFBlockTags.GEM_ORES)
+
+
+        mineable()
     }
 
     private fun gemOres() {
@@ -28,5 +35,28 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.SPINEL_ORES).add(DFBlocks.SPINEL_ORE, DFBlocks.DEEPSLATE_SPINEL_ORE)
         getOrCreateTagBuilder(DFBlockTags.HEMATITE_ORES).add(DFBlocks.HEMATITE_ORE, DFBlocks.DEEPSLATE_HEMATITE_ORE)
         getOrCreateTagBuilder(DFBlockTags.CARNELIAN_ORES).add(DFBlocks.CARNELIAN_ORE, DFBlocks.DEEPSLATE_CARNELIAN_ORE)
+
+        getOrCreateTagBuilder(DFBlockTags.GEM_ORES)
+            .forceAddTag(DFBlockTags.RUBY_ORES)
+            .forceAddTag(DFBlockTags.SAPPHIRE_ORES)
+            .forceAddTag(DFBlockTags.KYANITE_ORES)
+            .forceAddTag(DFBlockTags.MOONSTONE_ORES)
+            .forceAddTag(DFBlockTags.JADE_ORES)
+            .forceAddTag(DFBlockTags.SMOKY_QUARTZ_ORES)
+            .forceAddTag(DFBlockTags.EUCLASE_ORES)
+            .forceAddTag(DFBlockTags.BORACITE_ORES)
+            .forceAddTag(DFBlockTags.TOPAZ_ORES)
+            .forceAddTag(DFBlockTags.TOURMALINE_ORES)
+            .forceAddTag(DFBlockTags.SPINEL_ORES)
+            .forceAddTag(DFBlockTags.HEMATITE_ORES)
+            .forceAddTag(DFBlockTags.CARNELIAN_ORES)
+    }
+
+    fun mineable() {
+        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+            .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
+
+        getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
+            .forceAddTag(DFBlockTags.GEM_ORES)
     }
 }

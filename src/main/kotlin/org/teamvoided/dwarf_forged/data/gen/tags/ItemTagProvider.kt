@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.minecraft.registry.HolderLookup
 import org.teamvoided.dwarf_forged.data.tags.DFBlockTags
 import org.teamvoided.dwarf_forged.data.tags.DFItemTags
+import org.teamvoided.dwarf_forged.init.DFItems
 import java.util.concurrent.CompletableFuture
 
 class ItemTagProvider(
@@ -13,9 +14,14 @@ class ItemTagProvider(
 
     override fun configure(wrapperLookup: HolderLookup.Provider) {
         copyBlockTags()
+        gems()
     }
 
-    fun copyBlockTags() {
+    private fun copyBlockTags() {
+        // Metas Ores
+        copy(DFBlockTags.DWARF_FORGED_ORES, DFItemTags.DWARF_FORGED_ORES)
+        copy(DFBlockTags.GEM_ORES, DFItemTags.GEM_ORES)
+
         //Gem Ores
         copy(DFBlockTags.RUBY_ORES, DFItemTags.RUBY_ORES)
         copy(DFBlockTags.SAPPHIRE_ORES, DFItemTags.SAPPHIRE_ORES)
@@ -30,5 +36,24 @@ class ItemTagProvider(
         copy(DFBlockTags.SPINEL_ORES, DFItemTags.SPINEL_ORES)
         copy(DFBlockTags.HEMATITE_ORES, DFItemTags.HEMATITE_ORES)
         copy(DFBlockTags.CARNELIAN_ORES, DFItemTags.CARNELIAN_ORES)
+    }
+
+    private fun gems() {
+        getOrCreateTagBuilder(DFItemTags.GEMS)
+            .add(
+                DFItems.RUBY,
+                DFItems.SAPPHIRE,
+                DFItems.KYANITE,
+                DFItems.MOONSTONE,
+                DFItems.JADE,
+                DFItems.SMOKY_QUARTZ,
+                DFItems.EUCLASE,
+                DFItems.BORACITE,
+                DFItems.TOPAZ,
+                DFItems.TOURMALINE,
+                DFItems.SPINEL,
+                DFItems.HEMATITE,
+                DFItems.CARNELIAN
+            )
     }
 }

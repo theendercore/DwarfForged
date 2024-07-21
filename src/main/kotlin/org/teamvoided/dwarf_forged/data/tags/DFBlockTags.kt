@@ -8,6 +8,7 @@ import org.teamvoided.dwarf_forged.util.tag
 
 object DFBlockTags {
 
+    val DWARF_FORGED_ORES = create("dwarf_forged_ores")
     val GEM_ORES = create("gem_ores")
 
     val RUBY_ORES = create("ruby_ores")
