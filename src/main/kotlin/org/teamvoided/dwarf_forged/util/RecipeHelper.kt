@@ -24,8 +24,8 @@ fun RecipeExporter.compacting2x2(item: ItemConvertible, block: ItemConvertible) 
 
 // Smelting and Blasting Ore
 fun RecipeExporter.smeltAndBlastOre(oreTag: TagKey<Item>, output: ItemConvertible) {
-    this.smelting(RecipeCategory.MISC, output, oreTag, 1f, 200, output.toId().path)
-    this.blasting(RecipeCategory.MISC, output, oreTag, 1f, 100, output.toId().path)
+    this.smelting(RecipeCategory.MISC, output, oreTag, 1f, 200, output.toId().path, id("smelting/${output.toId().path}"))
+    this.blasting(RecipeCategory.MISC, output, oreTag, 1f, 100, output.toId().path, id("blasting/${output.toId().path}"))
 }
 
 
