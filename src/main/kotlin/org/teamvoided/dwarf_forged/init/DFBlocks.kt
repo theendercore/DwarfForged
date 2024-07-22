@@ -13,7 +13,6 @@ object DFBlocks {
     fun init() {}
 
     // --- --- --- GEMS --- --- ---
-
     val RUBY_ORE = register("ruby_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_RUBY_ORE = register("deepslate_ruby_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
     val RUBY_BLOCK = register("ruby_block", Block(copy(Blocks.EMERALD_BLOCK)))
@@ -66,7 +65,6 @@ object DFBlocks {
     val CARNELIAN_BLOCK = register("carnelian_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     // --- --- --- METALS --- --- ---
-
     val SILVER_ORE = register("silver_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
     val RAW_SILVER_BLOCK = register("raw_silver_block", Block(copy(Blocks.RAW_IRON_BLOCK)))
@@ -133,7 +131,6 @@ object DFBlocks {
     val RAW_TITANIUM_BLOCK = register("raw_titanium_block", Block(copy(Blocks.RAW_IRON_BLOCK)))
 
     // --- --- --- HUMAN ORES --- --- ---
-
     val EINSTEINIUM_ORE = register("einsteinium_ore", Block(copy(Blocks.IRON_ORE)))
     val DEEPSLATE_EINSTEINIUM_ORE = register("deepslate_einsteinium_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
     val RAW_EINSTEINIUM_BLOCK = register("raw_einsteinium_block", Block(copy(Blocks.RAW_IRON_BLOCK)))
@@ -148,7 +145,6 @@ object DFBlocks {
     val RAW_GRASS_BLOCK = register("raw_grass_block", Block(copy(Blocks.RAW_IRON_BLOCK)))
 
     // --- --- --- ROCKS --- --- ---
-
     val PUMICE = register("pumice", Block(copy(Blocks.STONE)))
     val MARBLE = register("marble", Block(copy(Blocks.STONE)))
     val TEKTITE = register("tektite", Block(copy(Blocks.STONE)))
@@ -162,7 +158,6 @@ object DFBlocks {
     val VARIOLITE = register("variolite", Block(copy(Blocks.STONE)))
 
     // --- --- --- CRYSTALS --- --- ---
-
     val BLUE_SKY_BLOCK = register("blue_sky_block", Block(copy(Blocks.AMETHYST_BLOCK)))
     val BLUE_SKY_CLUSTER = register("blue_sky_cluster", CrystalClusterBlock(copy(Blocks.AMETHYST_CLUSTER)))
     val LARGE_BLUE_SKY_BUD = register("large_blue_sky_bud", LargeCrystalBudBlock(copy(Blocks.LARGE_AMETHYST_BUD)))

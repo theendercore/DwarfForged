@@ -36,16 +36,22 @@ object DFItemLists {
         DFItems.RAW_PLATINUM,
         DFItems.RAW_TITANIUM,
     )
-    val METAL_INGOTS = listOf(
-        DFItems.SILVER_INGOT,
-    )
-
     val RAW_HUMAN_ORES = listOf(
         DFItems.RAW_EINSTEINIUM,
         DFItems.RAW_ASTRALITE,
         DFItems.RAW_GRASS,
     )
+    val METAL_INGOTS = listOf(
+        DFItems.SILVER_INGOT,
+    )
     val HUMAN_INGOTS = listOf(
         DFItems.ASTRALITE_INGOT,
+    )
+    val METAL_NUGGETS = listOf(
+        DFItems.COPPER_NUGGET,
+        DFItems.SILVER_NUGGET,
+    )
+    val HUMAN_NUGGETS = listOf(
+        DFItems.ASTRALITE_NUGGET,
     )
 }

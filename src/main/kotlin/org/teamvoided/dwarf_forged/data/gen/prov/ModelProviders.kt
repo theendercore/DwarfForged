@@ -96,8 +96,9 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
     }
 
     private val SINGLE_LAYER = listOf(DFItems.BLUE_SKY_SHARD, DFItems.CITRINE_SHARD) + DFItemLists.GEMS +
-            DFItemLists.RAW_METALS + DFItemLists.METAL_INGOTS +
-            DFItemLists.RAW_HUMAN_ORES + DFItemLists.HUMAN_INGOTS
+            DFItemLists.RAW_METALS + DFItemLists.RAW_HUMAN_ORES +
+            DFItemLists.METAL_INGOTS + DFItemLists.HUMAN_INGOTS +
+            DFItemLists.METAL_NUGGETS + DFItemLists.HUMAN_NUGGETS
 
     override fun generateItemModels(gen: ItemModelGenerator) {
         SINGLE_LAYER.forEach { gen.register(it, Models.SINGLE_LAYER_ITEM) }

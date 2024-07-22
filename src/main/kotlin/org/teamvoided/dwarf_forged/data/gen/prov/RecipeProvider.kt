@@ -4,21 +4,17 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.data.server.recipe.RecipeExporter
 import net.minecraft.item.Items
+import net.minecraft.recipe.RecipeCategory
 import net.minecraft.registry.HolderLookup
 import org.teamvoided.dwarf_forged.data.tags.DFItemTags
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
-import org.teamvoided.dwarf_forged.util.compacting2x2
-import org.teamvoided.dwarf_forged.util.metalCompacting
-import org.teamvoided.dwarf_forged.util.revCompacting3x3
-import org.teamvoided.dwarf_forged.util.smeltAndBlastOre
+import org.teamvoided.dwarf_forged.util.*
 import java.util.concurrent.CompletableFuture
 
 class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(o, r) {
     override fun generateRecipes(gen: RecipeExporter) {
         gems(gen)
-
-        gen.revCompacting3x3(DFItems.COPPER_NUGGET, Items.COPPER_INGOT)
         metals(gen)
     }
 
@@ -53,6 +49,13 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
     }
 
     fun metals(gen: RecipeExporter) {
+        // copper nug
+        gen.uncompact1To9(RecipeCategory.MISC, DFItems.COPPER_NUGGET, Items.COPPER_INGOT)
+        gen.compact9To1(
+            RecipeCategory.MISC, Items.COPPER_INGOT, DFItems.COPPER_NUGGET,
+            Items.COPPER_INGOT.toId().path, Items.COPPER_INGOT from DFItems.COPPER_NUGGET
+        )
+
         // raw metals
         gen.revCompacting3x3(DFItems.RAW_SILVER, DFBlocks.RAW_SILVER_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_COBALT, DFBlocks.RAW_COBALT_BLOCK)
