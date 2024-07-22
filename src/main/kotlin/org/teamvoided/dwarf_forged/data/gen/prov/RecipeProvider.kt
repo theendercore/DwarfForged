@@ -3,11 +3,13 @@ package org.teamvoided.dwarf_forged.data.gen.prov
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.data.server.recipe.RecipeExporter
+import net.minecraft.item.Items
 import net.minecraft.registry.HolderLookup
 import org.teamvoided.dwarf_forged.data.tags.DFItemTags
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
 import org.teamvoided.dwarf_forged.util.compacting2x2
+import org.teamvoided.dwarf_forged.util.metalCompacting
 import org.teamvoided.dwarf_forged.util.revCompacting3x3
 import org.teamvoided.dwarf_forged.util.smeltAndBlastOre
 import java.util.concurrent.CompletableFuture
@@ -15,6 +17,8 @@ import java.util.concurrent.CompletableFuture
 class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) : FabricRecipeProvider(o, r) {
     override fun generateRecipes(gen: RecipeExporter) {
         gems(gen)
+
+        gen.revCompacting3x3(DFItems.COPPER_NUGGET, Items.COPPER_INGOT)
         metals(gen)
     }
 
@@ -49,6 +53,7 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
     }
 
     fun metals(gen: RecipeExporter) {
+        // raw metals
         gen.revCompacting3x3(DFItems.RAW_SILVER, DFBlocks.RAW_SILVER_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_COBALT, DFBlocks.RAW_COBALT_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_TUNGSTEN, DFBlocks.RAW_TUNGSTEN_BLOCK)
@@ -65,14 +70,15 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         gen.revCompacting3x3(DFItems.RAW_ALUMINIUM, DFBlocks.RAW_ALUMINIUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_PLATINUM, DFBlocks.RAW_PLATINUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_TITANIUM, DFBlocks.RAW_TITANIUM_BLOCK)
-
-        gen.revCompacting3x3(DFItems.SILVER_INGOT, DFBlocks.SILVER_BLOCK)
-
+        // raw human ores
         gen.revCompacting3x3(DFItems.RAW_EINSTEINIUM, DFBlocks.RAW_EINSTEINIUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_ASTRALITE, DFBlocks.RAW_ASTRALITE_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_GRASS, DFBlocks.RAW_GRASS_BLOCK)
 
-        gen.revCompacting3x3(DFItems.ASTRALITE_INGOT, DFBlocks.ASTRALITE_BLOCK)
+        // metals
+        gen.metalCompacting(DFItems.SILVER_NUGGET, DFItems.SILVER_INGOT, DFBlocks.SILVER_BLOCK)
+        // humans
+        gen.metalCompacting(DFItems.ASTRALITE_NUGGET, DFItems.ASTRALITE_INGOT, DFBlocks.ASTRALITE_BLOCK)
     }
 
 }

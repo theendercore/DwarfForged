@@ -8,8 +8,7 @@ object DFItems {
     val tabItems = mutableListOf<Item>()
     fun init() = Unit
 
-    val BLUE_SKY_SHARD = register("blue_sky_shard", Item())
-    val CITRINE_SHARD = register("citrine_shard", Item())
+    val COPPER_NUGGET = register("copper_nugget", Item())
 
     // --- --- --- GEMS --- --- ---
     val RUBY = register("ruby", Item())
@@ -43,20 +42,24 @@ object DFItems {
     val RAW_ALUMINIUM = register("raw_aluminium", Item())
     val RAW_PLATINUM = register("raw_platinum", Item())
     val RAW_TITANIUM = register("raw_titanium", Item())
-
-    // --- --- --- INGOTS --- --- ---
-    val SILVER_INGOT = register("silver_ingot", Item())
-
-    // --- --- --- NUGGETS --- --- ---
-
     // --- --- --- RAW HUMAN ORES --- --- ---
     val RAW_EINSTEINIUM = register("raw_einsteinium", Item())
     val RAW_ASTRALITE = register("raw_astralite", Item())
     val RAW_GRASS = register("raw_grass", Item())
 
-
+    // --- --- --- INGOTS --- --- ---
+    val SILVER_INGOT = register("silver_ingot", Item())
     // --- --- --- HUMAN INGOTS --- --- ---
     val ASTRALITE_INGOT = register("astralite_ingot", Item())
+
+    // --- --- --- NUGGETS --- --- ---
+    val SILVER_NUGGET = register("silver_nugget", Item())
+    // --- --- --- HUMAN NUGGETS --- --- ---
+    val ASTRALITE_NUGGET = register("astralite_nugget", Item())
+
+    // --- --- --- CRYSTALS --- --- ---
+    val BLUE_SKY_SHARD = register("blue_sky_shard", Item())
+    val CITRINE_SHARD = register("citrine_shard", Item())
 
     fun <T : Item> register(name: String, item: T): Item {
         val regItem = registerNoTab(name, item)
