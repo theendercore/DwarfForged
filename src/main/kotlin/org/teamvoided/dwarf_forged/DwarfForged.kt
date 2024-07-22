@@ -4,6 +4,7 @@ import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.util.Identifier
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import org.teamvoided.dwarf_forged.init.DFBiomeModifiers
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
 import org.teamvoided.dwarf_forged.init.DFTabs
@@ -20,6 +21,7 @@ object DwarfForged {
         DFBlocks.init()
         DFItems.init()
         DFTabs.init()
+        DFBiomeModifiers.init()
     }
 
     fun id(path: String) = Identifier.of(MODID, path)

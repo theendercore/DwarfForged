@@ -25,6 +25,7 @@ class EnLangProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         DFTabs.DF_TAB.key.ifPresent { gen.add(it, "Dwarf Forged") }
 
         DFItemTags.ALL_TAGS.forEach { gen.add(it, lang(it.id)) }
+        gen.add("dwarf_forged", "Dwarf Forged")
     }
 
     private fun lang(item: Identifier): String = WordUtils.capitalize(item.path.replace("_", " "))

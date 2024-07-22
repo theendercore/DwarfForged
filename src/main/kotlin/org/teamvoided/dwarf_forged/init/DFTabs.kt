@@ -89,7 +89,7 @@ object DFTabs {
                         // Crystals
                         DFBlocks.BLUE_SKY_BLOCK,
                         DFBlocks.BUDDING_BLUE_SKY,
-                        DFBlocks.BLUE_SKY_CRYSTAL,
+                        DFBlocks.BLUE_SKY_CLUSTER,
                         DFBlocks.LARGE_BLUE_SKY_BUD,
                         DFBlocks.MEDIUM_BLUE_SKY_BUD,
                         DFBlocks.SMALL_BLUE_SKY_BUD,
@@ -97,7 +97,7 @@ object DFTabs {
 
                         DFBlocks.CITRINE_BLOCK,
                         DFBlocks.BUDDING_CITRINE,
-                        DFBlocks.CITRINE_CRYSTAL,
+                        DFBlocks.CITRINE_CLUSTER,
                         DFBlocks.LARGE_CITRINE_BUD,
                         DFBlocks.MEDIUM_CITRINE_BUD,
                         DFBlocks.SMALL_CITRINE_BUD,
