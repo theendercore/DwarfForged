@@ -12,9 +12,10 @@ object DFItemTags {
     // Block
     val DWARF_FORGED_ORES = create("dwarf_forged/ores")
     val DWARF_FORGED_STORAGE_BLOCKS = create("dwarf_forged/storage_blocks")
-    val DWARF_FORGED_RAW_BLOCKS = create("dwarf_forged/raw_blocks")
+
     // Item
     val DWARF_FORGED_GEMS = create("dwarf_forged/gems")
+    val DWARF_FORGED_RAW_MATERIALS = create("dwarf_forged/raw_materials")
     val DWARF_FORGED_INGOTS = create("dwarf_forged/ingots")
     val DWARF_FORGED_NUGGETS = create("dwarf_forged/nuggets")
 
@@ -83,28 +84,7 @@ object DFItemTags {
     val PLATINUM_ORES = create("platinum_ores")
     val TITANIUM_ORES = create("titanium_ores")
 
-    val HUMAN_ORES = create("human_ores")
-
-    val EINSTEINIUM_ORES = create("einsteinium_ores")
-    val ASTRALITE_ORES = create("astralite_ores")
-    val GRASS_ORES = create("grass_ores")
-
-    val RAW_SILVER_BLOCK = conventional("raw_blocks/silver")
-    val RAW_COBALT_BLOCK = conventional("raw_blocks/cobalt")
-    val RAW_TUNGSTEN_BLOCK = conventional("raw_blocks/tungsten")
-    val RAW_IRIDIUM_BLOCK = conventional("raw_blocks/iridium")
-    val RAW_THALLIUM_BLOCK = conventional("raw_blocks/thallium")
-    val RAW_BISMUTH_BLOCK = conventional("raw_blocks/bismuth")
-    val RAW_PLUTONIUM_BLOCK = conventional("raw_blocks/plutonium")
-    val RAW_URANIUM_BLOCK = conventional("raw_blocks/uranium")
-    val RAW_LEAD_BLOCK = conventional("raw_blocks/lead")
-    val RAW_TIN_BLOCK = conventional("raw_blocks/tin")
-    val RAW_PALLADIUM_BLOCK = conventional("raw_blocks/palladium")
-    val RAW_ZINC_BLOCK = conventional("raw_blocks/zinc")
-    val RAW_NICKEL_BLOCK = conventional("raw_blocks/nickel")
-    val RAW_ALUMINIUM_BLOCK = conventional("raw_blocks/aluminium")
-    val RAW_PLATINUM_BLOCK = conventional("raw_blocks/platinum")
-    val RAW_TITANIUM_BLOCK = conventional("raw_blocks/titanium")
+    val RAW_METAL_STORAGE_BLOCKS = create("raw_metal_storage_blocks")
 
     val RAW_SILVER_STORAGE_BLOCK = storageBlock("raw_silver")
     val RAW_COBALT_STORAGE_BLOCK = storageBlock("raw_cobalt")
@@ -123,29 +103,57 @@ object DFItemTags {
     val RAW_PLATINUM_STORAGE_BLOCK = storageBlock("raw_platinum")
     val RAW_TITANIUM_STORAGE_BLOCK = storageBlock("raw_titanium")
 
+    val RAW_METAL_MATERIALS = create("raw_metal_materials")
 
-    val RAW_EINSTEINIUM_BLOCK = conventional("raw_blocks/einsteinium")
-    val RAW_ASTRALITE_BLOCK = conventional("raw_blocks/astralite")
-    val RAW_GRASS_BLOCK = conventional("raw_blocks/grass")
+    val RAW_SILVER_MATERIALS = conventional("raw_materials/silver")
+    val RAW_COBALT_MATERIALS = conventional("raw_materials/cobalt")
+    val RAW_TUNGSTEN_MATERIALS = conventional("raw_materials/tungsten")
+    val RAW_IRIDIUM_MATERIALS = conventional("raw_materials/iridium")
+    val RAW_THALLIUM_MATERIALS = conventional("raw_materials/thallium")
+    val RAW_BISMUTH_MATERIALS = conventional("raw_materials/bismuth")
+    val RAW_PLUTONIUM_MATERIALS = conventional("raw_materials/plutonium")
+    val RAW_URANIUM_MATERIALS = conventional("raw_materials/uranium")
+    val RAW_LEAD_MATERIALS = conventional("raw_materials/lead")
+    val RAW_TIN_MATERIALS = conventional("raw_materials/tin")
+    val RAW_PALLADIUM_MATERIALS = conventional("raw_materials/palladium")
+    val RAW_ZINC_MATERIALS = conventional("raw_materials/zinc")
+    val RAW_NICKEL_MATERIALS = conventional("raw_materials/nickel")
+    val RAW_ALUMINIUM_MATERIALS = conventional("raw_materials/aluminium")
+    val RAW_PLATINUM_MATERIALS = conventional("raw_materials/platinum")
+    val RAW_TITANIUM_MATERIALS = conventional("raw_materials/titanium")
+
+    val METAL_BLOCKS = create("metal_blocks")
+    val SILVER_BLOCK = storageBlock("silver")
+
+    val SILVER_INGOT = conventional("ingots/silver")
+
+    val SILVER_NUGGETS = conventional("nuggets/silver")
+
+    //  --- HUMANS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+
+    val HUMAN_ORES = create("human_ores")
+
+    val EINSTEINIUM_ORES = create("einsteinium_ores")
+    val ASTRALITE_ORES = create("astralite_ores")
+    val GRASS_ORES = create("grass_ores")
+
+    val RAW_HUMAN_STORAGE_BLOCKS = create("raw_human_storage_blocks")
 
     val RAW_EINSTEINIUM_STORAGE_BLOCK = storageBlock("raw_einsteinium")
     val RAW_ASTRALITE_STORAGE_BLOCK = storageBlock("raw_astralite")
     val RAW_GRASS_STORAGE_BLOCK = storageBlock("raw_grass")
 
+    val RAW_HUMAN_MATERIALS = create("raw_human_materials")
 
-    val METAL_BLOCKS = create("metal_blocks")
-    val SILVER_BLOCK = storageBlock("silver")
+    val RAW_EINSTEINIUM_MATERIALS = conventional("raw_materials/einsteinium")
+    val RAW_ASTRALITE_MATERIALS = conventional("raw_materials/astralite")
+    val RAW_GRASS_MATERIALS = conventional("raw_materials/grass")
 
     val HUMAN_BLOCKS = create("human_blocks")
     val ASTRALITE_BLOCK = storageBlock("astralite")
 
-    val SILVER_INGOT = conventional("ingots/silver")
     val ASTRALITE_INGOT = conventional("ingots/astralite")
-
-    val SILVER_NUGGETS = conventional("nuggets/silver")
     val ASTRALITE_NUGGETS = conventional("nuggets/astralite")
-
-
 
     // MISC
     val COPPER_NUGGETS = conventional("nuggets/copper")

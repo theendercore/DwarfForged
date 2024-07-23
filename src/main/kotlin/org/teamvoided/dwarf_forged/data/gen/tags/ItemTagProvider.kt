@@ -47,6 +47,10 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
             .forceAddTag(DFItemTags.GEMS_HEMATITE)
             .forceAddTag(DFItemTags.GEMS_CARNELIAN)
 
+        getOrCreateTagBuilder(DFItemTags.DWARF_FORGED_RAW_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_METAL_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_HUMAN_MATERIALS)
+
         getOrCreateTagBuilder(DFItemTags.DWARF_FORGED_INGOTS)
             .forceAddTag(DFItemTags.SILVER_INGOT)
             .forceAddTag(DFItemTags.ASTRALITE_INGOT)
@@ -58,66 +62,88 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     }
 
     private fun gems() {
-        getOrCreateTagBuilder(DFItemTags.GEMS_RUBY)
-            .add(DFItems.RUBY)
-        getOrCreateTagBuilder(DFItemTags.GEMS_SAPPHIRE)
-            .add(DFItems.SAPPHIRE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_KYANITE)
-            .add(DFItems.KYANITE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_MOONSTONE)
-            .add(DFItems.MOONSTONE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_JADE)
-            .add(DFItems.JADE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_SMOKY_QUARTZ)
-            .add(DFItems.SMOKY_QUARTZ)
-        getOrCreateTagBuilder(DFItemTags.GEMS_EUCLASE)
-            .add(DFItems.EUCLASE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_BORACITE)
-            .add(DFItems.BORACITE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_TOPAZ)
-            .add(DFItems.TOPAZ)
-        getOrCreateTagBuilder(DFItemTags.GEMS_TOURMALINE)
-            .add(DFItems.TOURMALINE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_SPINEL)
-            .add(DFItems.SPINEL)
-        getOrCreateTagBuilder(DFItemTags.GEMS_HEMATITE)
-            .add(DFItems.HEMATITE)
-        getOrCreateTagBuilder(DFItemTags.GEMS_CARNELIAN)
-            .add(DFItems.CARNELIAN)
+        getOrCreateTagBuilder(DFItemTags.GEMS_RUBY).add(DFItems.RUBY)
+        getOrCreateTagBuilder(DFItemTags.GEMS_SAPPHIRE).add(DFItems.SAPPHIRE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_KYANITE).add(DFItems.KYANITE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_MOONSTONE).add(DFItems.MOONSTONE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_JADE).add(DFItems.JADE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_SMOKY_QUARTZ).add(DFItems.SMOKY_QUARTZ)
+        getOrCreateTagBuilder(DFItemTags.GEMS_EUCLASE).add(DFItems.EUCLASE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_BORACITE).add(DFItems.BORACITE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_TOPAZ).add(DFItems.TOPAZ)
+        getOrCreateTagBuilder(DFItemTags.GEMS_TOURMALINE).add(DFItems.TOURMALINE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_SPINEL).add(DFItems.SPINEL)
+        getOrCreateTagBuilder(DFItemTags.GEMS_HEMATITE).add(DFItems.HEMATITE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_CARNELIAN).add(DFItems.CARNELIAN)
     }
 
     private fun metals(){
-        getOrCreateTagBuilder(DFItemTags.SILVER_INGOT)
-            .add(DFItems.SILVER_INGOT)
+        getOrCreateTagBuilder(DFItemTags.RAW_METAL_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_SILVER_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_COBALT_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_TUNGSTEN_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_IRIDIUM_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_THALLIUM_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_BISMUTH_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_PLUTONIUM_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_URANIUM_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_LEAD_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_TIN_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_PALLADIUM_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_ZINC_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_NICKEL_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_ALUMINIUM_MATERIALS)
 
-        getOrCreateTagBuilder(DFItemTags.SILVER_NUGGETS)
-            .add(DFItems.SILVER_NUGGET)
+        getOrCreateTagBuilder(DFItemTags.RAW_SILVER_MATERIALS).add(DFItems.RAW_SILVER)
+        getOrCreateTagBuilder(DFItemTags.RAW_COBALT_MATERIALS).add(DFItems.RAW_COBALT)
+        getOrCreateTagBuilder(DFItemTags.RAW_TUNGSTEN_MATERIALS).add(DFItems.RAW_TUNGSTEN)
+        getOrCreateTagBuilder(DFItemTags.RAW_IRIDIUM_MATERIALS).add(DFItems.RAW_IRIDIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_THALLIUM_MATERIALS).add(DFItems.RAW_THALLIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_BISMUTH_MATERIALS).add(DFItems.RAW_BISMUTH)
+        getOrCreateTagBuilder(DFItemTags.RAW_PLUTONIUM_MATERIALS).add(DFItems.RAW_PLUTONIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_URANIUM_MATERIALS).add(DFItems.RAW_URANIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_LEAD_MATERIALS).add(DFItems.RAW_LEAD)
+        getOrCreateTagBuilder(DFItemTags.RAW_TIN_MATERIALS).add(DFItems.RAW_TIN)
+        getOrCreateTagBuilder(DFItemTags.RAW_PALLADIUM_MATERIALS).add(DFItems.RAW_PALLADIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_ZINC_MATERIALS).add(DFItems.RAW_ZINC)
+        getOrCreateTagBuilder(DFItemTags.RAW_NICKEL_MATERIALS).add(DFItems.RAW_NICKEL)
+        getOrCreateTagBuilder(DFItemTags.RAW_ALUMINIUM_MATERIALS).add(DFItems.RAW_ALUMINIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_PLATINUM_MATERIALS).add(DFItems.RAW_PLATINUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_TITANIUM_MATERIALS).add(DFItems.RAW_TITANIUM)
 
-        getOrCreateTagBuilder(DFItemTags.COPPER_NUGGETS)
-            .add(DFItems.COPPER_NUGGET)
+        getOrCreateTagBuilder(DFItemTags.SILVER_INGOT).add(DFItems.SILVER_INGOT)
+
+        getOrCreateTagBuilder(DFItemTags.SILVER_NUGGETS).add(DFItems.SILVER_NUGGET)
     }
 
     private fun humans(){
-        getOrCreateTagBuilder(DFItemTags.ASTRALITE_INGOT)
-            .add(DFItems.ASTRALITE_INGOT)
-        getOrCreateTagBuilder(DFItemTags.ASTRALITE_NUGGETS)
-            .add(DFItems.ASTRALITE_NUGGET)
+        getOrCreateTagBuilder(DFItemTags.RAW_HUMAN_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_EINSTEINIUM_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_ASTRALITE_MATERIALS)
+            .forceAddTag(DFItemTags.RAW_GRASS_MATERIALS)
 
+        getOrCreateTagBuilder(DFItemTags.RAW_EINSTEINIUM_MATERIALS).add(DFItems.RAW_EINSTEINIUM)
+        getOrCreateTagBuilder(DFItemTags.RAW_ASTRALITE_MATERIALS).add(DFItems.RAW_ASTRALITE)
+        getOrCreateTagBuilder(DFItemTags.RAW_GRASS_MATERIALS).add(DFItems.RAW_GRASS)
+
+        getOrCreateTagBuilder(DFItemTags.ASTRALITE_INGOT).add(DFItems.ASTRALITE_INGOT)
+
+        getOrCreateTagBuilder(DFItemTags.ASTRALITE_NUGGETS).add(DFItems.ASTRALITE_NUGGET)
     }
 
     private fun misc(){
-        getOrCreateTagBuilder(DFItemTags.COPPER_NUGGETS)
-            .add(DFItems.COPPER_NUGGET)
+        getOrCreateTagBuilder(DFItemTags.COPPER_NUGGETS).add(DFItems.COPPER_NUGGET)
     }
 
     private fun conventionalTags() {
         getOrCreateTagBuilder(ConventionalItemTags.GEMS)
-            .forceAddTag(DFItemTags.DWARF_FORGED_ORES)
+            .forceAddTag(DFItemTags.DWARF_FORGED_GEMS)
+        getOrCreateTagBuilder(ConventionalItemTags.RAW_MATERIALS)
+            .forceAddTag(DFItemTags.DWARF_FORGED_RAW_MATERIALS)
         getOrCreateTagBuilder(ConventionalItemTags.INGOTS)
             .forceAddTag(DFItemTags.DWARF_FORGED_INGOTS)
         getOrCreateTagBuilder(ConventionalItemTags.NUGGETS)
             .forceAddTag(DFItemTags.DWARF_FORGED_NUGGETS)
-
     }
 
     private fun copyMetaTags(){
@@ -162,7 +188,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     }
 
     private fun copyMetalTags() {
-        // Metal Ores
+        // Ores
         copy(DFBlockTags.METAL_ORES, DFItemTags.METAL_ORES)
 
         copy(DFBlockTags.SILVER_ORES, DFItemTags.SILVER_ORES)
@@ -182,7 +208,9 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copy(DFBlockTags.PLATINUM_ORES, DFItemTags.PLATINUM_ORES)
         copy(DFBlockTags.TITANIUM_ORES, DFItemTags.TITANIUM_ORES)
 
-        // Raw Metals
+        // Raw
+        copy(DFBlockTags.RAW_METAL_STORAGE_BLOCKS, DFItemTags.RAW_METAL_STORAGE_BLOCKS)
+
         copy(DFBlockTags.RAW_SILVER_STORAGE_BLOCK, DFItemTags.RAW_SILVER_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_COBALT_STORAGE_BLOCK, DFItemTags.RAW_COBALT_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_TUNGSTEN_STORAGE_BLOCK, DFItemTags.RAW_TUNGSTEN_STORAGE_BLOCK)
@@ -199,20 +227,32 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copy(DFBlockTags.RAW_ALUMINIUM_STORAGE_BLOCK, DFItemTags.RAW_ALUMINIUM_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_PLATINUM_STORAGE_BLOCK, DFItemTags.RAW_PLATINUM_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_TITANIUM_STORAGE_BLOCK, DFItemTags.RAW_TITANIUM_STORAGE_BLOCK)
+
+        // Processed
+        copy(DFBlockTags.METAL_BLOCKS, DFItemTags.METAL_BLOCKS)
+
+        copy(DFBlockTags.SILVER_BLOCK, DFItemTags.SILVER_BLOCK)
     }
 
     private fun copyHumanTags() {
-        // Human Ores
+        // Ores
         copy(DFBlockTags.HUMAN_ORES, DFItemTags.HUMAN_ORES)
 
         copy(DFBlockTags.EINSTEINIUM_ORES, DFItemTags.EINSTEINIUM_ORES)
         copy(DFBlockTags.ASTRALITE_ORES, DFItemTags.ASTRALITE_ORES)
         copy(DFBlockTags.GRASS_ORES, DFItemTags.GRASS_ORES)
 
-        // raw
+        // Raw
+        copy(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS, DFItemTags.RAW_HUMAN_STORAGE_BLOCKS)
+
         copy(DFBlockTags.RAW_EINSTEINIUM_STORAGE_BLOCK, DFItemTags.RAW_EINSTEINIUM_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_ASTRALITE_STORAGE_BLOCK, DFItemTags.RAW_ASTRALITE_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_GRASS_STORAGE_BLOCK, DFItemTags.RAW_GRASS_STORAGE_BLOCK)
+
+        // Processed
+        copy(DFBlockTags.HUMAN_BLOCKS, DFItemTags.HUMAN_BLOCKS)
+
+        copy(DFBlockTags.ASTRALITE_BLOCK, DFItemTags.ASTRALITE_BLOCK)
     }
 
     private fun copyConventionalTags() {
