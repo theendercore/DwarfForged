@@ -123,7 +123,6 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     private fun copyMetaTags(){
         copy(DFBlockTags.DWARF_FORGED_ORES, DFItemTags.DWARF_FORGED_ORES)
         copy(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS, DFItemTags.DWARF_FORGED_STORAGE_BLOCKS)
-        copy(DFBlockTags.DWARF_FORGED_RAW_BLOCKS, DFItemTags.DWARF_FORGED_RAW_BLOCKS)
     }
 
     private fun copyGemTags() {
@@ -184,23 +183,6 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copy(DFBlockTags.TITANIUM_ORES, DFItemTags.TITANIUM_ORES)
 
         // Raw Metals
-        copy(DFBlockTags.RAW_SILVER_BLOCK, DFItemTags.RAW_SILVER_BLOCK)
-        copy(DFBlockTags.RAW_COBALT_BLOCK, DFItemTags.RAW_COBALT_BLOCK)
-        copy(DFBlockTags.RAW_TUNGSTEN_BLOCK, DFItemTags.RAW_TUNGSTEN_BLOCK)
-        copy(DFBlockTags.RAW_IRIDIUM_BLOCK, DFItemTags.RAW_IRIDIUM_BLOCK)
-        copy(DFBlockTags.RAW_THALLIUM_BLOCK, DFItemTags.RAW_THALLIUM_BLOCK)
-        copy(DFBlockTags.RAW_BISMUTH_BLOCK, DFItemTags.RAW_BISMUTH_BLOCK)
-        copy(DFBlockTags.RAW_PLUTONIUM_BLOCK, DFItemTags.RAW_PLUTONIUM_BLOCK)
-        copy(DFBlockTags.RAW_URANIUM_BLOCK, DFItemTags.RAW_URANIUM_BLOCK)
-        copy(DFBlockTags.RAW_LEAD_BLOCK, DFItemTags.RAW_LEAD_BLOCK)
-        copy(DFBlockTags.RAW_TIN_BLOCK, DFItemTags.RAW_TIN_BLOCK)
-        copy(DFBlockTags.RAW_PALLADIUM_BLOCK, DFItemTags.RAW_PALLADIUM_BLOCK)
-        copy(DFBlockTags.RAW_ZINC_BLOCK, DFItemTags.RAW_ZINC_BLOCK)
-        copy(DFBlockTags.RAW_NICKEL_BLOCK, DFItemTags.RAW_NICKEL_BLOCK)
-        copy(DFBlockTags.RAW_ALUMINIUM_BLOCK, DFItemTags.RAW_ALUMINIUM_BLOCK)
-        copy(DFBlockTags.RAW_PLATINUM_BLOCK, DFItemTags.RAW_PLATINUM_BLOCK)
-        copy(DFBlockTags.RAW_TITANIUM_BLOCK, DFItemTags.RAW_TITANIUM_BLOCK)
-
         copy(DFBlockTags.RAW_SILVER_STORAGE_BLOCK, DFItemTags.RAW_SILVER_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_COBALT_STORAGE_BLOCK, DFItemTags.RAW_COBALT_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_TUNGSTEN_STORAGE_BLOCK, DFItemTags.RAW_TUNGSTEN_STORAGE_BLOCK)
@@ -227,11 +209,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copy(DFBlockTags.ASTRALITE_ORES, DFItemTags.ASTRALITE_ORES)
         copy(DFBlockTags.GRASS_ORES, DFItemTags.GRASS_ORES)
 
-        // Raw Human Blocks
-        copy(DFBlockTags.RAW_EINSTEINIUM_BLOCK, DFItemTags.RAW_EINSTEINIUM_BLOCK)
-        copy(DFBlockTags.RAW_ASTRALITE_BLOCK, DFItemTags.RAW_ASTRALITE_BLOCK)
-        copy(DFBlockTags.RAW_GRASS_BLOCK, DFItemTags.RAW_GRASS_BLOCK)
-
+        // raw
         copy(DFBlockTags.RAW_EINSTEINIUM_STORAGE_BLOCK, DFItemTags.RAW_EINSTEINIUM_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_ASTRALITE_STORAGE_BLOCK, DFItemTags.RAW_ASTRALITE_STORAGE_BLOCK)
         copy(DFBlockTags.RAW_GRASS_STORAGE_BLOCK, DFItemTags.RAW_GRASS_STORAGE_BLOCK)

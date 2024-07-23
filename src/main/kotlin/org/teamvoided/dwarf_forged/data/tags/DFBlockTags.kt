@@ -10,7 +10,6 @@ object DFBlockTags {
 
     val DWARF_FORGED_ORES = create("dwarf_forged/ores")
     val DWARF_FORGED_STORAGE_BLOCKS = create("dwarf_forged/storage_blocks")
-    val DWARF_FORGED_RAW_BLOCKS = create("dwarf_forged/raw_blocks")
 
 
     //  --- GEMS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
@@ -68,24 +67,7 @@ object DFBlockTags {
     val TITANIUM_ORES = create("titanium_ores")
 
     //  --- RAW BLOCKS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-    val RAW_METAL_BLOCKS = create("raw_metal_blocks")
-
-    val RAW_SILVER_BLOCK = conventional("raw_blocks/silver")
-    val RAW_COBALT_BLOCK = conventional("raw_blocks/cobalt")
-    val RAW_TUNGSTEN_BLOCK = conventional("raw_blocks/tungsten")
-    val RAW_IRIDIUM_BLOCK = conventional("raw_blocks/iridium")
-    val RAW_THALLIUM_BLOCK = conventional("raw_blocks/thallium")
-    val RAW_BISMUTH_BLOCK = conventional("raw_blocks/bismuth")
-    val RAW_PLUTONIUM_BLOCK = conventional("raw_blocks/plutonium")
-    val RAW_URANIUM_BLOCK = conventional("raw_blocks/uranium")
-    val RAW_LEAD_BLOCK = conventional("raw_blocks/lead")
-    val RAW_TIN_BLOCK = conventional("raw_blocks/tin")
-    val RAW_PALLADIUM_BLOCK = conventional("raw_blocks/palladium")
-    val RAW_ZINC_BLOCK = conventional("raw_blocks/zinc")
-    val RAW_NICKEL_BLOCK = conventional("raw_blocks/nickel")
-    val RAW_ALUMINIUM_BLOCK = conventional("raw_blocks/aluminium")
-    val RAW_PLATINUM_BLOCK = conventional("raw_blocks/platinum")
-    val RAW_TITANIUM_BLOCK = conventional("raw_blocks/titanium")
+    val RAW_METAL_STORAGE_BLOCKS = create("raw_metal_storage_blocks")
 
     val RAW_SILVER_STORAGE_BLOCK = storageBlock("raw_silver")
     val RAW_COBALT_STORAGE_BLOCK = storageBlock("raw_cobalt")
@@ -110,7 +92,6 @@ object DFBlockTags {
 
 
 
-
     //  --- HUMANS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
     // Ores
     val HUMAN_ORES = create("human_ores")
@@ -120,11 +101,7 @@ object DFBlockTags {
     val GRASS_ORES = create("grass_ores")
 
     // Raw
-    val RAW_HUMAN_BLOCKS = create("raw_human_blocks")
-
-    val RAW_EINSTEINIUM_BLOCK = conventional("raw_blocks/einsteinium")
-    val RAW_ASTRALITE_BLOCK = conventional("raw_blocks/astralite")
-    val RAW_GRASS_BLOCK = conventional("raw_blocks/grass")
+    val RAW_HUMAN_STORAGE_BLOCKS = create("raw_human_storage_blocks")
 
     val RAW_EINSTEINIUM_STORAGE_BLOCK = storageBlock("raw_einsteinium")
     val RAW_ASTRALITE_STORAGE_BLOCK = storageBlock("raw_astralite")

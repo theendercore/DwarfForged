@@ -29,13 +29,10 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.HUMAN_ORES)
         getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.GEM_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_METAL_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
-        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_RAW_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
     }
 
     private fun gems() {
@@ -136,6 +133,42 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.TITANIUM_ORES).add(DFBlocks.TITANIUM_ORE, DFBlocks.DEEPSLATE_TITANIUM_ORE)
 
 
+        getOrCreateTagBuilder(DFBlockTags.RAW_METAL_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_SILVER_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_COBALT_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_TUNGSTEN_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_IRIDIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_THALLIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_BISMUTH_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_PLUTONIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_URANIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_LEAD_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_TIN_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_PALLADIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_ZINC_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_NICKEL_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_ALUMINIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_PLATINUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_TITANIUM_STORAGE_BLOCK)
+
+        getOrCreateTagBuilder(DFBlockTags.RAW_SILVER_STORAGE_BLOCK).add(DFBlocks.RAW_SILVER_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_COBALT_STORAGE_BLOCK).add(DFBlocks.RAW_COBALT_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_TUNGSTEN_STORAGE_BLOCK).add(DFBlocks.RAW_TUNGSTEN_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_IRIDIUM_STORAGE_BLOCK).add(DFBlocks.RAW_IRIDIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_THALLIUM_STORAGE_BLOCK).add(DFBlocks.RAW_THALLIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_BISMUTH_STORAGE_BLOCK).add(DFBlocks.RAW_BISMUTH_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_PLUTONIUM_STORAGE_BLOCK).add(DFBlocks.RAW_PLUTONIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_URANIUM_STORAGE_BLOCK).add(DFBlocks.RAW_URANIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_LEAD_STORAGE_BLOCK).add(DFBlocks.RAW_LEAD_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_TIN_STORAGE_BLOCK).add(DFBlocks.RAW_TIN_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_PALLADIUM_STORAGE_BLOCK).add(DFBlocks.RAW_PALLADIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_ZINC_STORAGE_BLOCK).add(DFBlocks.RAW_ZINC_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_NICKEL_STORAGE_BLOCK).add(DFBlocks.RAW_NICKEL_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_ALUMINIUM_STORAGE_BLOCK).add(DFBlocks.RAW_ALUMINIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_PLATINUM_STORAGE_BLOCK).add(DFBlocks.RAW_PLATINUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_TITANIUM_STORAGE_BLOCK).add(DFBlocks.RAW_TITANIUM_BLOCK)
+
+
         getOrCreateTagBuilder(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.SILVER_BLOCK)
 
@@ -153,6 +186,15 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.GRASS_ORE, DFBlocks.DEEPSLATE_GRASS_ORE)
 
 
+        getOrCreateTagBuilder(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_EINSTEINIUM_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_ASTRALITE_STORAGE_BLOCK)
+            .forceAddTag(DFBlockTags.RAW_GRASS_STORAGE_BLOCK)
+
+        getOrCreateTagBuilder(DFBlockTags.RAW_EINSTEINIUM_STORAGE_BLOCK).add(DFBlocks.RAW_EINSTEINIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_ASTRALITE_STORAGE_BLOCK).add(DFBlocks.RAW_ASTRALITE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_GRASS_STORAGE_BLOCK).add(DFBlocks.RAW_GRASS_BLOCK)
+
         getOrCreateTagBuilder(DFBlockTags.HUMAN_BLOCKS)
             .forceAddTag(DFBlockTags.ASTRALITE_BLOCK)
 
@@ -163,8 +205,8 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
             .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
             .forceAddTag(DFBlockTags.GEM_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_METAL_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
 
@@ -175,8 +217,8 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
             .forceAddTag(DFBlockTags.METAL_ORES)
             .forceAddTag(DFBlockTags.HUMAN_ORES)
-            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
-            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_METAL_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
     }
