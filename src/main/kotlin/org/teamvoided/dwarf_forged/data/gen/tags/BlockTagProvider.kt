@@ -12,11 +12,18 @@ import java.util.concurrent.CompletableFuture
 class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) :
     FabricTagProvider.BlockTagProvider(o, r) {
     override fun configure(wrapperLookup: HolderLookup.Provider) {
-        gems()
-
         getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
             .forceAddTag(DFBlockTags.GEM_ORES)
+            .forceAddTag(DFBlockTags.METAL_ORES)
+            .forceAddTag(DFBlockTags.HUMAN_ORES)
+        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.GEM_BLOCKS)
+            .forceAddTag(DFBlockTags.METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
 
+        gems()
+        metals()
+        humanOres()
 
         mineable()
         conventionalTags()
@@ -83,19 +90,60 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.HEMATITE_BLOCK).add(DFBlocks.HEMATITE_BLOCK)
     }
 
+    fun metals() {
+        getOrCreateTagBuilder(DFBlockTags.SILVER_ORES).add(DFBlocks.SILVER_ORE, DFBlocks.DEEPSLATE_SILVER_ORE)
+
+        getOrCreateTagBuilder(DFBlockTags.METAL_ORES)
+            .forceAddTag(DFBlockTags.SILVER_ORES)
+
+        getOrCreateTagBuilder(DFBlockTags.METAL_BLOCKS).add(
+            DFBlocks.SILVER_BLOCK,
+        )
+
+        getOrCreateTagBuilder(DFBlockTags.SILVER_BLOCK).add(DFBlocks.SILVER_BLOCK)
+
+
+
+    }
+
+    private fun humanOres() {
+        getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES).add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.ASTRALITE_ORES).add(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.GRASS_ORE, DFBlocks.DEEPSLATE_GRASS_ORE)
+
+        getOrCreateTagBuilder(DFBlockTags.HUMAN_ORES)
+            .forceAddTag(DFBlockTags.EINSTEINIUM_ORES)
+            .forceAddTag(DFBlockTags.ASTRALITE_ORES)
+            .forceAddTag(DFBlockTags.GRASS_ORES)
+
+        getOrCreateTagBuilder(DFBlockTags.HUMAN_BLOCKS).add(
+            DFBlocks.ASTRALITE_BLOCK,
+        )
+
+        getOrCreateTagBuilder(DFBlockTags.ASTRALITE_BLOCK).add(DFBlocks.ASTRALITE_BLOCK)
+    }
+
     private fun mineable() {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
             .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
+            .forceAddTag(DFBlockTags.GEM_BLOCKS)
+            .forceAddTag(DFBlockTags.METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
             .forceAddTag(DFBlockTags.GEM_ORES)
             .forceAddTag(DFBlockTags.GEM_BLOCKS)
+
+        getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+            .forceAddTag(DFBlockTags.METAL_ORES)
+            .forceAddTag(DFBlockTags.HUMAN_ORES)
     }
 
     private fun conventionalTags() {
         getOrCreateTagBuilder(ConventionalBlockTags.ORES)
             .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
         getOrCreateTagBuilder(ConventionalBlockTags.STORAGE_BLOCKS)
-            .forceAddTag(DFBlockTags.GEM_BLOCKS)
+            .forceAddTag(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
+
     }
 }

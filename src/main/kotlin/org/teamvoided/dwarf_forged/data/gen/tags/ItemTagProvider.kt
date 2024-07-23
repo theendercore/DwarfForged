@@ -20,8 +20,9 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     }
 
     private fun copyBlockTags() {
-        // Metas Ores
+        // Meta Tags
         copy(DFBlockTags.DWARF_FORGED_ORES, DFItemTags.DWARF_FORGED_ORES)
+        copy(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS, DFItemTags.DWARF_FORGED_STORAGE_BLOCKS)
 
         //Gem Ores
         copy(DFBlockTags.GEM_ORES, DFItemTags.GEM_ORES)

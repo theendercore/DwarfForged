@@ -9,6 +9,8 @@ import org.teamvoided.dwarf_forged.util.tag
 object DFBlockTags {
 
     val DWARF_FORGED_ORES = create("dwarf_forged_ores")
+    val DWARF_FORGED_STORAGE_BLOCKS = create("dwarf_forged_storage_blocks")
+
     val GEM_ORES = create("gem_ores")
 
     val RUBY_ORES = create("ruby_ores")
@@ -40,6 +42,24 @@ object DFBlockTags {
     val SPINEL_BLOCK = conventional("storage_blocks/spinel")
     val HEMATITE_BLOCK = conventional("storage_blocks/hematite")
     val CARNELIAN_BLOCK = conventional("storage_blocks/carnelian")
+
+    val METAL_ORES = create("metal_ores")
+    val SILVER_ORES = create("silver_ores")
+
+
+    val HUMAN_ORES = create("human_ores")
+    val EINSTEINIUM_ORES = create("einsteinium_ores")
+    val ASTRALITE_ORES = create("astralite_ores")
+    val GRASS_ORES = create("grass_ores")
+
+
+    val METAL_BLOCKS = create("metal_blocks")
+    val SILVER_BLOCK = conventional("storage_blocks/silver")
+
+
+    val HUMAN_BLOCKS = create("human_blocks")
+    val ASTRALITE_BLOCK = conventional("storage_blocks/astralite")
+
 
     fun create(name: String): TagKey<Block> = RegistryKeys.BLOCK.tag(id(name))
     fun conventional(name: String): TagKey<Block> = RegistryKeys.BLOCK.tag(id("c", name))
