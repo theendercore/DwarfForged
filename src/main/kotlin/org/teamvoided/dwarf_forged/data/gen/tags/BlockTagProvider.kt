@@ -22,34 +22,23 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         conventionalTags()
     }
 
-    fun metaTags(){
+    private fun metaTags(){
         getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
             .forceAddTag(DFBlockTags.GEM_ORES)
             .forceAddTag(DFBlockTags.METAL_ORES)
             .forceAddTag(DFBlockTags.HUMAN_ORES)
         getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.GEM_BLOCKS)
-            .forceAddTag(DFBlockTags.DWARF_FORGED_RAW_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
             .forceAddTag(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
+        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_RAW_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
     }
 
     private fun gems() {
-        getOrCreateTagBuilder(DFBlockTags.RUBY_ORES).add(DFBlocks.RUBY_ORE, DFBlocks.DEEPSLATE_RUBY_ORE)
-        getOrCreateTagBuilder(DFBlockTags.SAPPHIRE_ORES).add(DFBlocks.SAPPHIRE_ORE, DFBlocks.DEEPSLATE_SAPPHIRE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.KYANITE_ORES).add(DFBlocks.KYANITE_ORE, DFBlocks.DEEPSLATE_KYANITE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.MOONSTONE_ORES).add(DFBlocks.MOONSTONE_ORE, DFBlocks.DEEPSLATE_MOONSTONE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.JADE_ORES).add(DFBlocks.JADE_ORE, DFBlocks.DEEPSLATE_JADE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.SMOKY_QUARTZ_ORES).add(DFBlocks.NETHER_SMOKY_QUARTZ_ORE)
-        getOrCreateTagBuilder(DFBlockTags.EUCLASE_ORES).add(DFBlocks.EUCLASE_ORE, DFBlocks.DEEPSLATE_EUCLASE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.BORACITE_ORES).add(DFBlocks.BORACITE_ORE, DFBlocks.DEEPSLATE_BORACITE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.TOPAZ_ORES).add(DFBlocks.TOPAZ_ORE, DFBlocks.DEEPSLATE_TOPAZ_ORE)
-        getOrCreateTagBuilder(DFBlockTags.TOURMALINE_ORES)
-            .add(DFBlocks.TOURMALINE_ORE, DFBlocks.DEEPSLATE_TOURMALINE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.SPINEL_ORES).add(DFBlocks.SPINEL_ORE, DFBlocks.DEEPSLATE_SPINEL_ORE)
-        getOrCreateTagBuilder(DFBlockTags.HEMATITE_ORES).add(DFBlocks.HEMATITE_ORE, DFBlocks.DEEPSLATE_HEMATITE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.CARNELIAN_ORES).add(DFBlocks.CARNELIAN_ORE, DFBlocks.DEEPSLATE_CARNELIAN_ORE)
-
         getOrCreateTagBuilder(DFBlockTags.GEM_ORES)
             .forceAddTag(DFBlockTags.RUBY_ORES)
             .forceAddTag(DFBlockTags.SAPPHIRE_ORES)
@@ -65,21 +54,35 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.HEMATITE_ORES)
             .forceAddTag(DFBlockTags.CARNELIAN_ORES)
 
-        getOrCreateTagBuilder(DFBlockTags.GEM_BLOCKS).add(
-            DFBlocks.RUBY_BLOCK,
-            DFBlocks.SAPPHIRE_BLOCK,
-            DFBlocks.KYANITE_BLOCK,
-            DFBlocks.MOONSTONE_BLOCK,
-            DFBlocks.JADE_BLOCK,
-            DFBlocks.SMOKY_QUARTZ_BLOCK,
-            DFBlocks.EUCLASE_BLOCK,
-            DFBlocks.BORACITE_BLOCK,
-            DFBlocks.TOPAZ_BLOCK,
-            DFBlocks.TOURMALINE_BLOCK,
-            DFBlocks.SPINEL_BLOCK,
-            DFBlocks.HEMATITE_BLOCK,
-            DFBlocks.CARNELIAN_BLOCK
-        )
+        getOrCreateTagBuilder(DFBlockTags.RUBY_ORES).add(DFBlocks.RUBY_ORE, DFBlocks.DEEPSLATE_RUBY_ORE)
+        getOrCreateTagBuilder(DFBlockTags.SAPPHIRE_ORES).add(DFBlocks.SAPPHIRE_ORE, DFBlocks.DEEPSLATE_SAPPHIRE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.KYANITE_ORES).add(DFBlocks.KYANITE_ORE, DFBlocks.DEEPSLATE_KYANITE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.MOONSTONE_ORES).add(DFBlocks.MOONSTONE_ORE, DFBlocks.DEEPSLATE_MOONSTONE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.JADE_ORES).add(DFBlocks.JADE_ORE, DFBlocks.DEEPSLATE_JADE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.SMOKY_QUARTZ_ORES).add(DFBlocks.NETHER_SMOKY_QUARTZ_ORE)
+        getOrCreateTagBuilder(DFBlockTags.EUCLASE_ORES).add(DFBlocks.EUCLASE_ORE, DFBlocks.DEEPSLATE_EUCLASE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.BORACITE_ORES).add(DFBlocks.BORACITE_ORE, DFBlocks.DEEPSLATE_BORACITE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TOPAZ_ORES).add(DFBlocks.TOPAZ_ORE, DFBlocks.DEEPSLATE_TOPAZ_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TOURMALINE_ORES)
+            .add(DFBlocks.TOURMALINE_ORE, DFBlocks.DEEPSLATE_TOURMALINE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.SPINEL_ORES).add(DFBlocks.SPINEL_ORE, DFBlocks.DEEPSLATE_SPINEL_ORE)
+        getOrCreateTagBuilder(DFBlockTags.HEMATITE_ORES).add(DFBlocks.HEMATITE_ORE, DFBlocks.DEEPSLATE_HEMATITE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.CARNELIAN_ORES).add(DFBlocks.CARNELIAN_ORE, DFBlocks.DEEPSLATE_CARNELIAN_ORE)
+
+        getOrCreateTagBuilder(DFBlockTags.GEM_BLOCKS)
+            .forceAddTag(DFBlockTags.RUBY_BLOCK)
+            .forceAddTag(DFBlockTags.SAPPHIRE_BLOCK)
+            .forceAddTag(DFBlockTags.KYANITE_BLOCK)
+            .forceAddTag(DFBlockTags.MOONSTONE_BLOCK)
+            .forceAddTag(DFBlockTags.JADE_BLOCK)
+            .forceAddTag(DFBlockTags.SMOKY_QUARTZ_BLOCK)
+            .forceAddTag(DFBlockTags.EUCLASE_BLOCK)
+            .forceAddTag(DFBlockTags.BORACITE_BLOCK)
+            .forceAddTag(DFBlockTags.TOPAZ_BLOCK)
+            .forceAddTag(DFBlockTags.TOURMALINE_BLOCK)
+            .forceAddTag(DFBlockTags.SPINEL_BLOCK)
+            .forceAddTag(DFBlockTags.HEMATITE_BLOCK)
+            .forceAddTag(DFBlockTags.CARNELIAN_BLOCK)
 
         getOrCreateTagBuilder(DFBlockTags.RUBY_BLOCK).add(DFBlocks.RUBY_BLOCK)
         getOrCreateTagBuilder(DFBlockTags.SAPPHIRE_BLOCK).add(DFBlocks.SAPPHIRE_BLOCK)
@@ -93,26 +96,10 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.TOURMALINE_BLOCK).add(DFBlocks.TOURMALINE_BLOCK)
         getOrCreateTagBuilder(DFBlockTags.SPINEL_BLOCK).add(DFBlocks.SPINEL_BLOCK)
         getOrCreateTagBuilder(DFBlockTags.HEMATITE_BLOCK).add(DFBlocks.HEMATITE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.CARNELIAN_BLOCK).add(DFBlocks.CARNELIAN_BLOCK)
     }
 
-    fun metals() {
-        getOrCreateTagBuilder(DFBlockTags.SILVER_ORES).add(DFBlocks.SILVER_ORE, DFBlocks.DEEPSLATE_SILVER_ORE)
-        getOrCreateTagBuilder(DFBlockTags.COBALT_ORES).add(DFBlocks.COBALT_ORE, DFBlocks.DEEPSLATE_COBALT_ORE)
-        getOrCreateTagBuilder(DFBlockTags.TUNGSTEN_ORES).add(DFBlocks.TUNGSTEN_ORE, DFBlocks.DEEPSLATE_TUNGSTEN_ORE)
-        getOrCreateTagBuilder(DFBlockTags.IRIDIUM_ORES).add(DFBlocks.IRIDIUM_ORE, DFBlocks.DEEPSLATE_IRIDIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.THALLIUM_ORES).add(DFBlocks.THALLIUM_ORE, DFBlocks.DEEPSLATE_THALLIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.BISMUTH_ORES).add(DFBlocks.BISMUTH_ORE, DFBlocks.DEEPSLATE_BISMUTH_ORE)
-        getOrCreateTagBuilder(DFBlockTags.PLUTONIUM_ORES).add(DFBlocks.PLUTONIUM_ORE, DFBlocks.DEEPSLATE_PLUTONIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.URANIUM_ORES).add(DFBlocks.URANIUM_ORE, DFBlocks.DEEPSLATE_URANIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.LEAD_ORES).add(DFBlocks.LEAD_ORE, DFBlocks.DEEPSLATE_LEAD_ORE)
-        getOrCreateTagBuilder(DFBlockTags.TIN_ORES).add(DFBlocks.TIN_ORE, DFBlocks.DEEPSLATE_TIN_ORE)
-        getOrCreateTagBuilder(DFBlockTags.PALLADIUM_ORES).add(DFBlocks.PALLADIUM_ORE, DFBlocks.DEEPSLATE_PALLADIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.ZINC_ORES).add(DFBlocks.ZINC_ORE, DFBlocks.DEEPSLATE_ZINC_ORE)
-        getOrCreateTagBuilder(DFBlockTags.NICKEL_ORES).add(DFBlocks.NICKEL_ORE, DFBlocks.DEEPSLATE_NICKEL_ORE)
-        getOrCreateTagBuilder(DFBlockTags.ALUMINIUM_ORES).add(DFBlocks.ALUMINIUM_ORE, DFBlocks.DEEPSLATE_ALUMINIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.PLATINUM_ORES).add(DFBlocks.PLATINUM_ORE, DFBlocks.DEEPSLATE_PLATINUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.TITANIUM_ORES).add(DFBlocks.TITANIUM_ORE, DFBlocks.DEEPSLATE_TITANIUM_ORE)
-
+    private fun metals() {
         getOrCreateTagBuilder(DFBlockTags.METAL_ORES)
             .forceAddTag(DFBlockTags.SILVER_ORES)
             .forceAddTag(DFBlockTags.COBALT_ORES)
@@ -131,29 +118,43 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.PLATINUM_ORES)
             .forceAddTag(DFBlockTags.TITANIUM_ORES)
 
-        getOrCreateTagBuilder(DFBlockTags.METAL_BLOCKS).add(
-            DFBlocks.SILVER_BLOCK,
-        )
+        getOrCreateTagBuilder(DFBlockTags.SILVER_ORES).add(DFBlocks.SILVER_ORE, DFBlocks.DEEPSLATE_SILVER_ORE)
+        getOrCreateTagBuilder(DFBlockTags.COBALT_ORES).add(DFBlocks.COBALT_ORE, DFBlocks.DEEPSLATE_COBALT_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TUNGSTEN_ORES).add(DFBlocks.TUNGSTEN_ORE, DFBlocks.DEEPSLATE_TUNGSTEN_ORE)
+        getOrCreateTagBuilder(DFBlockTags.IRIDIUM_ORES).add(DFBlocks.IRIDIUM_ORE, DFBlocks.DEEPSLATE_IRIDIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.THALLIUM_ORES).add(DFBlocks.THALLIUM_ORE, DFBlocks.DEEPSLATE_THALLIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.BISMUTH_ORES).add(DFBlocks.BISMUTH_ORE, DFBlocks.DEEPSLATE_BISMUTH_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PLUTONIUM_ORES).add(DFBlocks.PLUTONIUM_ORE, DFBlocks.DEEPSLATE_PLUTONIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.URANIUM_ORES).add(DFBlocks.URANIUM_ORE, DFBlocks.DEEPSLATE_URANIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.LEAD_ORES).add(DFBlocks.LEAD_ORE, DFBlocks.DEEPSLATE_LEAD_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TIN_ORES).add(DFBlocks.TIN_ORE, DFBlocks.DEEPSLATE_TIN_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PALLADIUM_ORES).add(DFBlocks.PALLADIUM_ORE, DFBlocks.DEEPSLATE_PALLADIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.ZINC_ORES).add(DFBlocks.ZINC_ORE, DFBlocks.DEEPSLATE_ZINC_ORE)
+        getOrCreateTagBuilder(DFBlockTags.NICKEL_ORES).add(DFBlocks.NICKEL_ORE, DFBlocks.DEEPSLATE_NICKEL_ORE)
+        getOrCreateTagBuilder(DFBlockTags.ALUMINIUM_ORES).add(DFBlocks.ALUMINIUM_ORE, DFBlocks.DEEPSLATE_ALUMINIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PLATINUM_ORES).add(DFBlocks.PLATINUM_ORE, DFBlocks.DEEPSLATE_PLATINUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TITANIUM_ORES).add(DFBlocks.TITANIUM_ORE, DFBlocks.DEEPSLATE_TITANIUM_ORE)
+
+
+        getOrCreateTagBuilder(DFBlockTags.METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.SILVER_BLOCK)
 
         getOrCreateTagBuilder(DFBlockTags.SILVER_BLOCK).add(DFBlocks.SILVER_BLOCK)
-
-
-
     }
 
     private fun humanOres() {
-        getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES).add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
-        getOrCreateTagBuilder(DFBlockTags.ASTRALITE_ORES).add(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.GRASS_ORE, DFBlocks.DEEPSLATE_GRASS_ORE)
-
         getOrCreateTagBuilder(DFBlockTags.HUMAN_ORES)
             .forceAddTag(DFBlockTags.EINSTEINIUM_ORES)
             .forceAddTag(DFBlockTags.ASTRALITE_ORES)
             .forceAddTag(DFBlockTags.GRASS_ORES)
 
-        getOrCreateTagBuilder(DFBlockTags.HUMAN_BLOCKS).add(
-            DFBlocks.ASTRALITE_BLOCK,
-        )
+        getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES).add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.ASTRALITE_ORES).add(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.GRASS_ORE, DFBlocks.DEEPSLATE_GRASS_ORE)
+
+
+        getOrCreateTagBuilder(DFBlockTags.HUMAN_BLOCKS)
+            .forceAddTag(DFBlockTags.ASTRALITE_BLOCK)
 
         getOrCreateTagBuilder(DFBlockTags.ASTRALITE_BLOCK).add(DFBlocks.ASTRALITE_BLOCK)
     }
