@@ -14,8 +14,8 @@ import org.teamvoided.dwarf_forged.util.DFBlockLists
 import java.util.concurrent.CompletableFuture
 
 class EnLangProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) : FabricLanguageProvider(o, r) {
-    private val blockOfList = (DFBlockLists.METAL_BLOCKS + DFBlockLists.RAW_BLOCKS +
-            DFBlockLists.RAW_HUMAN_ORES + DFBlockLists.HUMAN_BLOCKS).map { it.asItem() }
+    private val blockOfList =
+        (DFBlockLists.METAL_BLOCKS + DFBlockLists.RAW_BLOCKS + DFBlockLists.RAW_HUMAN_ORES + DFBlockLists.HUMAN_BLOCKS).map { it.asItem() }
 
     override fun generateTranslations(lookup: HolderLookup.Provider, gen: TranslationBuilder) {
         blockOfList.forEach { gen.add(it.translationKey, blockOf(it)) }
@@ -28,7 +28,7 @@ class EnLangProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         gen.add("dwarf_forged", "Dwarf Forged")
     }
 
-    private fun lang(item: Identifier): String = WordUtils.capitalize(item.path.replace("_", " "))
+    private fun lang(item: Identifier): String = WordUtils.capitalize(item.path.replace("_", " ").replace("/", " "))
 
     private val Item.id get() = Registries.ITEM.getId(this)
 
