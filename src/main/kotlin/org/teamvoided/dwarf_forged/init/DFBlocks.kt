@@ -184,12 +184,12 @@ object DFBlocks {
 
     fun copy(block: Block): AbstractBlock.Settings = AbstractBlock.Settings.copy(block)
 
-    private fun <T : Block> register(name: String, block: T): Block {
+    fun <T : Block> register(name: String, block: T): Block {
         val blockReg = registerNoItem(name, block)
         DFItems.register(name, BlockItem(blockReg, Item.Settings()))
         return blockReg
     }
 
-    private fun <T : Block> registerNoItem(name: String, item: T): Block = Registries.BLOCK.register(name, item)
+    fun <T : Block> registerNoItem(name: String, item: T): Block = Registries.BLOCK.register(name, item)
 
 }
