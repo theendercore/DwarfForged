@@ -12,14 +12,7 @@ import java.util.concurrent.CompletableFuture
 class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Provider>) :
     FabricTagProvider.BlockTagProvider(o, r) {
     override fun configure(wrapperLookup: HolderLookup.Provider) {
-        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
-            .forceAddTag(DFBlockTags.GEM_ORES)
-            .forceAddTag(DFBlockTags.METAL_ORES)
-            .forceAddTag(DFBlockTags.HUMAN_ORES)
-        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
-            .forceAddTag(DFBlockTags.GEM_BLOCKS)
-            .forceAddTag(DFBlockTags.METAL_BLOCKS)
-            .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
+        metaTags()
 
         gems()
         metals()
@@ -27,6 +20,18 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
         mineable()
         conventionalTags()
+    }
+
+    fun metaTags(){
+        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
+            .forceAddTag(DFBlockTags.GEM_ORES)
+            .forceAddTag(DFBlockTags.METAL_ORES)
+            .forceAddTag(DFBlockTags.HUMAN_ORES)
+        getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
+            .forceAddTag(DFBlockTags.GEM_BLOCKS)
+            .forceAddTag(DFBlockTags.DWARF_FORGED_RAW_BLOCKS)
+            .forceAddTag(DFBlockTags.METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
     }
 
     private fun gems() {
@@ -92,9 +97,39 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
     fun metals() {
         getOrCreateTagBuilder(DFBlockTags.SILVER_ORES).add(DFBlocks.SILVER_ORE, DFBlocks.DEEPSLATE_SILVER_ORE)
+        getOrCreateTagBuilder(DFBlockTags.COBALT_ORES).add(DFBlocks.COBALT_ORE, DFBlocks.DEEPSLATE_COBALT_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TUNGSTEN_ORES).add(DFBlocks.TUNGSTEN_ORE, DFBlocks.DEEPSLATE_TUNGSTEN_ORE)
+        getOrCreateTagBuilder(DFBlockTags.IRIDIUM_ORES).add(DFBlocks.IRIDIUM_ORE, DFBlocks.DEEPSLATE_IRIDIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.THALLIUM_ORES).add(DFBlocks.THALLIUM_ORE, DFBlocks.DEEPSLATE_THALLIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.BISMUTH_ORES).add(DFBlocks.BISMUTH_ORE, DFBlocks.DEEPSLATE_BISMUTH_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PLUTONIUM_ORES).add(DFBlocks.PLUTONIUM_ORE, DFBlocks.DEEPSLATE_PLUTONIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.URANIUM_ORES).add(DFBlocks.URANIUM_ORE, DFBlocks.DEEPSLATE_URANIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.LEAD_ORES).add(DFBlocks.LEAD_ORE, DFBlocks.DEEPSLATE_LEAD_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TIN_ORES).add(DFBlocks.TIN_ORE, DFBlocks.DEEPSLATE_TIN_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PALLADIUM_ORES).add(DFBlocks.PALLADIUM_ORE, DFBlocks.DEEPSLATE_PALLADIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.ZINC_ORES).add(DFBlocks.ZINC_ORE, DFBlocks.DEEPSLATE_ZINC_ORE)
+        getOrCreateTagBuilder(DFBlockTags.NICKEL_ORES).add(DFBlocks.NICKEL_ORE, DFBlocks.DEEPSLATE_NICKEL_ORE)
+        getOrCreateTagBuilder(DFBlockTags.ALUMINIUM_ORES).add(DFBlocks.ALUMINIUM_ORE, DFBlocks.DEEPSLATE_ALUMINIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PLATINUM_ORES).add(DFBlocks.PLATINUM_ORE, DFBlocks.DEEPSLATE_PLATINUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.TITANIUM_ORES).add(DFBlocks.TITANIUM_ORE, DFBlocks.DEEPSLATE_TITANIUM_ORE)
 
         getOrCreateTagBuilder(DFBlockTags.METAL_ORES)
             .forceAddTag(DFBlockTags.SILVER_ORES)
+            .forceAddTag(DFBlockTags.COBALT_ORES)
+            .forceAddTag(DFBlockTags.TUNGSTEN_ORES)
+            .forceAddTag(DFBlockTags.IRIDIUM_ORES)
+            .forceAddTag(DFBlockTags.THALLIUM_ORES)
+            .forceAddTag(DFBlockTags.BISMUTH_ORES)
+            .forceAddTag(DFBlockTags.PLUTONIUM_ORES)
+            .forceAddTag(DFBlockTags.URANIUM_ORES)
+            .forceAddTag(DFBlockTags.LEAD_ORES)
+            .forceAddTag(DFBlockTags.TIN_ORES)
+            .forceAddTag(DFBlockTags.PALLADIUM_ORES)
+            .forceAddTag(DFBlockTags.ZINC_ORES)
+            .forceAddTag(DFBlockTags.NICKEL_ORES)
+            .forceAddTag(DFBlockTags.ALUMINIUM_ORES)
+            .forceAddTag(DFBlockTags.PLATINUM_ORES)
+            .forceAddTag(DFBlockTags.TITANIUM_ORES)
 
         getOrCreateTagBuilder(DFBlockTags.METAL_BLOCKS).add(
             DFBlocks.SILVER_BLOCK,
@@ -127,6 +162,8 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
             .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
             .forceAddTag(DFBlockTags.GEM_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
             .forceAddTag(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
 
@@ -137,6 +174,10 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
             .forceAddTag(DFBlockTags.METAL_ORES)
             .forceAddTag(DFBlockTags.HUMAN_ORES)
+            .forceAddTag(DFBlockTags.RAW_METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.RAW_HUMAN_BLOCKS)
+            .forceAddTag(DFBlockTags.METAL_BLOCKS)
+            .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
     }
 
     private fun conventionalTags() {

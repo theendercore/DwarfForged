@@ -7,9 +7,16 @@ import org.teamvoided.dwarf_forged.DwarfForged.id
 import org.teamvoided.dwarf_forged.util.tag
 
 object DFItemTags {
+    val ALL_TAGS = mutableListOf<TagKey<Item>>()
 
-    val DWARF_FORGED_ORES = create("dwarf_forge/ores")
+    // Block
+    val DWARF_FORGED_ORES = create("dwarf_forged/ores")
     val DWARF_FORGED_STORAGE_BLOCKS = create("dwarf_forged/storage_blocks")
+    val DWARF_FORGED_RAW_BLOCKS = create("dwarf_forged/raw_blocks")
+    // Item
+    val DWARF_FORGED_GEMS = create("dwarf_forged/gems")
+    val DWARF_FORGED_INGOTS = create("dwarf_forged/ingots")
+    val DWARF_FORGED_NUGGETS = create("dwarf_forged/nuggets")
 
     val GEM_ORES = create("gem_ores")
 
@@ -27,8 +34,6 @@ object DFItemTags {
     val HEMATITE_ORES = create("hematite_ores")
     val CARNELIAN_ORES = create("carnelian_ores")
 
-    val GEMS = create("dwarf_forged/gems")
-
     val GEMS_RUBY = conventional("gems/ruby")
     val GEMS_SAPPHIRE = conventional("gems/sapphire")
     val GEMS_KYANITE = conventional("gems/kyanite")
@@ -45,82 +50,117 @@ object DFItemTags {
 
     val GEM_BLOCKS = create("gem_blocks")
 
-    val RUBY_BLOCK = conventional("storage_blocks/ruby")
-    val SAPPHIRE_BLOCK = conventional("storage_blocks/sapphire")
-    val KYANITE_BLOCK = conventional("storage_blocks/kyanite")
-    val MOONSTONE_BLOCK = conventional("storage_blocks/moonstone")
-    val JADE_BLOCK = conventional("storage_blocks/jade")
-    val SMOKY_QUARTZ_BLOCK = conventional("storage_blocks/smoky_quartz")
-    val EUCLASE_BLOCK = conventional("storage_blocks/euclase")
-    val BORACITE_BLOCK = conventional("storage_blocks/boracite")
-    val TOPAZ_BLOCK = conventional("storage_blocks/topaz")
-    val TOURMALINE_BLOCK = conventional("storage_blocks/tourmaline")
-    val SPINEL_BLOCK = conventional("storage_blocks/spinel")
-    val HEMATITE_BLOCK = conventional("storage_blocks/hematite")
-    val CARNELIAN_BLOCK = conventional("storage_blocks/carnelian")
+    val RUBY_BLOCK = storageBlock("ruby")
+    val SAPPHIRE_BLOCK = storageBlock("sapphire")
+    val KYANITE_BLOCK = storageBlock("kyanite")
+    val MOONSTONE_BLOCK = storageBlock("moonstone")
+    val JADE_BLOCK = storageBlock("jade")
+    val SMOKY_QUARTZ_BLOCK = storageBlock("smoky_quartz")
+    val EUCLASE_BLOCK = storageBlock("euclase")
+    val BORACITE_BLOCK = storageBlock("boracite")
+    val TOPAZ_BLOCK = storageBlock("topaz")
+    val TOURMALINE_BLOCK = storageBlock("tourmaline")
+    val SPINEL_BLOCK = storageBlock("spinel")
+    val HEMATITE_BLOCK = storageBlock("hematite")
+    val CARNELIAN_BLOCK = storageBlock("carnelian")
 
     val METAL_ORES = create("metal_ores")
+
     val SILVER_ORES = create("silver_ores")
+    val COBALT_ORES = create("cobalt_ores")
+    val TUNGSTEN_ORES = create("tungsten_ores")
+    val IRIDIUM_ORES = create("iridium_ores")
+    val THALLIUM_ORES = create("thallium_ores")
+    val BISMUTH_ORES = create("bismuth_ores")
+    val PLUTONIUM_ORES = create("plutonium_ores")
+    val URANIUM_ORES = create("uranium_ores")
+    val LEAD_ORES = create("lead_ores")
+    val TIN_ORES = create("tin_ores")
+    val PALLADIUM_ORES = create("palladium_ores")
+    val ZINC_ORES = create("zinc_ores")
+    val NICKEL_ORES = create("nickel_ores")
+    val ALUMINIUM_ORES = create("aluminium_ores")
+    val PLATINUM_ORES = create("platinum_ores")
+    val TITANIUM_ORES = create("titanium_ores")
 
     val HUMAN_ORES = create("human_ores")
+
     val EINSTEINIUM_ORES = create("einsteinium_ores")
     val ASTRALITE_ORES = create("astralite_ores")
     val GRASS_ORES = create("grass_ores")
 
+    val RAW_SILVER_BLOCK = conventional("raw_blocks/silver")
+    val RAW_COBALT_BLOCK = conventional("raw_blocks/cobalt")
+    val RAW_TUNGSTEN_BLOCK = conventional("raw_blocks/tungsten")
+    val RAW_IRIDIUM_BLOCK = conventional("raw_blocks/iridium")
+    val RAW_THALLIUM_BLOCK = conventional("raw_blocks/thallium")
+    val RAW_BISMUTH_BLOCK = conventional("raw_blocks/bismuth")
+    val RAW_PLUTONIUM_BLOCK = conventional("raw_blocks/plutonium")
+    val RAW_URANIUM_BLOCK = conventional("raw_blocks/uranium")
+    val RAW_LEAD_BLOCK = conventional("raw_blocks/lead")
+    val RAW_TIN_BLOCK = conventional("raw_blocks/tin")
+    val RAW_PALLADIUM_BLOCK = conventional("raw_blocks/palladium")
+    val RAW_ZINC_BLOCK = conventional("raw_blocks/zinc")
+    val RAW_NICKEL_BLOCK = conventional("raw_blocks/nickel")
+    val RAW_ALUMINIUM_BLOCK = conventional("raw_blocks/aluminium")
+    val RAW_PLATINUM_BLOCK = conventional("raw_blocks/platinum")
+    val RAW_TITANIUM_BLOCK = conventional("raw_blocks/titanium")
+
+    val RAW_SILVER_STORAGE_BLOCK = storageBlock("raw_silver")
+    val RAW_COBALT_STORAGE_BLOCK = storageBlock("raw_cobalt")
+    val RAW_TUNGSTEN_STORAGE_BLOCK = storageBlock("raw_tungsten")
+    val RAW_IRIDIUM_STORAGE_BLOCK = storageBlock("raw_iridium")
+    val RAW_THALLIUM_STORAGE_BLOCK = storageBlock("raw_thallium")
+    val RAW_BISMUTH_STORAGE_BLOCK = storageBlock("raw_bismuth")
+    val RAW_PLUTONIUM_STORAGE_BLOCK = storageBlock("raw_plutonium")
+    val RAW_URANIUM_STORAGE_BLOCK = storageBlock("raw_uranium")
+    val RAW_LEAD_STORAGE_BLOCK = storageBlock("raw_lead")
+    val RAW_TIN_STORAGE_BLOCK = storageBlock("raw_tin")
+    val RAW_PALLADIUM_STORAGE_BLOCK = storageBlock("raw_palladium")
+    val RAW_ZINC_STORAGE_BLOCK = storageBlock("raw_zinc")
+    val RAW_NICKEL_STORAGE_BLOCK = storageBlock("raw_nickel")
+    val RAW_ALUMINIUM_STORAGE_BLOCK = storageBlock("raw_aluminium")
+    val RAW_PLATINUM_STORAGE_BLOCK = storageBlock("raw_platinum")
+    val RAW_TITANIUM_STORAGE_BLOCK = storageBlock("raw_titanium")
+
+
+    val RAW_EINSTEINIUM_BLOCK = conventional("raw_blocks/einsteinium")
+    val RAW_ASTRALITE_BLOCK = conventional("raw_blocks/astralite")
+    val RAW_GRASS_BLOCK = conventional("raw_blocks/grass")
+
+    val RAW_EINSTEINIUM_STORAGE_BLOCK = storageBlock("raw_einsteinium")
+    val RAW_ASTRALITE_STORAGE_BLOCK = storageBlock("raw_astralite")
+    val RAW_GRASS_STORAGE_BLOCK = storageBlock("raw_grass")
+
+
     val METAL_BLOCKS = create("metal_blocks")
-    val SILVER_BLOCK = conventional("storage_blocks/silver")
+    val SILVER_BLOCK = storageBlock("silver")
 
     val HUMAN_BLOCKS = create("human_blocks")
-    val ASTRALITE_BLOCK = conventional("storage_blocks/astralite")
+    val ASTRALITE_BLOCK = storageBlock("astralite")
 
-    val INGOTS = create("dwarf_forged/ingots")
+    val SILVER_INGOT = conventional("ingots/silver")
+    val ASTRALITE_INGOT = conventional("ingots/astralite")
 
-    fun create(name: String): TagKey<Item> = RegistryKeys.ITEM.tag(id(name))
-    fun conventional(name: String): TagKey<Item> = RegistryKeys.ITEM.tag(id("c", name))
+    val SILVER_NUGGETS = conventional("nuggets/silver")
+    val ASTRALITE_NUGGETS = conventional("nuggets/astralite")
 
-    val ALL_TAGS = listOf(
-        DWARF_FORGED_ORES,
-        GEM_ORES,
-        RUBY_ORES,
-        SAPPHIRE_ORES,
-        KYANITE_ORES,
-        MOONSTONE_ORES,
-        JADE_ORES,
-        SMOKY_QUARTZ_ORES,
-        EUCLASE_ORES,
-        BORACITE_ORES,
-        TOPAZ_ORES,
-        TOURMALINE_ORES,
-        SPINEL_ORES,
-        HEMATITE_ORES,
-        CARNELIAN_ORES,
-        GEMS,
-        GEMS_RUBY,
-        GEMS_SAPPHIRE,
-        GEMS_KYANITE,
-        GEMS_MOONSTONE,
-        GEMS_JADE,
-        GEMS_SMOKY_QUARTZ,
-        GEMS_EUCLASE,
-        GEMS_BORACITE,
-        GEMS_TOPAZ,
-        GEMS_TOURMALINE,
-        GEMS_SPINEL,
-        GEMS_HEMATITE,
-        GEMS_CARNELIAN,
-        GEM_BLOCKS,
-        RUBY_BLOCK,
-        SAPPHIRE_BLOCK,
-        KYANITE_BLOCK,
-        MOONSTONE_BLOCK,
-        JADE_BLOCK,
-        SMOKY_QUARTZ_BLOCK,
-        EUCLASE_BLOCK,
-        BORACITE_BLOCK,
-        TOPAZ_BLOCK,
-        TOURMALINE_BLOCK,
-        SPINEL_BLOCK,
-        HEMATITE_BLOCK,
-        CARNELIAN_BLOCK
-    )
+
+
+    // MISC
+    val COPPER_NUGGETS = conventional("nuggets/copper")
+
+    fun create(name: String): TagKey<Item> {
+        val tag = RegistryKeys.ITEM.tag(id(name))
+        ALL_TAGS.add(tag)
+        return tag
+    }
+
+    fun conventional(name: String): TagKey<Item> {
+        val tag = RegistryKeys.ITEM.tag(id("c", name))
+        ALL_TAGS.add(tag)
+        return tag
+    }
+
+    fun storageBlock(name: String): TagKey<Item> = conventional("storage_blocks/$name")
 }
