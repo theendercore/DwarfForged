@@ -34,6 +34,22 @@ object DFCfgOres {
     val ORE_CARNELIAN_SMALL = ore("ore_carnelian_small")
     val ORE_CARNELIAN_MEDIUM = ore("ore_carnelian_medium")
 
+    // Deep Ores
+    val ORE_RUBY_SMALL = ore("ore_ruby_small")
+    val ORE_RUBY_LARGE = ore("ore_ruby_large")
+
+    val ORE_SAPPHIRE_SMALL = ore("ore_sapphire_small")
+    val ORE_SAPPHIRE_LARGE = ore("ore_sapphire_large")
+
+    val ORE_KYANITE_SMALL = ore("ore_kyanite_small")
+    val ORE_KYANITE_LARGE = ore("ore_kyanite_large")
+
+    // Quartz
+    val ORE_SMOKY_QUARTZ = ore("ore_smoky_quartz")
+
+    // Surface
+    val ORE_MOONSTONE_SMALL = ore("ore_moonstone_small")
+    val ORE_MOONSTONE_MEDIUM = ore("ore_moonstone_medium")
 
     /*
         // Small, medium (max lvl 24)
@@ -46,7 +62,7 @@ object DFCfgOres {
         Hematite (deep dark & deep ocean)
         Carnelian (dropstone caves)
 
-        //small, large (mas lvl 10)
+        //small, large (max lvl 10)
         Ruby (low down in dry biomes)
         Sapphire (low down in cold biomes)
         Kyanite (low in mountains)

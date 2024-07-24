@@ -9,8 +9,6 @@ import org.teamvoided.dwarf_forged.util.DFBlockLists.CRYSTALS
 object DwarfForgedClient{
     fun init() {
         log.info("Hello from Client")
-        CRYSTALS.forEach{
-            BlockRenderLayerMap.INSTANCE.putBlock(it, RenderLayer.getCutout())
-        }
+        CRYSTALS.forEach{ BlockRenderLayerMap.INSTANCE.putBlock(it, RenderLayer.getCutout()) }
     }
 }

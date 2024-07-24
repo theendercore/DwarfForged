@@ -16,6 +16,7 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
     override fun configure(wrapperLookup: HolderLookup.Provider) {
 
         normalOres()
+        deepOres()
     }
 
     private fun normalOres() {
@@ -51,5 +52,16 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBiomeTags.HAS_CARNELIAN)
             .add(Biomes.DRIPSTONE_CAVES)
 
+    }
+
+    private fun deepOres() {
+        getOrCreateTagBuilder(DFBiomeTags.HAS_RUBY)
+            .forceAddTag(ConventionalBiomeTags.IS_DRY)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_SAPPHIRE)
+            .forceAddTag(ConventionalBiomeTags.IS_COLD)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_KYANITE)
+            .forceAddTag(ConventionalBiomeTags.IS_MOUNTAIN)
     }
 }

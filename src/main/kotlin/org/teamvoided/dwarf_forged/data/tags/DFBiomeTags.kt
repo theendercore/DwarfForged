@@ -17,6 +17,12 @@ object DFBiomeTags {
     val HAS_SPINEL = ore("has_spinel")
     val HAS_HEMATITE = ore("has_hematite")
     val HAS_CARNELIAN = ore("has_carnelian")
+    // Deep Ores
+    val HAS_RUBY = ore("has_ruby")
+    val HAS_SAPPHIRE = ore("has_sapphire")
+    val HAS_KYANITE = ore("has_kyanite")
+
+
 
 
     fun ore(name: String): TagKey<Biome> = create("ores/$name")

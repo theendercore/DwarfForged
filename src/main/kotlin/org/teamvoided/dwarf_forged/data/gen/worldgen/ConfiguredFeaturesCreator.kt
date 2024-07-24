@@ -5,9 +5,11 @@ import net.minecraft.block.Blocks
 import net.minecraft.registry.BootstrapContext
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.tag.BlockTags
+import net.minecraft.structure.rule.BlockMatchRuleTest
 import net.minecraft.structure.rule.TagMatchRuleTest
 import net.minecraft.util.math.int_provider.UniformIntProvider
 import net.minecraft.world.gen.feature.*
+import net.minecraft.world.gen.feature.Feature.ORE
 import org.teamvoided.dwarf_forged.data.worldgen.DFConfiguredFeatures
 import org.teamvoided.dwarf_forged.data.worldgen.ore.DFCfgOres
 import org.teamvoided.dwarf_forged.init.DFBlocks
@@ -25,6 +27,18 @@ object ConfiguredFeaturesCreator {
         deepslateTest = TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
         geodes(c)
         normalOres(c)
+        deepOres(c)
+
+        c.registerConfiguredFeature(
+            DFCfgOres.ORE_SMOKY_QUARTZ, ORE,
+            OreFeatureConfig(BlockMatchRuleTest(Blocks.NETHERRACK), Blocks.NETHER_QUARTZ_ORE.defaultState, 14)
+        )
+
+
+        val moonstone =
+            listOf(stoneTest target DFBlocks.MOONSTONE_ORE, deepslateTest target DFBlocks.DEEPSLATE_MOONSTONE_ORE)
+        c.registerConfiguredFeature(DFCfgOres.ORE_MOONSTONE_SMALL, ORE, OreFeatureConfig(moonstone, 4))
+        c.registerConfiguredFeature(DFCfgOres.ORE_MOONSTONE_MEDIUM, ORE, OreFeatureConfig(moonstone, 8, 0.3f))
 
     }
 
@@ -65,12 +79,19 @@ object ConfiguredFeaturesCreator {
 
     }
 
-    private fun BootstrapContext<CfgFeature>.makeNormal(
-        ore: Block, deepslateOre: Block, featSmall: RegistryKey<CfgFeature>, featMedium: RegistryKey<CfgFeature>
-    ) {
-        val oreRules = listOf(stoneTest target ore, deepslateTest target deepslateOre)
-        this.registerConfiguredFeature(featSmall, Feature.ORE, OreFeatureConfig(oreRules, 4))
-        this.registerConfiguredFeature(featMedium, Feature.ORE, OreFeatureConfig(oreRules, 8, 0.3f))
+    private fun deepOres(c: BootstrapContext<CfgFeature>) {
+        c.makeDeep(
+            DFBlocks.RUBY_ORE, DFBlocks.DEEPSLATE_RUBY_ORE,
+            DFCfgOres.ORE_RUBY_SMALL, DFCfgOres.ORE_RUBY_LARGE
+        )
+        c.makeDeep(
+            DFBlocks.SAPPHIRE_ORE, DFBlocks.DEEPSLATE_SAPPHIRE_ORE,
+            DFCfgOres.ORE_SAPPHIRE_SMALL, DFCfgOres.ORE_SAPPHIRE_LARGE
+        )
+        c.makeDeep(
+            DFBlocks.KYANITE_ORE, DFBlocks.DEEPSLATE_KYANITE_ORE,
+            DFCfgOres.ORE_KYANITE_SMALL, DFCfgOres.ORE_KYANITE_LARGE
+        )
     }
 
 
@@ -142,7 +163,23 @@ object ConfiguredFeaturesCreator {
         )
     }
 
+    private fun BootstrapContext<CfgFeature>.makeDeep(
+        ore: Block, deepslateOre: Block, featSmall: RegistryKey<CfgFeature>, featLarge: RegistryKey<CfgFeature>
+    ) {
+        val oreRules = listOf(stoneTest target ore, deepslateTest target deepslateOre)
+        this.registerConfiguredFeature(featSmall, ORE, OreFeatureConfig(oreRules, 4))
+        this.registerConfiguredFeature(featLarge, ORE, OreFeatureConfig(oreRules, 12, 0.5f))
+    }
+
+    private fun BootstrapContext<CfgFeature>.makeNormal(
+        ore: Block, deepslateOre: Block, featSmall: RegistryKey<CfgFeature>, featMedium: RegistryKey<CfgFeature>
+    ) {
+        val oreRules = listOf(stoneTest target ore, deepslateTest target deepslateOre)
+        this.registerConfiguredFeature(featSmall, ORE, OreFeatureConfig(oreRules, 4))
+        this.registerConfiguredFeature(featMedium, ORE, OreFeatureConfig(oreRules, 8, 0.3f))
+    }
 
     infix fun TagMatchRuleTest.target(state: Block): OreFeatureConfig.Target =
         OreFeatureConfig.createTarget(this, state.defaultState)
 }
+

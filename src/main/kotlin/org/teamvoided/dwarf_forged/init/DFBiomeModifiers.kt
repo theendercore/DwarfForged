@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
 import net.fabricmc.fabric.api.biome.v1.ModificationPhase
 import net.minecraft.registry.RegistryKey
+import net.minecraft.world.biome.Biomes
 import net.minecraft.world.gen.GenerationStep
 import net.minecraft.world.gen.feature.PlacedFeature
 import org.teamvoided.dwarf_forged.DwarfForged.id
@@ -41,8 +42,23 @@ object DFBiomeModifiers {
         addOre("add_ore_carnelian_small", DFPlacedOres.ORE_CARNELIAN_SMALL, BiomeSelectors.tag(DFBiomeTags.HAS_CARNELIAN))
         addOre("add_ore_carnelian_medium", DFPlacedOres.ORE_CARNELIAN_MEDIUM, BiomeSelectors.tag(DFBiomeTags.HAS_CARNELIAN))
 
+        // Deep Ores
+        addOre("add_ruby_small", DFPlacedOres.ORE_RUBY_SMALL, BiomeSelectors.tag(DFBiomeTags.HAS_RUBY))
+        addOre("add_ruby_large", DFPlacedOres.ORE_RUBY_LARGE, BiomeSelectors.tag(DFBiomeTags.HAS_RUBY))
 
+        addOre("add_sapphire_small", DFPlacedOres.ORE_SAPPHIRE_SMALL, BiomeSelectors.tag(DFBiomeTags.HAS_SAPPHIRE))
+        addOre("add_sapphire_large", DFPlacedOres.ORE_SAPPHIRE_LARGE, BiomeSelectors.tag(DFBiomeTags.HAS_SAPPHIRE))
 
+        addOre("add_kyanite_small", DFPlacedOres.ORE_KYANITE_SMALL, BiomeSelectors.tag(DFBiomeTags.HAS_KYANITE))
+        addOre("add_kyanite_large", DFPlacedOres.ORE_KYANITE_LARGE, BiomeSelectors.tag(DFBiomeTags.HAS_KYANITE))
+
+        // Quartz
+        addOre("add_smoky_quartz", DFPlacedOres.ORE_SMOKY_QUARTZ, BiomeSelectors.foundInTheNether())
+        addOre("add_smoky_quartz_delta", DFPlacedOres.ORE_SMOKY_QUARTZ_DELTA, BiomeSelectors.includeByKey(Biomes.BASALT_DELTAS))
+
+        // Surface
+        addOre("add_moonstone_small", DFPlacedOres.ORE_MOONSTONE_SMALL, BiomeSelectors.foundInOverworld())
+        addOre("add_moonstone_medium", DFPlacedOres.ORE_MOONSTONE_MEDIUM, BiomeSelectors.foundInOverworld())
         /*
 
            // Small, medium (max lvl 24)

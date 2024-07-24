@@ -17,6 +17,34 @@ object PlacedFeaturesCreator {
     fun boostrap(c: BootstrapContext<PlacedFeature>) {
         cfgFeat = c.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE)
 
+
+        normalOres(c)
+        deepOres(c)
+
+        c.register(
+            DFPlacedOres.ORE_SMOKY_QUARTZ, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_SMOKY_QUARTZ),
+            commonOrePlacementModifiers(16, PlacedFeatureUtil.FOUR_ABOVE_AND_BELOW_RANGE)
+        )
+        c.register(
+            DFPlacedOres.ORE_SMOKY_QUARTZ_DELTA, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_SMOKY_QUARTZ),
+            commonOrePlacementModifiers(48, PlacedFeatureUtil.FOUR_ABOVE_AND_BELOW_RANGE)
+        )
+
+        c.register(
+            DFPlacedOres.ORE_MOONSTONE_SMALL, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_MOONSTONE_SMALL),
+            commonOrePlacementModifiers(
+                6, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(35), YOffset.aboveBottom(100))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_MOONSTONE_MEDIUM, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_MOONSTONE_MEDIUM),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(40), YOffset.aboveBottom(90))
+            )
+        )
+    }
+
+    private fun normalOres(c: BootstrapContext<PlacedFeature>) {
         c.makeOre(
             DFPlacedOres.ORE_JADE_SMALL, DFCfgOres.ORE_JADE_SMALL,
             DFPlacedOres.ORE_JADE_MEDIUM, DFCfgOres.ORE_JADE_MEDIUM
@@ -49,10 +77,22 @@ object PlacedFeaturesCreator {
             DFPlacedOres.ORE_CARNELIAN_SMALL, DFCfgOres.ORE_CARNELIAN_SMALL,
             DFPlacedOres.ORE_CARNELIAN_MEDIUM, DFCfgOres.ORE_CARNELIAN_MEDIUM
         )
-
-
     }
 
+    private fun deepOres(c: BootstrapContext<PlacedFeature>) {
+        c.makeDeepOre(
+            DFPlacedOres.ORE_RUBY_SMALL, DFCfgOres.ORE_RUBY_SMALL,
+            DFPlacedOres.ORE_RUBY_LARGE, DFCfgOres.ORE_RUBY_LARGE
+        )
+        c.makeDeepOre(
+            DFPlacedOres.ORE_SAPPHIRE_SMALL, DFCfgOres.ORE_SAPPHIRE_SMALL,
+            DFPlacedOres.ORE_SAPPHIRE_LARGE, DFCfgOres.ORE_SAPPHIRE_LARGE
+        )
+        c.makeDeepOre(
+            DFPlacedOres.ORE_KYANITE_SMALL, DFCfgOres.ORE_KYANITE_SMALL,
+            DFPlacedOres.ORE_KYANITE_LARGE, DFCfgOres.ORE_KYANITE_LARGE
+        )
+    }
 
     private fun BootstrapContext<PlacedFeature>.makeOre(
         placedSmall: RegistryKey<PlacedFeature>, cfgSmall: RegistryKey<ConfiguredFeature<*, *>>,
@@ -66,6 +106,22 @@ object PlacedFeaturesCreator {
         this.register(
             placedMedium, cfgFeat.getHolderOrThrow(cfgMedium), commonOrePlacementModifiers(
                 2, HeightRangePlacementModifier.createUniform(YOffset.fixed(-64), YOffset.fixed(0))
+            )
+        )
+    }
+
+    private fun BootstrapContext<PlacedFeature>.makeDeepOre(
+        placedSmall: RegistryKey<PlacedFeature>, cfgSmall: RegistryKey<ConfiguredFeature<*, *>>,
+        placedLarge: RegistryKey<PlacedFeature>, cfgLarge: RegistryKey<ConfiguredFeature<*, *>>,
+    ) {
+        this.register(
+            placedSmall, cfgFeat.getHolderOrThrow(cfgSmall), commonOrePlacementModifiers(
+                6, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(10))
+            )
+        )
+        this.register(
+            placedLarge, cfgFeat.getHolderOrThrow(cfgLarge), commonOrePlacementModifiers(
+                4, HeightRangePlacementModifier.createUniform(YOffset.fixed(-64), YOffset.fixed(-16))
             )
         )
     }
