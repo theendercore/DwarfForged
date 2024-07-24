@@ -8,6 +8,7 @@ import org.teamvoided.dwarf_forged.util.tag
 
 object DFBiomeTags {
 
+    // Normal Ores
     val HAS_JADE = ore("has_jade")
     val HAS_EUCLASE = ore("has_euclase")
     val HAS_BORACITE = ore("has_boracite")

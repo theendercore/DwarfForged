@@ -69,8 +69,8 @@ object ConfiguredFeaturesCreator {
         ore: Block, deepslateOre: Block, featSmall: RegistryKey<CfgFeature>, featMedium: RegistryKey<CfgFeature>
     ) {
         val oreRules = listOf(stoneTest target ore, deepslateTest target deepslateOre)
-        this.registerConfiguredFeature(featSmall, Feature.ORE, OreFeatureConfig(oreRules, 4, 0.5f))
-        this.registerConfiguredFeature(featMedium, Feature.ORE, OreFeatureConfig(oreRules, 8, 0.5f))
+        this.registerConfiguredFeature(featSmall, Feature.ORE, OreFeatureConfig(oreRules, 4))
+        this.registerConfiguredFeature(featMedium, Feature.ORE, OreFeatureConfig(oreRules, 8, 0.3f))
     }
 
 
