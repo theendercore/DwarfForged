@@ -9,6 +9,7 @@ import org.teamvoided.dwarf_forged.data.gen.prov.BlockLootTableProvider
 import org.teamvoided.dwarf_forged.data.gen.prov.EnLangProvider
 import org.teamvoided.dwarf_forged.data.gen.prov.ModelProviders
 import org.teamvoided.dwarf_forged.data.gen.prov.RecipeProvider
+import org.teamvoided.dwarf_forged.data.gen.tags.BiomeTagProvider
 import org.teamvoided.dwarf_forged.data.gen.tags.BlockTagProvider
 import org.teamvoided.dwarf_forged.data.gen.tags.ItemTagProvider
 import org.teamvoided.dwarf_forged.data.gen.worldgen.ConfiguredFeaturesCreator
@@ -23,6 +24,7 @@ class DwarfForgedData : DataGeneratorEntrypoint {
         // Tags
         val blockTags = pack.addProvider(::BlockTagProvider)
         pack.addProvider { o, r -> ItemTagProvider(o, r, blockTags) }
+        pack.addProvider(::BiomeTagProvider)
 
         // Assets
         pack.addProvider(::ModelProviders)
