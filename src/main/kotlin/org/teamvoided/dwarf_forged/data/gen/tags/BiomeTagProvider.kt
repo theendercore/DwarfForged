@@ -15,11 +15,12 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
     FabricTagProvider<Biome>(o, RegistryKeys.BIOME, r) {
     override fun configure(wrapperLookup: HolderLookup.Provider) {
 
-        normalOres()
-        deepOres()
+        normalGems()
+        deepGems()
+        metals()
     }
 
-    private fun normalOres() {
+    private fun normalGems() {
         getOrCreateTagBuilder(DFBiomeTags.HAS_JADE)
             .forceAddTag(ConventionalBiomeTags.IS_JUNGLE)
             .forceAddTag(BiomeTags.JUNGLE)
@@ -54,7 +55,7 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
     }
 
-    private fun deepOres() {
+    private fun deepGems() {
         getOrCreateTagBuilder(DFBiomeTags.HAS_RUBY)
             .forceAddTag(ConventionalBiomeTags.IS_DRY)
 
@@ -63,5 +64,35 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
         getOrCreateTagBuilder(DFBiomeTags.HAS_KYANITE)
             .forceAddTag(ConventionalBiomeTags.IS_MOUNTAIN)
+    }
+
+    private fun metals() {
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_COBALT)
+            .forceAddTag(ConventionalBiomeTags.IS_SNOWY)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_TUNGSTEN)
+            .add(Biomes.DEEP_DARK)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_URANIUM)
+            .forceAddTag(ConventionalBiomeTags.IS_DESERT)
+            .forceAddTag(ConventionalBiomeTags.IS_BADLANDS)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_PALLADIUM)
+            .add(Biomes.DRIPSTONE_CAVES)
+            .forceAddTag(ConventionalBiomeTags.IS_BADLANDS)
+
+        // Deep Ores
+        getOrCreateTagBuilder(DFBiomeTags.HAS_PLUTONIUM)
+            .forceAddTag(ConventionalBiomeTags.IS_FLORAL)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_BISMUTH)
+            .forceAddTag(ConventionalBiomeTags.IS_OCEAN)
+            .forceAddTag(ConventionalBiomeTags.IS_BEACH)
+            .forceAddTag(ConventionalBiomeTags.IS_STONY_SHORES)
+
+        // Rare Ores
+        getOrCreateTagBuilder(DFBiomeTags.HAS_PLATINUM)
+            .forceAddTag(ConventionalBiomeTags.IS_SWAMP)
     }
 }

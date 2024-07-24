@@ -158,9 +158,8 @@ object ConfiguredFeaturesCreator {
         )
 
         val iridium = listOf(stoneTest target DFBlocks.IRIDIUM_ORE, deepslateTest target DFBlocks.DEEPSLATE_IRIDIUM_ORE)
-        c.registerConfiguredFeature(DFCfgOres.ORE_IRIDIUM_SMALL, ORE, OreFeatureConfig(iridium, 3))
+        c.registerConfiguredFeature(DFCfgOres.ORE_IRIDIUM, ORE, OreFeatureConfig(iridium, 3))
     }
-
 
     private fun geodes(c: BootstrapContext<CfgFeature>) {
         c.registerConfiguredFeature(

@@ -104,7 +104,7 @@ object DFCfgOres {
     val ORE_PLATINUM_SMALL = ore("ore_platinum_small")
     val ORE_PLATINUM = ore("ore_platinum")
 
-    val ORE_IRIDIUM_SMALL = ore("ore_iridium_small")
+    val ORE_IRIDIUM = ore("ore_iridium")
 
     /*
         // Small, medium (max lvl 24)
