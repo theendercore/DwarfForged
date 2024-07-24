@@ -10,8 +10,10 @@ import net.minecraft.util.Identifier
 import org.teamvoided.dwarf_forged.DwarfForged.id
 
 // Reverse Compacting 3x3
-fun RecipeExporter.revCompacting3x3(item: ItemConvertible, block: ItemConvertible) =
-    offerReversibleCompactingRecipes(this, RecipeCategory.MISC, item, RecipeCategory.BUILDING_BLOCKS, block)
+fun RecipeExporter.revCompacting3x3(item: ItemConvertible, block: ItemConvertible) {
+    this.compact9To1(RecipeCategory.MISC, block, item)
+    this.uncompact1To9(RecipeCategory.MISC, item, block)
+}
 
 fun RecipeExporter.metalCompacting(nugget: ItemConvertible, ingot: ItemConvertible, block: ItemConvertible) {
     this.compact9To1(RecipeCategory.MISC, block, ingot)
@@ -33,6 +35,7 @@ fun RecipeExporter.compact9To1(
     .ingredient('#', input)
     .group(group)
     .itemCriterion(input)
+    .itemCriterion(result)
     .offerTo(this, id)
 
 fun RecipeExporter.uncompact1To9(
@@ -115,6 +118,7 @@ fun <T : AbstractCookingRecipe> RecipeExporter.genericSmelting(
     .create(Ingredient.ofItems(inputs), category, output, experience, cookingTime, serializer, recipe)
     .group(group)
     .itemCriterion(inputs)
+    .itemCriterion(output)
     .offerTo(this, id)
 
 fun <T : AbstractCookingRecipe> RecipeExporter.genericSmelting(
@@ -131,6 +135,7 @@ fun <T : AbstractCookingRecipe> RecipeExporter.genericSmelting(
     .create(Ingredient.ofTag(inputs), category, output, experience, cookingTime, serializer, recipe)
     .group(group)
     .tagCriterion(inputs)
+    .itemCriterion(output)
     .offerTo(this, id)
 
 
