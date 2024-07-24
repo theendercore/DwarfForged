@@ -7,6 +7,7 @@ import net.minecraft.structure.rule.TagMatchRuleTest
 import net.minecraft.util.math.int_provider.UniformIntProvider
 import net.minecraft.world.gen.feature.*
 import org.teamvoided.dwarf_forged.data.worldgen.DFConfiguredFeatures
+import org.teamvoided.dwarf_forged.data.worldgen.ore.DFCfgOres
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.util.registerConfiguredFeature
 import org.teamvoided.dwarf_forged.util.toProvider
@@ -24,7 +25,7 @@ object ConfiguredFeaturesCreator {
         )
 
         c.registerConfiguredFeature(
-            DFConfiguredFeatures.ORE_RUBY_MEDIUM, Feature.ORE,
+            DFCfgOres.ORE_RUBY_MEDIUM, Feature.ORE,
             OreFeatureConfig(rubyOre, 8, 0.5f)
         )
 

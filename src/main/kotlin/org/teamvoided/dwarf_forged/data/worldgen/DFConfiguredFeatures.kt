@@ -11,15 +11,5 @@ object DFConfiguredFeatures {
     val BLUE_SKY_GEODE = create("blue_sky_geode")
     val CITRINE_GEODE = create("citrine_geode")
 
-    val ORE_RUBY_SMALL = create("ore_ruby_small")
-    val ORE_RUBY_MEDIUM = create("ore_ruby_medium")
-    val ORE_RUBY_LARGE = create("ore_ruby_large")
-    val ORE_RUBY_BURIED = create("ore_ruby_buried")
-
-//    val ORE_DIAMOND_SMALL = ConfiguredFeatureUtil.getRegistryKey("ore_diamond_small")
-//    val ORE_DIAMOND_MEDIUM = ConfiguredFeatureUtil.getRegistryKey("ore_diamond_medium")
-//    val ORE_DIAMOND_LARGE = ConfiguredFeatureUtil.getRegistryKey("ore_diamond_large")
-//    val ORE_DIAMOND_BURIED = ConfiguredFeatureUtil.getRegistryKey("ore_diamond_buried")
-
     private fun create(id: String): RegistryKey<ConfiguredFeature<*, *>> = RegistryKeys.CONFIGURED_FEATURE.key(id(id))
 }
