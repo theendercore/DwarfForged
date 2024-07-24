@@ -31,7 +31,7 @@ object ConfiguredFeaturesCreator {
 
         c.registerConfiguredFeature(
             DFCfgOres.ORE_SMOKY_QUARTZ, ORE,
-            OreFeatureConfig(BlockMatchRuleTest(Blocks.NETHERRACK), Blocks.NETHER_QUARTZ_ORE.defaultState, 14)
+            OreFeatureConfig(BlockMatchRuleTest(Blocks.NETHERRACK), DFBlocks.SMOKY_QUARTZ_BLOCK.defaultState, 14)
         )
 
 

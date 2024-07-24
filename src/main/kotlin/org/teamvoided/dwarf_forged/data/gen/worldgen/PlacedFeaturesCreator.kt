@@ -33,13 +33,19 @@ object PlacedFeaturesCreator {
         c.register(
             DFPlacedOres.ORE_MOONSTONE_SMALL, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_MOONSTONE_SMALL),
             commonOrePlacementModifiers(
-                6, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(35), YOffset.aboveBottom(100))
+                6, HeightRangePlacementModifier.createUniform(YOffset.fixed(35), YOffset.fixed(100))
             )
         )
         c.register(
             DFPlacedOres.ORE_MOONSTONE_MEDIUM, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_MOONSTONE_MEDIUM),
             commonOrePlacementModifiers(
-                3, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(40), YOffset.aboveBottom(90))
+                3, HeightRangePlacementModifier.createUniform(YOffset.fixed(40), YOffset.fixed(90))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_MOONSTONE_DEEP, cfgFeat.getHolderOrThrow(DFCfgOres.ORE_MOONSTONE_SMALL),
+            commonOrePlacementModifiers(
+                6, HeightRangePlacementModifier.createUniform(YOffset.fixed(-15), YOffset.fixed(-5))
             )
         )
     }
@@ -100,7 +106,7 @@ object PlacedFeaturesCreator {
     ) {
         this.register(
             placedSmall, cfgFeat.getHolderOrThrow(cfgSmall), commonOrePlacementModifiers(
-                7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(24))
+                7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-60), YOffset.aboveBottom(24))
             )
         )
         this.register(
@@ -116,7 +122,7 @@ object PlacedFeaturesCreator {
     ) {
         this.register(
             placedSmall, cfgFeat.getHolderOrThrow(cfgSmall), commonOrePlacementModifiers(
-                6, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(10))
+                6, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-50), YOffset.aboveBottom(10))
             )
         )
         this.register(

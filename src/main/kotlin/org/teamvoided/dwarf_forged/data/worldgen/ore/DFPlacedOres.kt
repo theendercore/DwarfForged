@@ -50,6 +50,7 @@ object DFPlacedOres {
     // Surface
     val ORE_MOONSTONE_SMALL = ore("ore_moonstone_small")
     val ORE_MOONSTONE_MEDIUM = ore("ore_moonstone_medium")
+    val ORE_MOONSTONE_DEEP = ore("ore_moonstone_deep")
     
     private fun ore(id: String): RegistryKey<PlacedFeature> = RegistryKeys.PLACED_FEATURE.key(id("ore/$id"))
 }
