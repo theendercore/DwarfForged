@@ -51,6 +51,61 @@ object DFCfgOres {
     val ORE_MOONSTONE_SMALL = ore("ore_moonstone_small")
     val ORE_MOONSTONE_MEDIUM = ore("ore_moonstone_medium")
 
+    // --- METALS ---
+
+    // Normal Ores
+    val ORE_SILVER_SMALL = ore("ore_silver_small")
+    val ORE_SILVER = ore("ore_silver")
+
+    val ORE_COBALT_SMALL = ore("ore_cobalt_small")
+    val ORE_COBALT = ore("ore_cobalt")
+
+    val ORE_TUNGSTEN_SMALL = ore("ore_tungsten_small")
+    val ORE_TUNGSTEN = ore("ore_tungsten")
+
+    val ORE_URANIUM_SMALL = ore("ore_uranium_small")
+    val ORE_URANIUM = ore("ore_uranium")
+
+    val ORE_LEAD_SMALL = ore("ore_lead_small")
+    val ORE_LEAD = ore("ore_lead")
+
+    val ORE_TIN_SMALL = ore("ore_tin_small")
+    val ORE_TIN = ore("ore_tin")
+
+    val ORE_PALLADIUM_SMALL = ore("ore_palladium_small")
+    val ORE_PALLADIUM = ore("ore_palladium")
+
+    val ORE_ZINC_SMALL = ore("ore_zinc_small")
+    val ORE_ZINC = ore("ore_zinc")
+
+    val ORE_NICKEL_SMALL = ore("ore_nickel_small")
+    val ORE_NICKEL = ore("ore_nickel")
+
+    val ORE_ALUMINIUM_SMALL = ore("ore_aluminium_small")
+    val ORE_ALUMINIUM = ore("ore_aluminium")
+
+
+    // Deep Ores
+    val ORE_TITANIUM_SMALL = ore("ore_titanium_small")
+    val ORE_TITANIUM = ore("ore_titanium")
+
+    val ORE_PLUTONIUM_SMALL = ore("ore_plutonium_small")
+    val ORE_PLUTONIUM = ore("ore_plutonium")
+
+
+    // Shallow Ores
+    val ORE_THALLIUM_SMALL = ore("ore_thallium_small")
+    val ORE_THALLIUM = ore("ore_thallium")
+
+    val ORE_BISMUTH_SMALL = ore("ore_bismuth_small")
+    val ORE_BISMUTH = ore("ore_bismuth")
+
+    // Rare Ores
+    val ORE_PLATINUM_SMALL = ore("ore_platinum_small")
+    val ORE_PLATINUM = ore("ore_platinum")
+
+    val ORE_IRIDIUM_SMALL = ore("ore_iridium_small")
+
     /*
         // Small, medium (max lvl 24)
         Jade (in jungles & lush caves)
@@ -72,6 +127,30 @@ object DFCfgOres {
 
         // small, medium (max lvl 100, min lvl 35)
         Moonstone (surface level all biomes)
+
+
+ // --- METALS ---
+        // normal ores
+        Silver (all owerwold)
+        Cobalt (snowy)
+        Tungsten ( deep dark)
+        Uranium (desserts)
+        Lead (everywhere)
+        Tin (everywhere)
+        Palladium (drip & messa)
+        Zinc (everywhere)
+        Nickel (everywhere)
+        Aluminium (everywhere)
+
+        Titanium (deep and everywehre)
+        Plutonium (floral deep)
+
+        Thallium (shallow everywhere, but ocean)
+        Bismuth (ocean and sahores (shallow))
+
+        Platinum (sawmps only, rare)
+
+        Iridium (everywhere but its supper rare)
      */
 
     private fun ore(id: String): RegistryKey<ConfiguredFeature<*, *>> =
