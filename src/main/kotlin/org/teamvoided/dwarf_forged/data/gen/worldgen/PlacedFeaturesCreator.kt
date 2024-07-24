@@ -60,12 +60,12 @@ object PlacedFeaturesCreator {
     ) {
         this.register(
             placedSmall, cfgFeat.getHolderOrThrow(cfgSmall), commonOrePlacementModifiers(
-                7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80))
+                7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-70), YOffset.aboveBottom(24))
             )
         )
         this.register(
             placedMedium, cfgFeat.getHolderOrThrow(cfgMedium), commonOrePlacementModifiers(
-                2, HeightRangePlacementModifier.createUniform(YOffset.fixed(-64), YOffset.fixed(-4))
+                2, HeightRangePlacementModifier.createUniform(YOffset.fixed(-64), YOffset.fixed(0))
             )
         )
     }

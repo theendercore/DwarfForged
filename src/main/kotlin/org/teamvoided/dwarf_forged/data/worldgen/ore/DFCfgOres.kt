@@ -36,7 +36,6 @@ object DFCfgOres {
 
 
     /*
-
         // Small, medium (max lvl 24)
         Jade (in jungles & lush caves)
         Euclase (all taigas)
