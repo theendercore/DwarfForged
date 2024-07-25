@@ -22,14 +22,17 @@ object DFConfiguredFeatures {
     val VARIOLITE = rock("variolite")
 
 //    Pumice (nether)
+
 //    Marble (dark forest & dark grove)
-//    Tektite (comes from obsidian like gravel)
+//    Mudrock (lush caves and swamps)
+
+//    Blue schist (everywehre and high)
+
 //    Blairmorite (jungles & lush)
 //    Pyroxenite (everywhere)
 //    Argillite (cold biomes)
-//    Mudrock (lush caves and swamps)
-//    Blue schist (everywehre and high)
 //    Variolite (not cold)
+
 
 
     private fun create(id: String): RegistryKey<ConfiguredFeature<*, *>> = RegistryKeys.CONFIGURED_FEATURE.key(id(id))

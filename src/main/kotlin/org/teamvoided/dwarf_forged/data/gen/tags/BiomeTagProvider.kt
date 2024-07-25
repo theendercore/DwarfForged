@@ -8,6 +8,7 @@ import net.minecraft.registry.RegistryKeys
 import net.minecraft.registry.tag.BiomeTags
 import net.minecraft.world.biome.Biome
 import net.minecraft.world.biome.Biomes
+import org.teamvoided.dwarf_forged.DwarfForged.id
 import org.teamvoided.dwarf_forged.data.tags.DFBiomeTags
 import java.util.concurrent.CompletableFuture
 
@@ -18,6 +19,7 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         normalGems()
         deepGems()
         metals()
+        rocks()
     }
 
     private fun normalGems() {
@@ -94,5 +96,22 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         // Rare Ores
         getOrCreateTagBuilder(DFBiomeTags.HAS_PLATINUM)
             .forceAddTag(ConventionalBiomeTags.IS_SWAMP)
+    }
+
+    private fun rocks() {
+        getOrCreateTagBuilder(DFBiomeTags.HAS_MARBLE)
+            .add(Biomes.DARK_FOREST)
+            .addOptional(id("dusks_biomes", "dark_grove"))
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_MUDROCK)
+            .add(Biomes.LUSH_CAVES)
+            .forceAddTag(ConventionalBiomeTags.IS_SWAMP)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_BLAIRMORITE)
+            .forceAddTag(ConventionalBiomeTags.IS_JUNGLE)
+            .add(Biomes.LUSH_CAVES)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_ARGILLITE)
+            .forceAddTag(ConventionalBiomeTags.IS_COLD_OVERWORLD)
     }
 }

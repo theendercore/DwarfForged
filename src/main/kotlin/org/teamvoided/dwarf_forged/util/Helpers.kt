@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.world.gen.decorator.BiomePlacementModifier
 import net.minecraft.world.gen.decorator.CountPlacementModifier
 import net.minecraft.world.gen.decorator.InSquarePlacementModifier
+import net.minecraft.world.gen.decorator.RarityFilterPlacementModifier
 import net.minecraft.world.gen.feature.*
 import net.minecraft.world.gen.stateprovider.BlockStateProvider
 import org.teamvoided.dwarf_forged.DwarfForged.id
@@ -49,11 +50,16 @@ fun BootstrapContext<ConfiguredFeature<*, *>>.registerConfiguredFeature(
     registryKey: RegistryKey<ConfiguredFeature<*, *>>, feature: Feature<DefaultFeatureConfig>
 ) = this.registerConfiguredFeature(registryKey, feature, FeatureConfig.DEFAULT)
 
-fun commonOrePlacementModifiers(count: Int, modifier: PlacementModifier): List<PlacementModifier> {
-    return listOf(
-        CountPlacementModifier.create(count),
-        InSquarePlacementModifier.getInstance(),
-        modifier,
-        BiomePlacementModifier.getInstance()
-    )
-}
+fun rareOrePlacementModifiers(chance: Int, modifier: PlacementModifier): List<PlacementModifier> = listOf(
+    RarityFilterPlacementModifier.create(chance),
+    InSquarePlacementModifier.getInstance(),
+    modifier,
+    BiomePlacementModifier.getInstance()
+)
+
+fun commonOrePlacementModifiers(count: Int, modifier: PlacementModifier): List<PlacementModifier> = listOf(
+    CountPlacementModifier.create(count),
+    InSquarePlacementModifier.getInstance(),
+    modifier,
+    BiomePlacementModifier.getInstance()
+)

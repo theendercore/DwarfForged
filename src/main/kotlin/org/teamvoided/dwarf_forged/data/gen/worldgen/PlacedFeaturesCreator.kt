@@ -7,9 +7,12 @@ import net.minecraft.world.gen.feature.ConfiguredFeature
 import net.minecraft.world.gen.feature.PlacedFeature
 import net.minecraft.world.gen.feature.PlacementModifier
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil
+import org.teamvoided.dwarf_forged.data.worldgen.DFConfiguredFeatures
+import org.teamvoided.dwarf_forged.data.worldgen.DFPlacedFeatures
 import org.teamvoided.dwarf_forged.data.worldgen.ore.DFCfgOres
 import org.teamvoided.dwarf_forged.data.worldgen.ore.DFPlacedOres
 import org.teamvoided.dwarf_forged.util.commonOrePlacementModifiers
+import org.teamvoided.dwarf_forged.util.rareOrePlacementModifiers
 
 object PlacedFeaturesCreator {
     private lateinit var cfgFeat: HolderProvider<ConfiguredFeature<*, *>>
@@ -25,6 +28,7 @@ object PlacedFeaturesCreator {
         deepMetals(c)
         miscMetals(c)
 
+        rocks(c)
     }
 
     private fun normalGems(c: BootstrapContext<PlacedFeature>) {
@@ -209,6 +213,37 @@ object PlacedFeaturesCreator {
 
     }
 
+
+    private fun rocks(c: BootstrapContext<PlacedFeature>) {
+
+        // Shallow
+        c.makeRock(DFPlacedFeatures.MARBLE_LOWER, DFPlacedFeatures.MARBLE_UPPER, DFConfiguredFeatures.MARBLE)
+        c.makeRock(DFPlacedFeatures.MUDROCK_LOWER, DFPlacedFeatures.MUDROCK_UPPER, DFConfiguredFeatures.MUDROCK)
+
+        // High
+        c.makeRock(
+            DFPlacedFeatures.BLUE_SCHIST_LOWER, DFPlacedFeatures.BLUE_SCHIST_UPPER, DFConfiguredFeatures.BLUE_SCHIST,
+            10, 4,
+            64, 320,
+            32, 70
+        )
+
+        // Normal
+        c.makeNormalRock(
+            DFPlacedFeatures.BLAIRMORITE_LOWER, DFPlacedFeatures.BLAIRMORITE_UPPER, DFConfiguredFeatures.BLAIRMORITE
+        )
+        c.makeNormalRock(
+            DFPlacedFeatures.PYROXENITE_LOWER, DFPlacedFeatures.PYROXENITE_UPPER, DFConfiguredFeatures.PYROXENITE
+        )
+        c.makeNormalRock(
+            DFPlacedFeatures.ARGILLITE_LOWER, DFPlacedFeatures.ARGILLITE_UPPER, DFConfiguredFeatures.ARGILLITE
+        )
+        c.makeNormalRock(
+            DFPlacedFeatures.VARIOLITE_LOWER, DFPlacedFeatures.VARIOLITE_UPPER, DFConfiguredFeatures.VARIOLITE
+        )
+
+    }
+
     private fun BootstrapContext<PlacedFeature>.makeDeepMetal(
         placedSmall: RegistryKey<PlacedFeature>, cfgSmall: RegistryKey<ConfiguredFeature<*, *>>,
         placed: RegistryKey<PlacedFeature>, cfg: RegistryKey<ConfiguredFeature<*, *>>,
@@ -309,6 +344,33 @@ object PlacedFeaturesCreator {
             )
         )
     }
+
+
+    private fun BootstrapContext<PlacedFeature>.makeNormalRock(
+        lower: RegistryKey<PlacedFeature>, upper: RegistryKey<PlacedFeature>, cfg: RegistryKey<ConfiguredFeature<*, *>>,
+        upperChance: Int = 6, lowerChance: Int = 2,
+    ) = this.makeRock(lower, upper, cfg, upperChance, lowerChance, 0, 64, -64, 0)
+
+    private fun BootstrapContext<PlacedFeature>.makeRock(
+        lower: RegistryKey<PlacedFeature>, upper: RegistryKey<PlacedFeature>, cfg: RegistryKey<ConfiguredFeature<*, *>>,
+        upperChance: Int = 6, lowerChance: Int = 2,
+        upperMin: Int = 64, upperMax: Int = 128,
+        lowerMin: Int = 0, lowerMax: Int = 60
+    ) {
+        this.register(
+            upper, cfgFeat.getHolderOrThrow(cfg), rareOrePlacementModifiers(
+                upperChance,
+                HeightRangePlacementModifier.createUniform(YOffset.fixed(upperMin), YOffset.fixed(upperMax))
+            )
+        )
+        this.register(
+            lower, cfgFeat.getHolderOrThrow(cfg), commonOrePlacementModifiers(
+                lowerChance,
+                HeightRangePlacementModifier.createUniform(YOffset.fixed(lowerMin), YOffset.fixed(lowerMax))
+            )
+        )
+    }
+
 
     private fun BootstrapContext<PlacedFeature>.register(
         registryKey: RegistryKey<PlacedFeature>, feature: Holder<ConfiguredFeature<*, *>>, coll: List<PlacementModifier>

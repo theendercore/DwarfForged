@@ -35,8 +35,16 @@ object DFBiomeTags {
     // Rare Ores
     val HAS_PLATINUM = ore("has_platinum")
 
+    // --- ROCKS ---
+    val HAS_MARBLE = rock("has_marble")
+    val HAS_MUDROCK = rock("has_mudrock")
+
+    val HAS_BLAIRMORITE = rock("has_blairmorite")
+    val HAS_ARGILLITE = rock("has_argillite")
+
 
     fun ore(name: String): TagKey<Biome> = create("ores/$name")
+    fun rock(name: String): TagKey<Biome> = create("rocks/$name")
 
     fun create(name: String): TagKey<Biome> = RegistryKeys.BIOME.tag(id(name))
 }
