@@ -17,12 +17,14 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         gems()
         metals()
         humanOres()
+        rocks()
+        crystals()
 
         mineable()
         conventionalTags()
     }
 
-    private fun metaTags(){
+    private fun metaTags() {
         getOrCreateTagBuilder(DFBlockTags.DWARF_FORGED_ORES)
             .forceAddTag(DFBlockTags.GEM_ORES)
             .forceAddTag(DFBlockTags.METAL_ORES)
@@ -181,7 +183,8 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.ASTRALITE_ORES)
             .forceAddTag(DFBlockTags.GRASS_ORES)
 
-        getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES).add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES)
+            .add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
         getOrCreateTagBuilder(DFBlockTags.ASTRALITE_ORES).add(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE)
         getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.GRASS_ORE, DFBlocks.DEEPSLATE_GRASS_ORE)
 
@@ -209,6 +212,8 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.METAL_BLOCKS)
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
+            .forceAddTag(DFBlockTags.ROCKS)
+            .forceAddTag(DFBlockTags.CRYSTALS)
 
         getOrCreateTagBuilder(BlockTags.NEEDS_IRON_TOOL)
             .forceAddTag(DFBlockTags.GEM_ORES)
@@ -223,11 +228,98 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
             .forceAddTag(DFBlockTags.HUMAN_BLOCKS)
     }
 
+    private fun rocks() {
+        getOrCreateTagBuilder(DFBlockTags.ROCKS)
+            .forceAddTag(DFBlockTags.STONES)
+            .forceAddTag(DFBlockTags.COBBLESTONES)
+
+        getOrCreateTagBuilder(DFBlockTags.STONES)
+            .forceAddTag(DFBlockTags.STONES_OVERWORLD)
+            .forceAddTag(DFBlockTags.STONES_NETHER)
+
+        getOrCreateTagBuilder(DFBlockTags.COBBLESTONES)
+            .add(DFBlocks.COBBLED_BLUE_SCHIST)
+
+        getOrCreateTagBuilder(DFBlockTags.STONES_OVERWORLD)
+            .add(DFBlocks.MARBLE)
+            .add(DFBlocks.ORBITAL_GRANITE)
+            .add(DFBlocks.BLAIRMORITE)
+            .add(DFBlocks.PYROXENITE)
+            .add(DFBlocks.ARGILLITE)
+            .add(DFBlocks.MUDROCK)
+            .add(DFBlocks.BLUE_SCHIST)
+            .add(DFBlocks.VARIOLITE)
+
+        getOrCreateTagBuilder(DFBlockTags.STONES_NETHER)
+            .add(DFBlocks.PUMICE)
+
+
+        getOrCreateTagBuilder(BlockTags.BASE_STONE_NETHER)
+            .forceAddTag(DFBlockTags.STONES_NETHER)
+        getOrCreateTagBuilder(BlockTags.BASE_STONE_OVERWORLD)
+            .forceAddTag(DFBlockTags.STONES_OVERWORLD)
+
+        getOrCreateTagBuilder(BlockTags.STONE_ORE_REPLACEABLES)
+            .forceAddTag(DFBlockTags.STONES)
+    }
+
+    private fun crystals() {
+        getOrCreateTagBuilder(DFBlockTags.CRYSTALS).forceAddTag(DFBlockTags.BLUE_SKY).forceAddTag(DFBlockTags.CITRINE)
+
+        getOrCreateTagBuilder(DFBlockTags.BLUE_SKY).add(
+            DFBlocks.BLUE_SKY_BLOCK,
+            DFBlocks.BLUE_SKY_CLUSTER,
+            DFBlocks.LARGE_BLUE_SKY_BUD,
+            DFBlocks.MEDIUM_BLUE_SKY_BUD,
+            DFBlocks.SMALL_BLUE_SKY_BUD,
+            DFBlocks.BUDDING_BLUE_SKY,
+        )
+        getOrCreateTagBuilder(DFBlockTags.CITRINE).add(
+            DFBlocks.CITRINE_BLOCK,
+            DFBlocks.CITRINE_CLUSTER,
+            DFBlocks.LARGE_CITRINE_BUD,
+            DFBlocks.MEDIUM_CITRINE_BUD,
+            DFBlocks.SMALL_CITRINE_BUD,
+            DFBlocks.BUDDING_CITRINE,
+        )
+
+        getOrCreateTagBuilder(BlockTags.CRYSTAL_SOUND_BLOCKS).add(
+            DFBlocks.BLUE_SKY_BLOCK,
+            DFBlocks.BUDDING_BLUE_SKY,
+            DFBlocks.CITRINE_BLOCK,
+            DFBlocks.BUDDING_CITRINE,
+        )
+
+        getOrCreateTagBuilder(BlockTags.VIBRATION_RESONATORS).add(
+            DFBlocks.BLUE_SKY_BLOCK,
+            DFBlocks.CITRINE_BLOCK,
+        )
+        getOrCreateTagBuilder(BlockTags.INSIDE_STEP_SOUND_BLOCKS).add(
+            DFBlocks.SMALL_BLUE_SKY_BUD,
+            DFBlocks.SMALL_CITRINE_BUD,
+        )
+    }
+
     private fun conventionalTags() {
         getOrCreateTagBuilder(ConventionalBlockTags.ORES)
             .forceAddTag(DFBlockTags.DWARF_FORGED_ORES)
         getOrCreateTagBuilder(ConventionalBlockTags.STORAGE_BLOCKS)
             .forceAddTag(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS)
+
+        // Stones
+        getOrCreateTagBuilder(ConventionalBlockTags.STONES)
+            .forceAddTag(DFBlockTags.STONES_OVERWORLD)
+        getOrCreateTagBuilder(ConventionalBlockTags.COBBLESTONES)
+            .forceAddTag(DFBlockTags.COBBLESTONES)
+
+        // Crystals
+        getOrCreateTagBuilder(ConventionalBlockTags.BUDDING_BLOCKS)
+            .add(DFBlocks.BUDDING_BLUE_SKY, DFBlocks.BUDDING_CITRINE)
+        getOrCreateTagBuilder(ConventionalBlockTags.CLUSTERS)
+            .add(DFBlocks.BLUE_SKY_CLUSTER, DFBlocks.CITRINE_CLUSTER)
+        getOrCreateTagBuilder(ConventionalBlockTags.BUDS)
+            .add(DFBlocks.LARGE_BLUE_SKY_BUD, DFBlocks.MEDIUM_BLUE_SKY_BUD, DFBlocks.SMALL_BLUE_SKY_BUD)
+            .add(DFBlocks.LARGE_CITRINE_BUD, DFBlocks.MEDIUM_CITRINE_BUD, DFBlocks.SMALL_CITRINE_BUD)
 
     }
 }

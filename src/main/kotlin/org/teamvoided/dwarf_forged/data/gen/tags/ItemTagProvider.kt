@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags
 import net.minecraft.registry.HolderLookup
+import net.minecraft.registry.tag.ItemTags
 import org.teamvoided.dwarf_forged.data.tags.DFBlockTags
 import org.teamvoided.dwarf_forged.data.tags.DFItemTags
 import org.teamvoided.dwarf_forged.init.DFItems
@@ -18,6 +19,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         gems()
         metals()
         humans()
+        rockTags()
 
         misc()
 
@@ -27,11 +29,13 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copyGemTags()
         copyMetalTags()
         copyHumanTags()
+        copyRocksTags()
+        copyCrystalsTags()
 
         copyConventionalTags()
     }
 
-    private fun metaTags(){
+    private fun metaTags() {
         getOrCreateTagBuilder(DFItemTags.DWARF_FORGED_GEMS)
             .forceAddTag(DFItemTags.GEMS_RUBY)
             .forceAddTag(DFItemTags.GEMS_SAPPHIRE)
@@ -77,7 +81,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         getOrCreateTagBuilder(DFItemTags.GEMS_CARNELIAN).add(DFItems.CARNELIAN)
     }
 
-    private fun metals(){
+    private fun metals() {
         getOrCreateTagBuilder(DFItemTags.RAW_METAL_MATERIALS)
             .forceAddTag(DFItemTags.RAW_SILVER_MATERIALS)
             .forceAddTag(DFItemTags.RAW_COBALT_MATERIALS)
@@ -116,7 +120,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         getOrCreateTagBuilder(DFItemTags.SILVER_NUGGETS).add(DFItems.SILVER_NUGGET)
     }
 
-    private fun humans(){
+    private fun humans() {
         getOrCreateTagBuilder(DFItemTags.RAW_HUMAN_MATERIALS)
             .forceAddTag(DFItemTags.RAW_EINSTEINIUM_MATERIALS)
             .forceAddTag(DFItemTags.RAW_ASTRALITE_MATERIALS)
@@ -131,7 +135,14 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         getOrCreateTagBuilder(DFItemTags.ASTRALITE_NUGGETS).add(DFItems.ASTRALITE_NUGGET)
     }
 
-    private fun misc(){
+    private fun rockTags() {
+        getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS)
+            .forceAddTag(DFItemTags.COBBLESTONES)
+        getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS)
+            .forceAddTag(DFItemTags.COBBLESTONES)
+    }
+
+    private fun misc() {
         getOrCreateTagBuilder(DFItemTags.COPPER_NUGGETS).add(DFItems.COPPER_NUGGET)
     }
 
@@ -146,7 +157,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
             .forceAddTag(DFItemTags.DWARF_FORGED_NUGGETS)
     }
 
-    private fun copyMetaTags(){
+    private fun copyMetaTags() {
         copy(DFBlockTags.DWARF_FORGED_ORES, DFItemTags.DWARF_FORGED_ORES)
         copy(DFBlockTags.DWARF_FORGED_STORAGE_BLOCKS, DFItemTags.DWARF_FORGED_STORAGE_BLOCKS)
     }
@@ -255,10 +266,36 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copy(DFBlockTags.ASTRALITE_BLOCK, DFItemTags.ASTRALITE_BLOCK)
     }
 
+    private fun copyRocksTags() {
+        copy(DFBlockTags.STONES, DFItemTags.STONES)
+        copy(DFBlockTags.STONES_NETHER, DFItemTags.STONES_NETHER)
+
+        copy(DFBlockTags.COBBLESTONES, DFItemTags.COBBLESTONES)
+
+        copy(DFBlockTags.STONES_OVERWORLD, DFItemTags.STONES_OVERWORLD)
+        copy(DFBlockTags.STONES_NETHER, DFItemTags.STONES_NETHER)
+    }
+
+    private fun copyCrystalsTags() {
+        copy(DFBlockTags.CRYSTALS, DFItemTags.CRYSTALS)
+
+        copy(DFBlockTags.BLUE_SKY, DFItemTags.BLUE_SKY)
+        copy(DFBlockTags.CITRINE, DFItemTags.CITRINE)
+    }
+
     private fun copyConventionalTags() {
         // Conventional Tags
         copy(ConventionalBlockTags.ORES, ConventionalItemTags.ORES)
         copy(ConventionalBlockTags.STORAGE_BLOCKS, ConventionalItemTags.STORAGE_BLOCKS)
+
+        // Rocks
+        copy(ConventionalBlockTags.STONES, ConventionalItemTags.STONES)
+        copy(ConventionalBlockTags.COBBLESTONES, ConventionalItemTags.COBBLESTONES)
+
+        // Crystals
+        copy(ConventionalBlockTags.BUDDING_BLOCKS, ConventionalItemTags.BUDDING_BLOCKS)
+        copy(ConventionalBlockTags.CLUSTERS, ConventionalItemTags.CLUSTERS)
+        copy(ConventionalBlockTags.BUDS, ConventionalItemTags.BUDS)
     }
 
 }

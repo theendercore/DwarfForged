@@ -111,6 +111,21 @@ object DFBlockTags {
     val HUMAN_BLOCKS = create("human_blocks")
     val ASTRALITE_BLOCK = storageBlock("astralite")
 
+    //  --- ROCKS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    val ROCKS = create("rocks")
+    val STONES = create("stones")
+    val COBBLESTONES = create("cobblestones")
+
+    val STONES_OVERWORLD = create("stones/overworld")
+    val STONES_NETHER = create("stones/nether")
+
+
+    // --- CRYSTALS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    val CRYSTALS = create("crystals")
+
+    val BLUE_SKY = create("blue_sky")
+    val CITRINE = create("citrine")
+
 
     fun create(name: String): TagKey<Block> = RegistryKeys.BLOCK.tag(id(name))
     fun conventional(name: String): TagKey<Block> = RegistryKeys.BLOCK.tag(id("c", name))

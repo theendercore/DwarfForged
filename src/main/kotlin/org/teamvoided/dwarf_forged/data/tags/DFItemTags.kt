@@ -155,8 +155,18 @@ object DFItemTags {
     val ASTRALITE_INGOT = conventional("ingots/astralite")
     val ASTRALITE_NUGGETS = conventional("nuggets/astralite")
 
+
+    //  --- ROCKS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    val ROCKS = create("rocks")
+    val STONES = create("stones")
+    val COBBLESTONES = create("cobblestones")
+
+    val STONES_OVERWORLD = create("stones/overworld")
+    val STONES_NETHER = create("stones/nether")
+
     // MISC
     val COPPER_NUGGETS = conventional("nuggets/copper")
+
 
     fun create(name: String): TagKey<Item> {
         val tag = RegistryKeys.ITEM.tag(id(name))
@@ -169,6 +179,12 @@ object DFItemTags {
         ALL_TAGS.add(tag)
         return tag
     }
+
+    // --- CRYSTALS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    val CRYSTALS = create("crystals")
+
+    val BLUE_SKY = create("blue_sky")
+    val CITRINE = create("citrine")
 
     fun storageBlock(name: String): TagKey<Item> = conventional("storage_blocks/$name")
 }
