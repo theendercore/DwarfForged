@@ -11,5 +11,27 @@ object DFConfiguredFeatures {
     val BLUE_SKY_GEODE = create("blue_sky_geode")
     val CITRINE_GEODE = create("citrine_geode")
 
+
+    val PUMICE = rock("pumice")
+    val MARBLE = rock("marble")
+    val BLAIRMORITE = rock("blairmorite")
+    val PYROXENITE = rock("pyroxenite")
+    val ARGILLITE = rock("argillite")
+    val MUDROCK = rock("mudrock")
+    val BLUE_SCHIST = rock("blue_schist")
+    val VARIOLITE = rock("variolite")
+
+//    Pumice (nether)
+//    Marble (dark forest & dark grove)
+//    Tektite (comes from obsidian like gravel)
+//    Blairmorite (jungles & lush)
+//    Pyroxenite (everywhere)
+//    Argillite (cold biomes)
+//    Mudrock (lush caves and swamps)
+//    Blue schist (everywehre and high)
+//    Variolite (not cold)
+
+
     private fun create(id: String): RegistryKey<ConfiguredFeature<*, *>> = RegistryKeys.CONFIGURED_FEATURE.key(id(id))
+    private fun rock(id: String) = create("rock/$id")
 }

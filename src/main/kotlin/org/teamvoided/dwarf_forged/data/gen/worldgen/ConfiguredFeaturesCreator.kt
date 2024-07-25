@@ -19,18 +19,19 @@ import org.teamvoided.dwarf_forged.util.toProvider
 typealias CfgFeature = ConfiguredFeature<*, *>
 
 object ConfiguredFeaturesCreator {
-    private lateinit var stoneTest: TagMatchRuleTest
-    private lateinit var deepslateTest: TagMatchRuleTest
+    private val stoneTest: TagMatchRuleTest = TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES)
+    private val deepslateTest: TagMatchRuleTest = TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
+    private val baseStone = TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD)
 
     fun boostrap(c: BootstrapContext<CfgFeature>) {
-        stoneTest = TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES)
-        deepslateTest = TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
         geodes(c)
         normalGems(c)
         deepGems(c)
         miscGems(c)
 
         metals(c)
+
+        rocks(c)
     }
 
     private fun normalGems(c: BootstrapContext<CfgFeature>) {
@@ -161,6 +162,17 @@ object ConfiguredFeaturesCreator {
         c.registerConfiguredFeature(DFCfgOres.ORE_IRIDIUM, ORE, OreFeatureConfig(iridium, 3))
     }
 
+    fun rocks(c: BootstrapContext<CfgFeature>) {
+        c.makeRock(DFBlocks.PUMICE, DFConfiguredFeatures.PUMICE)
+        c.makeRock(DFBlocks.MARBLE, DFConfiguredFeatures.MARBLE)
+        c.makeRock(DFBlocks.BLAIRMORITE, DFConfiguredFeatures.BLAIRMORITE)
+        c.makeRock(DFBlocks.PYROXENITE, DFConfiguredFeatures.PYROXENITE)
+        c.makeRock(DFBlocks.ARGILLITE, DFConfiguredFeatures.ARGILLITE)
+        c.makeRock(DFBlocks.MUDROCK, DFConfiguredFeatures.MUDROCK)
+        c.makeRock(DFBlocks.BLUE_SCHIST, DFConfiguredFeatures.BLUE_SCHIST)
+        c.makeRock(DFBlocks.VARIOLITE, DFConfiguredFeatures.VARIOLITE)
+    }
+
     private fun geodes(c: BootstrapContext<CfgFeature>) {
         c.registerConfiguredFeature(
             DFConfiguredFeatures.BLUE_SKY_GEODE, Feature.GEODE,
@@ -251,6 +263,10 @@ object ConfiguredFeaturesCreator {
         val oreRules = listOf(stoneTest target ore, deepslateTest target deepslateOre)
         this.registerConfiguredFeature(featSmall, ORE, OreFeatureConfig(oreRules, 4))
         this.registerConfiguredFeature(featMedium, ORE, OreFeatureConfig(oreRules, 9))
+    }
+
+    private fun BootstrapContext<CfgFeature>.makeRock(rock: Block, feature: RegistryKey<CfgFeature>) {
+        this.registerConfiguredFeature(feature, ORE, OreFeatureConfig(baseStone, rock.defaultState, 64))
     }
 
     infix fun TagMatchRuleTest.target(state: Block): OreFeatureConfig.Target =
