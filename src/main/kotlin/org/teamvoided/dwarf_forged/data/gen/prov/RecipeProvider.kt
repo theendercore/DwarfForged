@@ -16,10 +16,11 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
     override fun generateRecipes(gen: RecipeExporter) {
         gems(gen)
         metals(gen)
+        humans(gen)
         crystals(gen)
     }
 
-    fun gems(gen: RecipeExporter) {
+    private fun gems(gen: RecipeExporter) {
         gen.revCompacting3x3(DFItems.RUBY, DFBlocks.RUBY_BLOCK)
         gen.revCompacting3x3(DFItems.SAPPHIRE, DFBlocks.SAPPHIRE_BLOCK)
         gen.revCompacting3x3(DFItems.KYANITE, DFBlocks.KYANITE_BLOCK)
@@ -49,7 +50,7 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         gen.smeltAndBlastOre(DFItemTags.CARNELIAN_ORES, DFItems.CARNELIAN)
     }
 
-    fun metals(gen: RecipeExporter) {
+    private fun metals(gen: RecipeExporter) {
         // copper nug
         gen.uncompact1To9(RecipeCategory.MISC, DFItems.COPPER_NUGGET, Items.COPPER_INGOT)
         gen.compact9To1(
@@ -74,15 +75,37 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         gen.revCompacting3x3(DFItems.RAW_ALUMINIUM, DFBlocks.RAW_ALUMINIUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_PLATINUM, DFBlocks.RAW_PLATINUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_TITANIUM, DFBlocks.RAW_TITANIUM_BLOCK)
-        // raw human ores
+
+        // metals
+        gen.metalCompacting(DFItems.SILVER_NUGGET, DFItems.SILVER_INGOT, DFBlocks.SILVER_BLOCK)
+    }
+
+    private fun humans(gen: RecipeExporter) {
+        // raw
         gen.revCompacting3x3(DFItems.RAW_EINSTEINIUM, DFBlocks.RAW_EINSTEINIUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_ASTRALITE, DFBlocks.RAW_ASTRALITE_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_DEATHL, DFBlocks.RAW_DEATHL_BLOCK)
 
         // metals
-        gen.metalCompacting(DFItems.SILVER_NUGGET, DFItems.SILVER_INGOT, DFBlocks.SILVER_BLOCK)
-        // humans
         gen.metalCompacting(DFItems.ASTRALITE_NUGGET, DFItems.ASTRALITE_INGOT, DFBlocks.ASTRALITE_BLOCK)
+        gen.revCompacting3x3(DFItems.VOILIT_INGOT, DFBlocks.VOILIT_BLOCK)
+
+
+        // gems
+        gen.revCompacting3x3(DFItems.PETALITATE, DFBlocks.PETALITATE_BLOCK)
+        gen.revCompacting3x3(DFItems.BLORE, DFBlocks.BLORE_BLOCK)
+        gen.revCompacting3x3(DFItems.STORMSTONE, DFBlocks.STORMSTONE_BLOCK)
+        gen.revCompacting3x3(DFItems.JAZIUM, DFBlocks.JAZIUM_BLOCK)
+        gen.revCompacting3x3(DFItems.REPOOKITE, DFBlocks.REPOOKITE_BLOCK)
+        gen.revCompacting3x3(DFItems.CACTALINE, DFBlocks.CACTALINE_BLOCK)
+
+        // smelling
+        gen.smeltAndBlastOre(DFItemTags.PETALITATE_ORES, DFItems.PETALITATE)
+        gen.smeltAndBlastOre(DFItemTags.BLORE_ORES, DFItems.BLORE)
+        gen.smeltAndBlastOre(DFItemTags.STORMSTONE_ORES, DFItems.STORMSTONE)
+        gen.smeltAndBlastOre(DFItemTags.JAZIUM_ORES, DFItems.JAZIUM)
+        gen.smeltAndBlastOre(DFItemTags.REPOOKITE_ORES, DFItems.REPOOKITE)
+        gen.smeltAndBlastOre(DFItemTags.CACTALINE_ORES, DFItems.CACTALINE)
     }
 
     fun crystals(gen: RecipeExporter) {

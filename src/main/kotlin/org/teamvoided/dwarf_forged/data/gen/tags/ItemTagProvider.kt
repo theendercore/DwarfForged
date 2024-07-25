@@ -66,6 +66,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         getOrCreateTagBuilder(DFItemTags.DWARF_FORGED_INGOTS)
             .forceAddTag(DFItemTags.SILVER_INGOT)
             .forceAddTag(DFItemTags.ASTRALITE_INGOT)
+            .forceAddTag(DFItemTags.VOILIT_INGOT)
 
         getOrCreateTagBuilder(DFItemTags.DWARF_FORGED_NUGGETS)
             .forceAddTag(DFItemTags.SILVER_NUGGETS)

@@ -75,6 +75,8 @@ fun RecipeExporter.smeltAndBlastOre(oreTag: TagKey<Item>, output: ItemConvertibl
 }
 
 
+
+ //  Generic Smelting
 fun RecipeExporter.blasting(
     category: RecipeCategory, output: ItemConvertible, inout: ItemConvertible,
     experience: Float, cookingTime: Int, group: String = "", id: Identifier = id(getBlastingItemPath(output))

@@ -62,9 +62,17 @@ object DFBlockLists {
 
     val HUMAN_BLOCKS = listOf(
         DFBlocks.ASTRALITE_BLOCK,
+
+        DFBlocks.PETALITATE_BLOCK,
+        DFBlocks.BLORE_BLOCK,
+        DFBlocks.STORMSTONE_BLOCK,
+        DFBlocks.VOILIT_BLOCK,
+        DFBlocks.JAZIUM_BLOCK,
+        DFBlocks.REPOOKITE_BLOCK,
+        DFBlocks.CACTALINE_BLOCK,
     )
 
-    val ROSCKS = listOf(
+    val ROCKS = listOf(
         DFBlocks.PUMICE,
         DFBlocks.MARBLE,
         DFBlocks.ORBITAL_GRANITE,

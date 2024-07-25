@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.client.ItemModelGenerator
 import net.minecraft.data.client.model.BlockStateModelGenerator
 import net.minecraft.data.client.model.Models
+import net.minecraft.data.client.model.TexturedModel
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
 import org.teamvoided.dwarf_forged.util.DFBlockLists
@@ -79,13 +80,25 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.DEEPSLATE_ASTRALITE_ORE,
         DFBlocks.DEATHL_ORE,
         DFBlocks.DEEPSLATE_DEATHL_ORE,
-        // --- --- --- ROCKS --- --- ---
+        DFBlocks.PETALITATE_ORE,
+        DFBlocks.DEEPSLATE_PETALITATE_ORE,
+        DFBlocks.BLORE_ORE,
+        DFBlocks.DEEPSLATE_BLORE_ORE,
+        DFBlocks.STORMSTONE_ORE,
+        DFBlocks.DEEPSLATE_STORMSTONE_ORE,
+        DFBlocks.JAZIUM_ORE,
+        DFBlocks.DEEPSLATE_JAZIUM_ORE,
+        DFBlocks.REPOOKITE_ORE,
+        DFBlocks.DEEPSLATE_REPOOKITE_ORE,
+        DFBlocks.CACTALINE_ORE,
+        DFBlocks.DEEPSLATE_CACTALINE_ORE,
+        // --- --- --- CRYSTALS --- --- ---
         DFBlocks.BLUE_SKY_BLOCK,
         DFBlocks.BUDDING_BLUE_SKY,
         DFBlocks.CITRINE_BLOCK,
         DFBlocks.BUDDING_CITRINE
     ) + DFBlockLists.GEM_BLOCKS + DFBlockLists.RAW_BLOCKS + DFBlockLists.METAL_BLOCKS + DFBlockLists.RAW_HUMAN_ORES +
-            DFBlockLists.HUMAN_BLOCKS + DFBlockLists.ROSCKS
+            DFBlockLists.HUMAN_BLOCKS + DFBlockLists.ROCKS
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
         CUBE_ALL.forEach { gen.registerSimpleCubeAll(it) }
@@ -93,6 +106,7 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
             gen.registerAmethyst(it)
             gen.registerItemModel(it)
         }
+        gen.registerSingleton(DFBlocks.VOILIT_ORE, TexturedModel.CUBE_COLUMN)
     }
 
     private val SINGLE_LAYER = DFItemLists.GEMS +
