@@ -42,6 +42,7 @@ object DFItems {
     val RAW_ALUMINIUM = register("raw_aluminium", Item())
     val RAW_PLATINUM = register("raw_platinum", Item())
     val RAW_TITANIUM = register("raw_titanium", Item())
+
     // --- --- --- RAW HUMAN ORES --- --- ---
     val RAW_EINSTEINIUM = register("raw_einsteinium", Item())
     val RAW_ASTRALITE = register("raw_astralite", Item())
@@ -49,13 +50,19 @@ object DFItems {
 
     // --- --- --- INGOTS --- --- ---
     val SILVER_INGOT = register("silver_ingot", Item())
+
     // --- --- --- HUMAN INGOTS --- --- ---
     val ASTRALITE_INGOT = register("astralite_ingot", Item())
 
     // --- --- --- NUGGETS --- --- ---
     val SILVER_NUGGET = register("silver_nugget", Item())
+
     // --- --- --- HUMAN NUGGETS --- --- ---
     val ASTRALITE_NUGGET = register("astralite_nugget", Item())
+
+    // --- --- --- ROCKS --- --- ---
+
+    val TEKTITE = register("tektite", Item())
 
     // --- --- --- CRYSTALS --- --- ---
     val BLUE_SKY_SHARD = register("blue_sky_shard", Item())
