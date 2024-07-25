@@ -51,6 +51,13 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
             .forceAddTag(DFItemTags.GEMS_SPINEL)
             .forceAddTag(DFItemTags.GEMS_HEMATITE)
             .forceAddTag(DFItemTags.GEMS_CARNELIAN)
+            // Human Gems
+            .forceAddTag(DFItemTags.GEMS_PETALITATE)
+            .forceAddTag(DFItemTags.GEMS_BLORE)
+            .forceAddTag(DFItemTags.GEMS_STORMSTONE)
+            .forceAddTag(DFItemTags.GEMS_JAZIUM)
+            .forceAddTag(DFItemTags.GEMS_REPOOKITE)
+            .forceAddTag(DFItemTags.GEMS_CACTALINE)
 
         getOrCreateTagBuilder(DFItemTags.DWARF_FORGED_RAW_MATERIALS)
             .forceAddTag(DFItemTags.RAW_METAL_MATERIALS)
@@ -133,7 +140,16 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
 
         getOrCreateTagBuilder(DFItemTags.ASTRALITE_INGOT).add(DFItems.ASTRALITE_INGOT)
 
+        getOrCreateTagBuilder(DFItemTags.VOILIT_INGOT).add(DFItems.VOILIT_INGOT)
+
         getOrCreateTagBuilder(DFItemTags.ASTRALITE_NUGGETS).add(DFItems.ASTRALITE_NUGGET)
+
+        getOrCreateTagBuilder(DFItemTags.GEMS_PETALITATE).add(DFItems.PETALITATE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_BLORE).add(DFItems.BLORE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_STORMSTONE).add(DFItems.STORMSTONE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_JAZIUM).add(DFItems.JAZIUM)
+        getOrCreateTagBuilder(DFItemTags.GEMS_REPOOKITE).add(DFItems.REPOOKITE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_CACTALINE).add(DFItems.CACTALINE)
     }
 
     private fun rockTags() {
@@ -260,7 +276,14 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
 
         copy(DFBlockTags.EINSTEINIUM_ORES, DFItemTags.EINSTEINIUM_ORES)
         copy(DFBlockTags.ASTRALITE_ORES, DFItemTags.ASTRALITE_ORES)
-        copy(DFBlockTags.GRASS_ORES, DFItemTags.GRASS_ORES)
+        copy(DFBlockTags.DEATHL_ORES, DFItemTags.DEATHL_ORES)
+        copy(DFBlockTags.PETALITATE_ORES, DFItemTags.PETALITATE_ORES)
+        copy(DFBlockTags.BLORE_ORES, DFItemTags.BLORE_ORES)
+        copy(DFBlockTags.STORMSTONE_ORES, DFItemTags.STORMSTONE_ORES)
+        copy(DFBlockTags.VOILIT_ORES, DFItemTags.VOILIT_ORES)
+        copy(DFBlockTags.JAZIUM_ORES, DFItemTags.JAZIUM_ORES)
+        copy(DFBlockTags.REPOOKITE_ORES, DFItemTags.REPOOKITE_ORES)
+        copy(DFBlockTags.CACTALINE_ORES, DFItemTags.CACTALINE_ORES)
 
         // Raw
         copy(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS, DFItemTags.RAW_HUMAN_STORAGE_BLOCKS)
@@ -273,6 +296,14 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         copy(DFBlockTags.HUMAN_BLOCKS, DFItemTags.HUMAN_BLOCKS)
 
         copy(DFBlockTags.ASTRALITE_BLOCK, DFItemTags.ASTRALITE_BLOCK)
+        copy(DFBlockTags.PETALITATE_BLOCK, DFItemTags.PETALITATE_BLOCK)
+        copy(DFBlockTags.BLORE_BLOCK, DFItemTags.BLORE_BLOCK)
+        copy(DFBlockTags.STORMSTONE_BLOCK, DFItemTags.STORMSTONE_BLOCK)
+        copy(DFBlockTags.VOILIT_BLOCK, DFItemTags.VOILIT_BLOCK)
+        copy(DFBlockTags.JAZIUM_BLOCK, DFItemTags.JAZIUM_BLOCK)
+        copy(DFBlockTags.REPOOKITE_BLOCK, DFItemTags.REPOOKITE_BLOCK)
+        copy(DFBlockTags.CACTALINE_BLOCK, DFItemTags.CACTALINE_BLOCK)
+
     }
 
     private fun copyRocksTags() {

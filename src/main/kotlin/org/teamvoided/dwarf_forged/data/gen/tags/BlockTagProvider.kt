@@ -181,12 +181,26 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.HUMAN_ORES)
             .forceAddTag(DFBlockTags.EINSTEINIUM_ORES)
             .forceAddTag(DFBlockTags.ASTRALITE_ORES)
-            .forceAddTag(DFBlockTags.GRASS_ORES)
+            .forceAddTag(DFBlockTags.DEATHL_ORES)
+            .forceAddTag(DFBlockTags.PETALITATE_ORES)
+            .forceAddTag(DFBlockTags.BLORE_ORES)
+            .forceAddTag(DFBlockTags.STORMSTONE_ORES)
+            .forceAddTag(DFBlockTags.VOILIT_ORES)
+            .forceAddTag(DFBlockTags.JAZIUM_ORES)
+            .forceAddTag(DFBlockTags.REPOOKITE_ORES)
+            .forceAddTag(DFBlockTags.CACTALINE_ORES)
 
         getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES)
             .add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
         getOrCreateTagBuilder(DFBlockTags.ASTRALITE_ORES).add(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.DEATHL_ORE, DFBlocks.DEEPSLATE_DEATHL_ORE)
+        getOrCreateTagBuilder(DFBlockTags.DEATHL_ORES).add(DFBlocks.DEATHL_ORE, DFBlocks.DEEPSLATE_DEATHL_ORE)
+        getOrCreateTagBuilder(DFBlockTags.PETALITATE_ORES).add(DFBlocks.PETALITATE_ORE, DFBlocks.DEEPSLATE_PETALITATE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.BLORE_ORES).add(DFBlocks.BLORE_ORE, DFBlocks.DEEPSLATE_BLORE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.STORMSTONE_ORES).add(DFBlocks.STORMSTONE_ORE, DFBlocks.DEEPSLATE_STORMSTONE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.VOILIT_ORES).add(DFBlocks.VOILIT_ORE)
+        getOrCreateTagBuilder(DFBlockTags.JAZIUM_ORES).add(DFBlocks.JAZIUM_ORE, DFBlocks.DEEPSLATE_JAZIUM_ORE)
+        getOrCreateTagBuilder(DFBlockTags.REPOOKITE_ORES).add(DFBlocks.REPOOKITE_ORE, DFBlocks.DEEPSLATE_REPOOKITE_ORE)
+        getOrCreateTagBuilder(DFBlockTags.CACTALINE_ORES).add(DFBlocks.CACTALINE_ORE, DFBlocks.DEEPSLATE_CACTALINE_ORE)
 
 
         getOrCreateTagBuilder(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
@@ -201,7 +215,25 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.HUMAN_BLOCKS)
             .forceAddTag(DFBlockTags.ASTRALITE_BLOCK)
 
+            .forceAddTag(DFBlockTags.PETALITATE_BLOCK)
+            .forceAddTag(DFBlockTags.BLORE_BLOCK)
+            .forceAddTag(DFBlockTags.STORMSTONE_BLOCK)
+            .forceAddTag(DFBlockTags.VOILIT_BLOCK)
+            .forceAddTag(DFBlockTags.JAZIUM_BLOCK)
+            .forceAddTag(DFBlockTags.REPOOKITE_BLOCK)
+            .forceAddTag(DFBlockTags.CACTALINE_BLOCK)
+
+
         getOrCreateTagBuilder(DFBlockTags.ASTRALITE_BLOCK).add(DFBlocks.ASTRALITE_BLOCK)
+
+        getOrCreateTagBuilder(DFBlockTags.PETALITATE_BLOCK).add(DFBlocks.PETALITATE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.BLORE_BLOCK).add(DFBlocks.BLORE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.STORMSTONE_BLOCK).add(DFBlocks.STORMSTONE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.VOILIT_BLOCK).add(DFBlocks.VOILIT_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.JAZIUM_BLOCK).add(DFBlocks.JAZIUM_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.REPOOKITE_BLOCK).add(DFBlocks.REPOOKITE_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.CACTALINE_BLOCK).add(DFBlocks.CACTALINE_BLOCK)
+
     }
 
     private fun mineable() {

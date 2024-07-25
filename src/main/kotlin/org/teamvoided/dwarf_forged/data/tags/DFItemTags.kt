@@ -131,12 +131,21 @@ object DFItemTags {
 
     //  --- HUMANS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
+    // Ores
     val HUMAN_ORES = create("human_ores")
 
     val EINSTEINIUM_ORES = create("einsteinium_ores")
     val ASTRALITE_ORES = create("astralite_ores")
-    val GRASS_ORES = create("grass_ores")
+    val DEATHL_ORES = create("deathl_ores")
+    val PETALITATE_ORES = create("petalitate_ores")
+    val BLORE_ORES = create("blore_ores")
+    val STORMSTONE_ORES = create("stormstone_ores")
+    val VOILIT_ORES = create("voilit_ores")
+    val JAZIUM_ORES = create("jazium_ores")
+    val REPOOKITE_ORES = create("repookite_ores")
+    val CACTALINE_ORES = create("cactaline_ores")
 
+    // Raw
     val RAW_HUMAN_STORAGE_BLOCKS = create("raw_human_storage_blocks")
 
     val RAW_EINSTEINIUM_STORAGE_BLOCK = storageBlock("raw_einsteinium")
@@ -149,11 +158,33 @@ object DFItemTags {
     val RAW_ASTRALITE_MATERIALS = conventional("raw_materials/astralite")
     val RAW_GRASS_MATERIALS = conventional("raw_materials/grass")
 
+    // Processed
     val HUMAN_BLOCKS = create("human_blocks")
+
     val ASTRALITE_BLOCK = storageBlock("astralite")
 
+    val PETALITATE_BLOCK = storageBlock("petalitate")
+    val BLORE_BLOCK = storageBlock("blore")
+    val STORMSTONE_BLOCK = storageBlock("stormstone")
+    val VOILIT_BLOCK = storageBlock("voilit")
+    val JAZIUM_BLOCK = storageBlock("jazium")
+    val REPOOKITE_BLOCK = storageBlock("repookite")
+    val CACTALINE_BLOCK = storageBlock("cactaline")
+
+    // Ingots & stuff
     val ASTRALITE_INGOT = conventional("ingots/astralite")
+
+    val VOILIT_INGOT = conventional("ingots/voilit")
+
     val ASTRALITE_NUGGETS = conventional("nuggets/astralite")
+
+    // Gems
+    val GEMS_PETALITATE = conventional("gems/petalitate")
+    val GEMS_BLORE = conventional("gems/blore")
+    val GEMS_STORMSTONE = conventional("gems/stormstone")
+    val GEMS_JAZIUM = conventional("gems/jazium")
+    val GEMS_REPOOKITE = conventional("gems/repookite")
+    val GEMS_CACTALINE = conventional("gems/cactaline")
 
 
     //  --- ROCKS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---

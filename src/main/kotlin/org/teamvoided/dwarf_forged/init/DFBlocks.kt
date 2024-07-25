@@ -150,11 +150,11 @@ object DFBlocks {
 
     val BLORE_ORE = register("blore_ore", Block(copy(Blocks.EMERALD_ORE)))
     val DEEPSLATE_BLORE_ORE = register("deepslate_blore_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
-    val RAW_BLORE_BLOCK = register("raw_blore_block", Block(copy(Blocks.EMERALD_BLOCK)))
+    val BLORE_BLOCK = register("blore_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
-    val DUSKALITE_ORE = register("duskalite_ore", Block(copy(Blocks.EMERALD_ORE)))
-    val DEEPSLATE_DUSKALITE_ORE = register("deepslate_duskalite_ore", Block(copy(Blocks.DEEPSLATE_IRON_ORE)))
-    val DUSKALITE_BLOCK = register("duskalite_block", Block(copy(Blocks.EMERALD_BLOCK)))
+    val STORMSTONE_ORE = register("stormstone_ore", Block(copy(Blocks.EMERALD_ORE)))
+    val DEEPSLATE_STORMSTONE_ORE = register("deepslate_stormstone_ore", Block(copy(Blocks.DEEPSLATE_EMERALD_ORE)))
+    val STORMSTONE_BLOCK = register("stormstone_block", Block(copy(Blocks.EMERALD_BLOCK)))
 
     val VOILIT_ORE = register("voilit_ore", Block(copy(Blocks.ANCIENT_DEBRIS)))
     val VOILIT_BLOCK = register("voilit_block", Block(copy(Blocks.NETHERITE_BLOCK)))

@@ -99,6 +99,7 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
             DFItemLists.RAW_METALS + DFItemLists.RAW_HUMAN_ORES +
             DFItemLists.METAL_INGOTS + DFItemLists.HUMAN_INGOTS +
             DFItemLists.METAL_NUGGETS + DFItemLists.HUMAN_NUGGETS +
+            DFItemLists.HUMAN_SCRAPS + DFItemLists.HUMAN_GEMS +
             listOf(DFItems.TEKTITE, DFItems.BLUE_SKY_SHARD, DFItems.CITRINE_SHARD)
 
     override fun generateItemModels(gen: ItemModelGenerator) {

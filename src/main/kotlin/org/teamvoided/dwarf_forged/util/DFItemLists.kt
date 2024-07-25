@@ -46,6 +46,8 @@ object DFItemLists {
     )
     val HUMAN_INGOTS = listOf(
         DFItems.ASTRALITE_INGOT,
+
+        DFItems.VOILIT_INGOT,
     )
     val METAL_NUGGETS = listOf(
         DFItems.COPPER_NUGGET,
@@ -53,5 +55,16 @@ object DFItemLists {
     )
     val HUMAN_NUGGETS = listOf(
         DFItems.ASTRALITE_NUGGET,
+    )
+    val HUMAN_SCRAPS = listOf(
+        DFItems.VOILIT_SCRAP,
+    )
+    val HUMAN_GEMS = listOf(
+        DFItems.PETALITATE,
+        DFItems.BLORE,
+        DFItems.STORMSTONE,
+        DFItems.JAZIUM,
+        DFItems.REPOOKITE,
+        DFItems.CACTALINE,
     )
 }
