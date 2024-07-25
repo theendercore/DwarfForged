@@ -30,8 +30,8 @@ object ConfiguredFeaturesCreator {
         miscGems(c)
 
         metals(c)
-
         rocks(c)
+        humanOres(c)
     }
 
     private fun normalGems(c: BootstrapContext<CfgFeature>) {
@@ -67,8 +67,6 @@ object ConfiguredFeaturesCreator {
             DFBlocks.CARNELIAN_ORE, DFBlocks.DEEPSLATE_CARNELIAN_ORE,
             DFCfgOres.ORE_CARNELIAN_SMALL, DFCfgOres.ORE_CARNELIAN_MEDIUM
         )
-
-
     }
 
     private fun deepGems(c: BootstrapContext<CfgFeature>) {
@@ -162,7 +160,7 @@ object ConfiguredFeaturesCreator {
         c.registerConfiguredFeature(DFCfgOres.ORE_IRIDIUM, ORE, OreFeatureConfig(iridium, 3))
     }
 
-    fun rocks(c: BootstrapContext<CfgFeature>) {
+    private fun rocks(c: BootstrapContext<CfgFeature>) {
         c.makeRock(DFBlocks.PUMICE, DFConfiguredFeatures.PUMICE, TagMatchRuleTest(BlockTags.BASE_STONE_NETHER))
         c.makeRock(DFBlocks.MARBLE, DFConfiguredFeatures.MARBLE)
         c.makeRock(DFBlocks.BLAIRMORITE, DFConfiguredFeatures.BLAIRMORITE)
@@ -171,6 +169,21 @@ object ConfiguredFeaturesCreator {
         c.makeRock(DFBlocks.MUDROCK, DFConfiguredFeatures.MUDROCK)
         c.makeRock(DFBlocks.BLUE_SCHIST, DFConfiguredFeatures.BLUE_SCHIST)
         c.makeRock(DFBlocks.VARIOLITE, DFConfiguredFeatures.VARIOLITE)
+    }
+
+    private fun humanOres(c: BootstrapContext<CfgFeature>) {
+        c.makeHumanOre(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE, DFCfgOres.ORE_EINSTEINIUM)
+        c.makeHumanOre(DFBlocks.PETALITATE_ORE, DFBlocks.DEEPSLATE_PETALITATE_ORE, DFCfgOres.ORE_PETALITATE)
+        c.makeHumanOre(DFBlocks.CACTALINE_ORE, DFBlocks.DEEPSLATE_CACTALINE_ORE, DFCfgOres.ORE_CACTALINE)
+        c.makeHumanOre(DFBlocks.BLORE_ORE, DFBlocks.DEEPSLATE_BLORE_ORE, DFCfgOres.ORE_BLORE)
+
+        c.makeHumanOre(DFBlocks.JAZIUM_ORE, DFBlocks.DEEPSLATE_JAZIUM_ORE, DFCfgOres.ORE_JAZIUM)
+        c.makeHumanOre(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE, DFCfgOres.ORE_ASTRALITE)
+        c.makeHumanOre(DFBlocks.REPOOKITE_ORE, DFBlocks.DEEPSLATE_REPOOKITE_ORE, DFCfgOres.ORE_REPOOKITE)
+
+        c.makeHumanOre(DFBlocks.DEATHL_ORE, DFBlocks.DEEPSLATE_DEATHL_ORE, DFCfgOres.ORE_DEATHL)
+
+        c.makeHumanOre(DFBlocks.STORMSTONE_ORE, DFBlocks.DEEPSLATE_STORMSTONE_ORE, DFCfgOres.ORE_STORMSTONE)
     }
 
     private fun geodes(c: BootstrapContext<CfgFeature>) {
@@ -266,11 +279,14 @@ object ConfiguredFeaturesCreator {
     }
 
     private fun BootstrapContext<CfgFeature>.makeRock(
-        rock: Block,
-        feature: RegistryKey<CfgFeature>,
-        rule: TagMatchRuleTest = baseStone
+        rock: Block, feature: RegistryKey<CfgFeature>, rule: TagMatchRuleTest = baseStone
     ) {
         this.registerConfiguredFeature(feature, ORE, OreFeatureConfig(rule, rock.defaultState, 64))
+    }
+
+    private fun BootstrapContext<CfgFeature>.makeHumanOre(ore: Block, deepOre: Block, feat: RegistryKey<CfgFeature>) {
+        val oreRules = listOf(stoneTest target ore, deepslateTest target deepOre)
+        this.registerConfiguredFeature(feat, ORE, OreFeatureConfig(oreRules, 4))
     }
 
     infix fun TagMatchRuleTest.target(state: Block): OreFeatureConfig.Target =

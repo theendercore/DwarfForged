@@ -153,6 +153,33 @@ object DFCfgOres {
         Iridium (everywhere but its supper rare)
      */
 
+    // --- HUMAN ORES ---
+
+    val ORE_EINSTEINIUM = ore("ore_einsteinium")
+    val ORE_PETALITATE = ore("ore_petalitate")
+    val ORE_CACTALINE = ore("ore_cactaline")
+    val ORE_BLORE = ore("ore_blore")
+
+    val ORE_JAZIUM = ore("ore_jazium")
+    val ORE_ASTRALITE = ore("ore_astralite")
+    val ORE_REPOOKITE = ore("ore_repookite")
+
+    val ORE_DEATHL = ore("ore_deathl")
+
+    val ORE_STORMSTONE = ore("ore_stormstone")
+
+    //Einsteinium [warm shallow]
+    //Petalitate (Leah) [floral biomes shallow]
+    //cactaline (cactus ore) [desrt shallow]
+    //Blore (Blur) [ , shallow]
+
+    //jazium (Jaiz) [savana, deep]
+    //Astralite (astra) [everywhere deep]
+    //repookite (Repook) [forstest deep]
+
+    //Deathl (deathlord) [plains normal]
+
+    //Stormstone (dusk) [dusk biomes square]
     private fun ore(id: String): RegistryKey<ConfiguredFeature<*, *>> =
         RegistryKeys.CONFIGURED_FEATURE.key(id("ore/$id"))
 }
