@@ -195,7 +195,7 @@ object DFBiomeModifiers {
 
 
         addRocks()
-
+        addHumanOres()
     }
 
     private fun addRocks() {
@@ -247,6 +247,34 @@ object DFBiomeModifiers {
 //    Argillite (cold biomes)
 //    Variolite (not cold)
 
+    }
+
+    private fun addHumanOres() {
+        addOre("add_einsteinium", DFPlacedOres.ORE_EINSTEINIUM, BiomeSelectors.tag(DFBiomeTags.HAS_EINSTEINIUM))
+        addOre("add_petalitate", DFPlacedOres.ORE_PETALITATE, BiomeSelectors.tag(DFBiomeTags.HAS_PETALITATE))
+        addOre("add_cactaline", DFPlacedOres.ORE_CACTALINE, BiomeSelectors.tag(DFBiomeTags.HAS_CACTALINE))
+        addOre("add_blore", DFPlacedOres.ORE_BLORE, BiomeSelectors.tag(DFBiomeTags.HAS_BLORE))
+
+        addOre("add_jazium", DFPlacedOres.ORE_JAZIUM, BiomeSelectors.tag(DFBiomeTags.HAS_JAZIUM))
+        addOre("add_astralite", DFPlacedOres.ORE_ASTRALITE, BiomeSelectors.foundInOverworld())
+        addOre("add_repookite", DFPlacedOres.ORE_REPOOKITE, BiomeSelectors.tag(DFBiomeTags.HAS_REPOOKITE))
+
+        addOre("add_deathl", DFPlacedOres.ORE_DEATHL, BiomeSelectors.tag(DFBiomeTags.HAS_DEATHL))
+        addOre("add_stormstone", DFPlacedOres.ORE_STORMSTONE, BiomeSelectors.tag(DFBiomeTags.HAS_STORMSTONE))
+
+
+        //Einsteinium [warm shallow]
+        //Petalitate (Leah) [floral biomes shallow]
+        //cactaline (cactus ore) [desrt shallow]
+        //Blore (Blur) [ , shallow]
+
+        //jazium (Jaiz) [savana, deep]
+        //Astralite (astra) [everywhere deep]
+        //repookite (Repook) [forstest deep]
+
+        //Deathl (deathlord) [plains normal]
+
+        //Stormstone (dusk) [dusk biomes square]
     }
 
     fun addOre(name: String, ore: RegistryKey<PlacedFeature>, predicate: Predicate<BiomeSelectionContext>) {

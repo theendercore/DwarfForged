@@ -106,6 +106,21 @@ object DFPlacedOres {
     val ORE_PLATINUM = ore("ore_platinum")
 
     val ORE_IRIDIUM = ore("ore_iridium")
-    
+
+    // --- HUMAN ORES ---
+
+    val ORE_EINSTEINIUM = ore("ore_einsteinium")
+    val ORE_PETALITATE = ore("ore_petalitate")
+    val ORE_CACTALINE = ore("ore_cactaline")
+    val ORE_BLORE = ore("ore_blore")
+
+    val ORE_JAZIUM = ore("ore_jazium")
+    val ORE_ASTRALITE = ore("ore_astralite")
+    val ORE_REPOOKITE = ore("ore_repookite")
+
+    val ORE_DEATHL = ore("ore_deathl")
+
+    val ORE_STORMSTONE = ore("ore_stormstone")
+
     private fun ore(id: String): RegistryKey<PlacedFeature> = RegistryKeys.PLACED_FEATURE.key(id("ore/$id"))
 }

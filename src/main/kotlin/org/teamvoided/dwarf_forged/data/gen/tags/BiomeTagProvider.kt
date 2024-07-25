@@ -120,7 +120,7 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBiomeTags.HAS_EINSTEINIUM).forceAddTag(ConventionalBiomeTags.IS_DRY)
         getOrCreateTagBuilder(DFBiomeTags.HAS_PETALITATE).forceAddTag(ConventionalBiomeTags.IS_FLORAL)
         getOrCreateTagBuilder(DFBiomeTags.HAS_CACTALINE).forceAddTag(ConventionalBiomeTags.IS_DESERT)
-//        getOrCreateTagBuilder(DFBiomeTags.HAS_BLORE).forceAddTag(ConventionalBiomeTags.)
+        getOrCreateTagBuilder(DFBiomeTags.HAS_BLORE).add(Biomes.WARM_OCEAN)
 
         getOrCreateTagBuilder(DFBiomeTags.HAS_JAZIUM).forceAddTag(ConventionalBiomeTags.IS_SAVANNA)
         getOrCreateTagBuilder(DFBiomeTags.HAS_REPOOKITE).forceAddTag(ConventionalBiomeTags.IS_FOREST)

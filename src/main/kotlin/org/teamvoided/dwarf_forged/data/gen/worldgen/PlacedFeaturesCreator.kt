@@ -29,6 +29,7 @@ object PlacedFeaturesCreator {
         miscMetals(c)
 
         rocks(c)
+        humanOres(c)
     }
 
     private fun normalGems(c: BootstrapContext<PlacedFeature>) {
@@ -213,7 +214,6 @@ object PlacedFeaturesCreator {
 
     }
 
-
     private fun rocks(c: BootstrapContext<PlacedFeature>) {
 
         c.register(
@@ -252,6 +252,90 @@ object PlacedFeaturesCreator {
             DFPlacedFeatures.VARIOLITE_LOWER, DFPlacedFeatures.VARIOLITE_UPPER, DFConfiguredFeatures.VARIOLITE
         )
 
+    }
+
+    private fun humanOres(c: BootstrapContext<PlacedFeature>) {
+        c.register(
+            DFPlacedOres.ORE_EINSTEINIUM,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_EINSTEINIUM),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(-5), YOffset.aboveBottom(55))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_PETALITATE,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_PETALITATE),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(-15), YOffset.aboveBottom(45))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_CACTALINE,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_CACTALINE),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(-9), YOffset.aboveBottom(50))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_BLORE,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_BLORE),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.aboveBottom(-11), YOffset.aboveBottom(47))
+            )
+        )
+
+
+
+
+        c.register(
+            DFPlacedOres.ORE_JAZIUM,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_JAZIUM),
+            commonOrePlacementModifiers(
+                4, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(10))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_ASTRALITE,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_ASTRALITE),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(13))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_REPOOKITE,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_REPOOKITE),
+            commonOrePlacementModifiers(
+                6, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(6))
+            )
+        )
+
+        c.register(
+            DFPlacedOres.ORE_DEATHL,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_DEATHL),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.getBottom(), YOffset.aboveBottom(50))
+            )
+        )
+        c.register(
+            DFPlacedOres.ORE_STORMSTONE,
+            cfgFeat.getHolderOrThrow(DFCfgOres.ORE_STORMSTONE),
+            commonOrePlacementModifiers(
+                3, HeightRangePlacementModifier.createUniform(YOffset.getBottom(), YOffset.aboveBottom(50))
+            )
+        )
+
+        //Einsteinium [warm shallow]
+        //Petalitate (Leah) [floral biomes shallow]
+        //cactaline (cactus ore) [desrt shallow]
+        //Blore (Blur) [ , shallow]
+
+        //jazium (Jaiz) [savana, deep]
+        //Astralite (astra) [everywhere deep]
+        //repookite (Repook) [forstest deep]
+
+        //Deathl (deathlord) [plains normal]
+
+        //Stormstone (dusk) [dusk biomes square]
     }
 
     private fun BootstrapContext<PlacedFeature>.makeDeepMetal(
