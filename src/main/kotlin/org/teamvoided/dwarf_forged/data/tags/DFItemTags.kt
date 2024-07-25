@@ -164,6 +164,16 @@ object DFItemTags {
     val STONES_OVERWORLD = create("stones/overworld")
     val STONES_NETHER = create("stones/nether")
 
+    // --- CRYSTALS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+    val CRYSTAL_BLOCKS = create("crystal_blocks")
+
+    val BLUE_SKY = create("blue_sky")
+    val CITRINE = create("citrine")
+
+    val CRYSTALS = create("crystals")
+    val GEMS_BLUE_SKY = conventional("gems/blue_sky")
+    val GEMS_CITRINE = conventional("gems/citrine")
+
     // MISC
     val COPPER_NUGGETS = conventional("nuggets/copper")
 
@@ -179,12 +189,6 @@ object DFItemTags {
         ALL_TAGS.add(tag)
         return tag
     }
-
-    // --- CRYSTALS --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
-    val CRYSTALS = create("crystals")
-
-    val BLUE_SKY = create("blue_sky")
-    val CITRINE = create("citrine")
 
     fun storageBlock(name: String): TagKey<Item> = conventional("storage_blocks/$name")
 }

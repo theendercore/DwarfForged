@@ -16,6 +16,7 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
     override fun generateRecipes(gen: RecipeExporter) {
         gems(gen)
         metals(gen)
+        crystals(gen)
     }
 
     fun gems(gen: RecipeExporter) {
@@ -84,4 +85,8 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         gen.metalCompacting(DFItems.ASTRALITE_NUGGET, DFItems.ASTRALITE_INGOT, DFBlocks.ASTRALITE_BLOCK)
     }
 
+    fun crystals(gen: RecipeExporter) {
+        gen.compacting2x2(DFItems.BLUE_SKY_SHARD, DFBlocks.BLUE_SKY_BLOCK)
+        gen.compacting2x2(DFItems.CITRINE_SHARD, DFBlocks.CITRINE_BLOCK)
+    }
 }

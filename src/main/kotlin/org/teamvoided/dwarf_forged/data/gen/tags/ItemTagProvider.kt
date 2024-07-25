@@ -20,6 +20,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
         metals()
         humans()
         rockTags()
+        crystalTags()
 
         misc()
 
@@ -142,6 +143,13 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
             .forceAddTag(DFItemTags.COBBLESTONES)
     }
 
+    private fun crystalTags() {
+        getOrCreateTagBuilder(DFItemTags.CRYSTALS)
+            .forceAddTag(DFItemTags.GEMS_BLUE_SKY).forceAddTag(DFItemTags.GEMS_CITRINE)
+        getOrCreateTagBuilder(DFItemTags.GEMS_BLUE_SKY).add(DFItems.BLUE_SKY_SHARD)
+        getOrCreateTagBuilder(DFItemTags.GEMS_CITRINE).add(DFItems.CITRINE_SHARD)
+    }
+
     private fun misc() {
         getOrCreateTagBuilder(DFItemTags.COPPER_NUGGETS).add(DFItems.COPPER_NUGGET)
     }
@@ -149,6 +157,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     private fun conventionalTags() {
         getOrCreateTagBuilder(ConventionalItemTags.GEMS)
             .forceAddTag(DFItemTags.DWARF_FORGED_GEMS)
+            .forceAddTag(DFItemTags.CRYSTALS)
         getOrCreateTagBuilder(ConventionalItemTags.RAW_MATERIALS)
             .forceAddTag(DFItemTags.DWARF_FORGED_RAW_MATERIALS)
         getOrCreateTagBuilder(ConventionalItemTags.INGOTS)
@@ -277,7 +286,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     }
 
     private fun copyCrystalsTags() {
-        copy(DFBlockTags.CRYSTALS, DFItemTags.CRYSTALS)
+        copy(DFBlockTags.CRYSTALS, DFItemTags.CRYSTAL_BLOCKS)
 
         copy(DFBlockTags.BLUE_SKY, DFItemTags.BLUE_SKY)
         copy(DFBlockTags.CITRINE, DFItemTags.CITRINE)
