@@ -20,6 +20,7 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         deepGems()
         metals()
         rocks()
+        humanOres()
     }
 
     private fun normalGems() {
@@ -113,5 +114,18 @@ class BiomeTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
         getOrCreateTagBuilder(DFBiomeTags.HAS_ARGILLITE)
             .forceAddTag(ConventionalBiomeTags.IS_COLD_OVERWORLD)
+    }
+
+    private fun humanOres() {
+        getOrCreateTagBuilder(DFBiomeTags.HAS_EINSTEINIUM).forceAddTag(ConventionalBiomeTags.IS_DRY)
+        getOrCreateTagBuilder(DFBiomeTags.HAS_PETALITATE).forceAddTag(ConventionalBiomeTags.IS_FLORAL)
+        getOrCreateTagBuilder(DFBiomeTags.HAS_CACTALINE).forceAddTag(ConventionalBiomeTags.IS_DESERT)
+//        getOrCreateTagBuilder(DFBiomeTags.HAS_BLORE).forceAddTag(ConventionalBiomeTags.)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_JAZIUM).forceAddTag(ConventionalBiomeTags.IS_SAVANNA)
+        getOrCreateTagBuilder(DFBiomeTags.HAS_REPOOKITE).forceAddTag(ConventionalBiomeTags.IS_FOREST)
+
+        getOrCreateTagBuilder(DFBiomeTags.HAS_DEATHL).forceAddTag(ConventionalBiomeTags.IS_PLAINS)
+        getOrCreateTagBuilder(DFBiomeTags.HAS_STORMSTONE).forceAddTag(ConventionalBiomeTags.IS_SWAMP)
     }
 }

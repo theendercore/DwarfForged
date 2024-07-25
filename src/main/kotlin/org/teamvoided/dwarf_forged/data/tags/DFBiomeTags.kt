@@ -43,6 +43,20 @@ object DFBiomeTags {
     val HAS_ARGILLITE = rock("has_argillite")
 
 
+    /// --- HUMAN ORES ---
+    val HAS_EINSTEINIUM = ore("has_einsteinium")
+    val HAS_PETALITATE = ore("has_petalitate")
+    val HAS_CACTALINE = ore("has_cactaline")
+    val HAS_BLORE = ore("has_blore")
+
+    val HAS_JAZIUM = ore("has_jazium")
+    val HAS_REPOOKITE = ore("has_repookite")
+
+    val HAS_DEATHL = ore("has_deathl")
+    val HAS_STORMSTONE = ore("has_stormstone")
+
+
+
     fun ore(name: String): TagKey<Biome> = create("ores/$name")
     fun rock(name: String): TagKey<Biome> = create("rocks/$name")
 
