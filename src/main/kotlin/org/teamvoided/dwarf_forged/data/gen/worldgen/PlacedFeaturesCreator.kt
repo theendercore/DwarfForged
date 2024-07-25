@@ -216,6 +216,16 @@ object PlacedFeaturesCreator {
 
     private fun rocks(c: BootstrapContext<PlacedFeature>) {
 
+        c.register(
+            DFPlacedFeatures.PUMICE,
+            cfgFeat.getHolderOrThrow(DFConfiguredFeatures.PUMICE),
+            commonOrePlacementModifiers(
+                2,
+                HeightRangePlacementModifier.createUniform(YOffset.fixed(0), YOffset.fixed(64))
+            )
+        )
+
+
         // Shallow
         c.makeRock(DFPlacedFeatures.MARBLE_LOWER, DFPlacedFeatures.MARBLE_UPPER, DFConfiguredFeatures.MARBLE)
         c.makeRock(DFPlacedFeatures.MUDROCK_LOWER, DFPlacedFeatures.MUDROCK_UPPER, DFConfiguredFeatures.MUDROCK)

@@ -163,7 +163,7 @@ object ConfiguredFeaturesCreator {
     }
 
     fun rocks(c: BootstrapContext<CfgFeature>) {
-        c.makeRock(DFBlocks.PUMICE, DFConfiguredFeatures.PUMICE)
+        c.makeRock(DFBlocks.PUMICE, DFConfiguredFeatures.PUMICE, TagMatchRuleTest(BlockTags.BASE_STONE_NETHER))
         c.makeRock(DFBlocks.MARBLE, DFConfiguredFeatures.MARBLE)
         c.makeRock(DFBlocks.BLAIRMORITE, DFConfiguredFeatures.BLAIRMORITE)
         c.makeRock(DFBlocks.PYROXENITE, DFConfiguredFeatures.PYROXENITE)
@@ -265,8 +265,12 @@ object ConfiguredFeaturesCreator {
         this.registerConfiguredFeature(featMedium, ORE, OreFeatureConfig(oreRules, 9))
     }
 
-    private fun BootstrapContext<CfgFeature>.makeRock(rock: Block, feature: RegistryKey<CfgFeature>) {
-        this.registerConfiguredFeature(feature, ORE, OreFeatureConfig(baseStone, rock.defaultState, 64))
+    private fun BootstrapContext<CfgFeature>.makeRock(
+        rock: Block,
+        feature: RegistryKey<CfgFeature>,
+        rule: TagMatchRuleTest = baseStone
+    ) {
+        this.registerConfiguredFeature(feature, ORE, OreFeatureConfig(rule, rock.defaultState, 64))
     }
 
     infix fun TagMatchRuleTest.target(state: Block): OreFeatureConfig.Target =

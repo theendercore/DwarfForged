@@ -11,6 +11,7 @@ import net.minecraft.world.gen.GenerationStep
 import net.minecraft.world.gen.feature.PlacedFeature
 import org.teamvoided.dwarf_forged.DwarfForged.id
 import org.teamvoided.dwarf_forged.data.tags.DFBiomeTags
+import org.teamvoided.dwarf_forged.data.worldgen.DFPlacedFeatures
 import org.teamvoided.dwarf_forged.data.worldgen.ore.DFPlacedOres
 import java.util.function.Predicate
 
@@ -189,6 +190,63 @@ object DFBiomeModifiers {
 
             Iridium (everywhere but its supper rare)
         */
+
+
+
+
+        addRocks()
+
+    }
+
+    private fun addRocks() {
+
+        addOre("add_pumice", DFPlacedFeatures.PUMICE, BiomeSelectors.foundInTheNether())
+
+        // Shallow
+        addOre("add_marble_upper", DFPlacedFeatures.MARBLE_UPPER, BiomeSelectors.tag(DFBiomeTags.HAS_MARBLE))
+        addOre("add_marble_lower", DFPlacedFeatures.MARBLE_LOWER, BiomeSelectors.tag(DFBiomeTags.HAS_MARBLE))
+
+        addOre("add_mudrock_upper", DFPlacedFeatures.MUDROCK_UPPER, BiomeSelectors.tag(DFBiomeTags.HAS_MUDROCK))
+        addOre("add_mudrock_lower", DFPlacedFeatures.MUDROCK_LOWER, BiomeSelectors.tag(DFBiomeTags.HAS_MUDROCK))
+
+        // High
+        addOre("add_blue_schist_upper", DFPlacedFeatures.BLUE_SCHIST_UPPER, BiomeSelectors.foundInOverworld())
+        addOre("add_blue_schist_lower", DFPlacedFeatures.BLUE_SCHIST_LOWER, BiomeSelectors.foundInOverworld())
+
+        // Normal
+        addOre(
+            "add_blairmorite_upper",
+            DFPlacedFeatures.BLAIRMORITE_UPPER,
+            BiomeSelectors.tag(DFBiomeTags.HAS_BLAIRMORITE)
+        )
+        addOre(
+            "add_blairmorite_lower",
+            DFPlacedFeatures.BLAIRMORITE_LOWER,
+            BiomeSelectors.tag(DFBiomeTags.HAS_BLAIRMORITE)
+        )
+
+        addOre("add_pyroxenite_upper", DFPlacedFeatures.PYROXENITE_UPPER, BiomeSelectors.foundInOverworld())
+        addOre("add_pyroxenite_lower", DFPlacedFeatures.PYROXENITE_LOWER, BiomeSelectors.foundInOverworld())
+
+        addOre("add_argillite_upper", DFPlacedFeatures.ARGILLITE_UPPER, BiomeSelectors.tag(DFBiomeTags.HAS_ARGILLITE))
+        addOre("add_argillite_lower", DFPlacedFeatures.ARGILLITE_LOWER, BiomeSelectors.tag(DFBiomeTags.HAS_ARGILLITE))
+
+        addOre("add_variolite_upper", DFPlacedFeatures.VARIOLITE_UPPER, BiomeSelectors.foundInOverworld())
+        addOre("add_variolite_lower", DFPlacedFeatures.VARIOLITE_LOWER, BiomeSelectors.foundInOverworld())
+
+
+//    Pumice (nether)
+
+//    Marble (dark forest & dark grove)
+//    Mudrock (lush caves and swamps)
+
+//    Blue schist (everywehre and high)
+
+//    Blairmorite (jungles & lush)
+//    Pyroxenite (everywhere)
+//    Argillite (cold biomes)
+//    Variolite (not cold)
+
     }
 
     fun addOre(name: String, ore: RegistryKey<PlacedFeature>, predicate: Predicate<BiomeSelectionContext>) {
@@ -196,4 +254,5 @@ object DFBiomeModifiers {
             it.generationSettings.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, ore)
         }
     }
+
 }
