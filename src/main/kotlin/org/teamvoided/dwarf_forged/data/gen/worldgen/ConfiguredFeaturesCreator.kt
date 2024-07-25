@@ -89,7 +89,7 @@ object ConfiguredFeaturesCreator {
     private fun miscGems(c: BootstrapContext<CfgFeature>) {
         c.registerConfiguredFeature(
             DFCfgOres.ORE_SMOKY_QUARTZ, ORE,
-            OreFeatureConfig(BlockMatchRuleTest(Blocks.NETHERRACK), DFBlocks.SMOKY_QUARTZ_BLOCK.defaultState, 14)
+            OreFeatureConfig(BlockMatchRuleTest(Blocks.NETHERRACK), DFBlocks.NETHER_SMOKY_QUARTZ_ORE.defaultState, 14)
         )
 
         val moonstone =

@@ -233,7 +233,7 @@ object PlacedFeaturesCreator {
         // High
         c.makeRock(
             DFPlacedFeatures.BLUE_SCHIST_LOWER, DFPlacedFeatures.BLUE_SCHIST_UPPER, DFConfiguredFeatures.BLUE_SCHIST,
-            10, 4,
+            6, 1,
             64, 320,
             32, 70
         )
@@ -358,7 +358,7 @@ object PlacedFeaturesCreator {
 
     private fun BootstrapContext<PlacedFeature>.makeNormalRock(
         lower: RegistryKey<PlacedFeature>, upper: RegistryKey<PlacedFeature>, cfg: RegistryKey<ConfiguredFeature<*, *>>,
-        upperChance: Int = 6, lowerChance: Int = 2,
+        upperChance: Int = 4, lowerChance: Int = 2,
     ) = this.makeRock(lower, upper, cfg, upperChance, lowerChance, 0, 64, -64, 0)
 
     private fun BootstrapContext<PlacedFeature>.makeRock(
