@@ -3,10 +3,8 @@ package org.teamvoided.dwarf_forged.data.gen.prov
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider
 import net.minecraft.block.Block
-import net.minecraft.block.Blocks
 import net.minecraft.enchantment.Enchantments
 import net.minecraft.item.Item
-import net.minecraft.item.Items
 import net.minecraft.loot.condition.MatchToolLootCondition
 import net.minecraft.loot.entry.ItemEntry
 import net.minecraft.loot.function.ApplyBonusLootFunction

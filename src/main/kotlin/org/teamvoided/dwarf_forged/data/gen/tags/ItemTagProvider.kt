@@ -276,6 +276,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     }
 
     private fun copyRocksTags() {
+        copy(DFBlockTags.ROCKS, DFItemTags.ROCKS)
         copy(DFBlockTags.STONES, DFItemTags.STONES)
         copy(DFBlockTags.STONES_NETHER, DFItemTags.STONES_NETHER)
 
