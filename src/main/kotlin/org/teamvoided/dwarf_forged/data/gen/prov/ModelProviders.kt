@@ -77,8 +77,8 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.DEEPSLATE_EINSTEINIUM_ORE,
         DFBlocks.ASTRALITE_ORE,
         DFBlocks.DEEPSLATE_ASTRALITE_ORE,
-        DFBlocks.GRASS_ORE,
-        DFBlocks.DEEPSLATE_GRASS_ORE,
+        DFBlocks.DEATHL_ORE,
+        DFBlocks.DEEPSLATE_DEATHL_ORE,
         // --- --- --- ROCKS --- --- ---
         DFBlocks.BLUE_SKY_BLOCK,
         DFBlocks.BUDDING_BLUE_SKY,

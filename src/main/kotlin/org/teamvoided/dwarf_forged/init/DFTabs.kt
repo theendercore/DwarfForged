@@ -207,10 +207,10 @@ object DFTabs {
                         DFBlocks.ASTRALITE_BLOCK,
                         DFItems.ASTRALITE_INGOT,
 
-                        DFBlocks.GRASS_ORE,
-                        DFBlocks.DEEPSLATE_GRASS_ORE,
-                        DFBlocks.RAW_GRASS_BLOCK,
-                        DFItems.RAW_GRASS,
+                        DFBlocks.DEATHL_ORE,
+                        DFBlocks.DEEPSLATE_DEATHL_ORE,
+                        DFBlocks.RAW_DEATHL_BLOCK,
+                        DFItems.RAW_DEATHL,
                     )
                 }
             }

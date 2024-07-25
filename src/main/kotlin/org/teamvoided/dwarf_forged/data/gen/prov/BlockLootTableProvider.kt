@@ -123,8 +123,8 @@ class BlockLootTableProvider(o: FabricDataOutput, r: CompletableFuture<HolderLoo
         DFBlocks.ASTRALITE_ORE to DFItems.RAW_ASTRALITE,
         DFBlocks.DEEPSLATE_ASTRALITE_ORE to DFItems.RAW_ASTRALITE,
 
-        DFBlocks.GRASS_ORE to DFItems.RAW_GRASS,
-        DFBlocks.DEEPSLATE_GRASS_ORE to DFItems.RAW_GRASS,
+        DFBlocks.DEATHL_ORE to DFItems.RAW_DEATHL,
+        DFBlocks.DEEPSLATE_DEATHL_ORE to DFItems.RAW_DEATHL,
     )
 
 

@@ -57,7 +57,7 @@ object DFBlockLists {
     val RAW_HUMAN_ORES = listOf(
         DFBlocks.RAW_EINSTEINIUM_BLOCK,
         DFBlocks.RAW_ASTRALITE_BLOCK,
-        DFBlocks.RAW_GRASS_BLOCK,
+        DFBlocks.RAW_DEATHL_BLOCK,
     )
 
     val HUMAN_BLOCKS = listOf(

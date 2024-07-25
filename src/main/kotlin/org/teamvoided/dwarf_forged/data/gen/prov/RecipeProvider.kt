@@ -77,7 +77,7 @@ class RecipeProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Prov
         // raw human ores
         gen.revCompacting3x3(DFItems.RAW_EINSTEINIUM, DFBlocks.RAW_EINSTEINIUM_BLOCK)
         gen.revCompacting3x3(DFItems.RAW_ASTRALITE, DFBlocks.RAW_ASTRALITE_BLOCK)
-        gen.revCompacting3x3(DFItems.RAW_GRASS, DFBlocks.RAW_GRASS_BLOCK)
+        gen.revCompacting3x3(DFItems.RAW_DEATHL, DFBlocks.RAW_DEATHL_BLOCK)
 
         // metals
         gen.metalCompacting(DFItems.SILVER_NUGGET, DFItems.SILVER_INGOT, DFBlocks.SILVER_BLOCK)

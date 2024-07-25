@@ -39,7 +39,7 @@ object DFItemLists {
     val RAW_HUMAN_ORES = listOf(
         DFItems.RAW_EINSTEINIUM,
         DFItems.RAW_ASTRALITE,
-        DFItems.RAW_GRASS,
+        DFItems.RAW_DEATHL,
     )
     val METAL_INGOTS = listOf(
         DFItems.SILVER_INGOT,

@@ -186,7 +186,7 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
         getOrCreateTagBuilder(DFBlockTags.EINSTEINIUM_ORES)
             .add(DFBlocks.EINSTEINIUM_ORE, DFBlocks.DEEPSLATE_EINSTEINIUM_ORE)
         getOrCreateTagBuilder(DFBlockTags.ASTRALITE_ORES).add(DFBlocks.ASTRALITE_ORE, DFBlocks.DEEPSLATE_ASTRALITE_ORE)
-        getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.GRASS_ORE, DFBlocks.DEEPSLATE_GRASS_ORE)
+        getOrCreateTagBuilder(DFBlockTags.GRASS_ORES).add(DFBlocks.DEATHL_ORE, DFBlocks.DEEPSLATE_DEATHL_ORE)
 
 
         getOrCreateTagBuilder(DFBlockTags.RAW_HUMAN_STORAGE_BLOCKS)
@@ -196,7 +196,7 @@ class BlockTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pr
 
         getOrCreateTagBuilder(DFBlockTags.RAW_EINSTEINIUM_STORAGE_BLOCK).add(DFBlocks.RAW_EINSTEINIUM_BLOCK)
         getOrCreateTagBuilder(DFBlockTags.RAW_ASTRALITE_STORAGE_BLOCK).add(DFBlocks.RAW_ASTRALITE_BLOCK)
-        getOrCreateTagBuilder(DFBlockTags.RAW_GRASS_STORAGE_BLOCK).add(DFBlocks.RAW_GRASS_BLOCK)
+        getOrCreateTagBuilder(DFBlockTags.RAW_GRASS_STORAGE_BLOCK).add(DFBlocks.RAW_DEATHL_BLOCK)
 
         getOrCreateTagBuilder(DFBlockTags.HUMAN_BLOCKS)
             .forceAddTag(DFBlockTags.ASTRALITE_BLOCK)

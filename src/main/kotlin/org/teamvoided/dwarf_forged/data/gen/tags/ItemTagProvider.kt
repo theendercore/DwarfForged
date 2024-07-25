@@ -129,7 +129,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
 
         getOrCreateTagBuilder(DFItemTags.RAW_EINSTEINIUM_MATERIALS).add(DFItems.RAW_EINSTEINIUM)
         getOrCreateTagBuilder(DFItemTags.RAW_ASTRALITE_MATERIALS).add(DFItems.RAW_ASTRALITE)
-        getOrCreateTagBuilder(DFItemTags.RAW_GRASS_MATERIALS).add(DFItems.RAW_GRASS)
+        getOrCreateTagBuilder(DFItemTags.RAW_GRASS_MATERIALS).add(DFItems.RAW_DEATHL)
 
         getOrCreateTagBuilder(DFItemTags.ASTRALITE_INGOT).add(DFItems.ASTRALITE_INGOT)
 
