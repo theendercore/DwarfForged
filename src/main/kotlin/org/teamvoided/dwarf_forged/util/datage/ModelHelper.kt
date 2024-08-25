@@ -195,11 +195,6 @@ fun BlockStateModelGenerator.chain(chain: Block, texture: Identifier = chain.mod
 
 val CHAIN = vanillaBlockModel("chain", myb(), TextureKey.PARTICLE, TextureKey.ALL)
 
-fun <K, V> MutableMap<K, V>.put2(key: K, value: V): MutableMap<K, V> {
-    this[key] = value
-    return this
-}
-
 val ISOLATED_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Block) -> Unit> = mutableMapOf(
     BlockFamily.Variant.BUTTON to BlockStateModelGenerator::empty,
     BlockFamily.Variant.DOOR to BlockStateModelGenerator::empty,
