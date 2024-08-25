@@ -13,14 +13,17 @@ import org.teamvoided.dwarf_forged.util.register
 object DFBlocks {
     val BLOCKS = mutableSetOf<Block>()
 
-    val COPPER_SLAB = register("copper_slab", Blocks.COPPER_BLOCK.toSlab()).pickaxe().needsStone()
     val COPPER_STAIRS = register("copper_stairs", Blocks.COPPER_BLOCK.toStair()).pickaxe().needsStone()
+    val COPPER_SLAB = register("copper_slab", Blocks.COPPER_BLOCK.toSlab()).pickaxe().needsStone()
     val COPPER_WALL = register("copper_wall", Blocks.COPPER_BLOCK.toWall()).pickaxe().needsStone()
 
     val CUT_COPPER_WALL = register("cut_copper_wall", Blocks.CUT_COPPER.toWall()).pickaxe().needsStone()
+
     val COPPER_BARS = register("copper_bars", PaneBlock(copy(Blocks.IRON_BARS).sounds(BlockSoundGroup.COPPER)))
         .pickaxe().needsStone().cutout()
     val COPPER_CHAIN = register("copper_chain", ChainBlock(copy(Blocks.CHAIN))).pickaxe().needsStone().cutout()
+
+
 
 
     // Rocks
