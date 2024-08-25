@@ -15,9 +15,10 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         DFBlocks.MEDIUM_BLUE_SKY_BUD,
         DFBlocks.SMALL_BLUE_SKY_BUD
     )
+    val exclude = crystals
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
-        DFBlocks.BLOCKS.forEach { gen.registerSimpleCubeAll(it) }
+        DFBlocks.BLOCKS.filterNot(exclude::contains).forEach { gen.registerSimpleCubeAll(it) }
         crystals.forEach { gen.registerAmethyst(it); gen.registerItemModel(it) }
     }
 
