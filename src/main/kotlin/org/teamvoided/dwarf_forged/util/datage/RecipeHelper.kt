@@ -1,4 +1,6 @@
-package org.teamvoided.dwarf_forged.util
+@file:Suppress("unused")
+
+package org.teamvoided.dwarf_forged.util.datage
 
 import net.minecraft.data.server.RecipesProvider.*
 import net.minecraft.data.server.recipe.*
@@ -8,6 +10,8 @@ import net.minecraft.recipe.*
 import net.minecraft.registry.tag.TagKey
 import net.minecraft.util.Identifier
 import org.teamvoided.dwarf_forged.DwarfForged.id
+import org.teamvoided.dwarf_forged.util.path
+import org.teamvoided.dwarf_forged.util.toId
 
 // Reverse Compacting 3x3
 fun RecipeExporter.revCompacting3x3(item: ItemConvertible, block: ItemConvertible) {
