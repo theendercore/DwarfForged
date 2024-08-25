@@ -27,7 +27,7 @@ fun BootstrapContext<ConfiguredFeature<*, *>>.registerConfiguredFeature(
 
 private fun BootstrapContext<PlacedFeature>.register(
     registryKey: RegistryKey<PlacedFeature>, feature: Holder<ConfiguredFeature<*, *>>, coll: List<PlacementModifier>
-) = PlacedFeatureUtil.method_39737(this, registryKey, feature, coll)
+) = PlacedFeatureUtil.register(this, registryKey, feature, coll)
 
 fun rareOrePlacementModifiers(chance: Int, modifier: PlacementModifier): List<PlacementModifier> = listOf(
     RarityFilterPlacementModifier.create(chance),

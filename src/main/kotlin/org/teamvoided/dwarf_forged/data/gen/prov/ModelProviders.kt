@@ -11,6 +11,7 @@ import org.teamvoided.dwarf_forged.block.extra.DFBlockFamilies.BLOCK_FAMILIES
 import org.teamvoided.dwarf_forged.block.extra.DFBlockFamilies.ISOLATED_BLOCK_FAMILIES
 import org.teamvoided.dwarf_forged.init.DFBlocks
 import org.teamvoided.dwarf_forged.init.DFItems
+import org.teamvoided.dwarf_forged.util.datage.bars
 import org.teamvoided.dwarf_forged.util.datage.chain
 import org.teamvoided.dwarf_forged.util.datage.registerIsolatedBlockFamily
 import org.teamvoided.dwarf_forged.util.datage.wallOffset
@@ -24,8 +25,9 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
     )
     val offsetWalls = listOf(DFBlocks.CUT_COPPER_WALL to Blocks.CUT_COPPER)
     val chains = listOf(DFBlocks.COPPER_CHAIN)
+    val bars = listOf(DFBlocks.COPPER_BARS)
 
-    val exclude = crystals + chains +
+    val exclude = crystals + chains + bars +
             offsetWalls.map { it.first } +
             (ISOLATED_BLOCK_FAMILIES + BLOCK_FAMILIES).flatMap { fam -> fam.variants.values }
 
@@ -36,6 +38,7 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
         offsetWalls.forEach { (block, base) -> gen.wallOffset(block, base) }
         crystals.forEach { gen.registerAmethyst(it); gen.registerItemModel(it) }
         chains.forEach { gen.chain(it) }
+        bars.map { gen.bars(it) }
 
         DFBlocks.BLOCKS.filter { !exclude.contains(it) }.forEach(gen::registerSimpleCubeAll)
     }

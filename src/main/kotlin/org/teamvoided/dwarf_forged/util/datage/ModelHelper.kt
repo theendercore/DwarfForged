@@ -12,12 +12,12 @@ import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
 
+val BARS: TextureKey = TextureKey.of("bars")
 fun Block.model(): Identifier = ModelIds.getBlockModelId(this)
 fun Block.model(str: String) = this.model().suffix(str)
 fun Identifier.suffix(str: String) = Identifier.of(this.namespace, "${this.path}$str")
 
 fun Identifier.toVariant(): BlockStateVariant = BlockStateVariant.create().put(VariantSettings.MODEL, this)
-
 fun BlockStateModelGenerator.fence(fenceBlock: Block, reference: Block) {
     val texture = Texture.texture(reference)
     val post = Models.FENCE_POST.upload(fenceBlock, texture, this.modelCollector)
@@ -39,12 +39,8 @@ fun BlockStateModelGenerator.slab(
 ) = slab(slab, doubleSlab.model(), texture.model(), bottom.model(), side.model(), top.model())
 
 fun BlockStateModelGenerator.slab(
-    slab: Block,
-    doubleSlab: Identifier,
-    texture: Identifier,
-    bottom: Identifier = texture,
-    side: Identifier = texture,
-    top: Identifier = texture,
+    slab: Block, doubleSlab: Identifier, texture: Identifier,
+    bottom: Identifier = texture, side: Identifier = texture, top: Identifier = texture,
 ) {
     val textureObj = Texture.texture(texture)
         .put(TextureKey.BOTTOM, bottom)
@@ -56,6 +52,17 @@ fun BlockStateModelGenerator.slab(
     this.blockStateCollector.accept(BlockStateModelGenerator.createSlabBlockState(slab, id, id2, doubleSlab))
     this.registerParentedItemModel(slab, id)
 }
+
+// Sided Slab
+fun BlockStateModelGenerator.sidedSlab(slab: Block, endTexture: Block) = sidedSlab(slab, endTexture.model())
+fun BlockStateModelGenerator.sidedSlab(slab: Block, endTexture: Identifier, sideTexture: Identifier = slab.model()) {
+    val columnTexture = Texture.texture(sideTexture)
+        .put(TextureKey.END, endTexture)
+        .put(TextureKey.SIDE, sideTexture)
+    val doubleSlab = Models.CUBE_COLUMN.upload(slab.model().suffix("_full"), columnTexture, this.modelCollector)
+    slab(slab, doubleSlab, endTexture, side = sideTexture)
+}
+
 
 // stairs
 fun BlockStateModelGenerator.stairs(
@@ -108,13 +115,25 @@ val OFFSET_WALL_POST = voidedBlockModel("template/offset_wall_post", "_post", Te
 val OFFSET_WALL_INVENTORY = voidedBlockModel("template/offset_wall_inventory", "_inventory", TextureKey.WALL)
 
 // Bars
+
+val BARS_POST_ENDS = vanillaBlockModel("iron_bars_post_ends", myb(), TextureKey.PARTICLE, BARS, TextureKey.EDGE)
+val BARS_POST = vanillaBlockModel("iron_bars_post", myb(), TextureKey.PARTICLE, BARS, TextureKey.EDGE)
+val BARS_CAP = vanillaBlockModel("iron_bars_cap", myb(), TextureKey.PARTICLE, BARS, TextureKey.EDGE)
+val BARS_CAP_ALT = vanillaBlockModel("iron_bars_cap_alt", myb(), TextureKey.PARTICLE, BARS, TextureKey.EDGE)
+val BARS_SIDE = vanillaBlockModel("iron_bars_side", myb(), TextureKey.PARTICLE, BARS, TextureKey.EDGE)
+val BARS_SIDE_ALT = vanillaBlockModel("iron_bars_side_alt", myb(), TextureKey.PARTICLE, BARS, TextureKey.EDGE)
+
 fun BlockStateModelGenerator.bars(bars: Block) {
-    val postEnds = ModelIds.getBlockSubModelId(bars, "_post_ends")
-    val post = ModelIds.getBlockSubModelId(bars, "_post")
-    val cap = ModelIds.getBlockSubModelId(bars, "_cap")
-    val capAlt = ModelIds.getBlockSubModelId(bars, "_cap_alt")
-    val side = ModelIds.getBlockSubModelId(bars, "_side")
-    val sideAlt = ModelIds.getBlockSubModelId(bars, "_side_alt")
+    val texture = Texture.texture(bars.model())
+        .put(TextureKey.PARTICLE, bars.model())
+        .put(BARS, bars.model())
+        .put(TextureKey.EDGE, bars.model())
+    val postEnds = BARS_POST_ENDS.upload(bars, "_post_ends", texture, this.modelCollector)
+    val post = BARS_POST.upload(bars, "_post", texture, this.modelCollector)
+    val cap = BARS_CAP.upload(bars, "_cap", texture, this.modelCollector)
+    val capAlt = BARS_CAP_ALT.upload(bars,"_cap_alt", texture, this.modelCollector)
+    val side = BARS_SIDE.upload(bars, "_side", texture, this.modelCollector)
+    val sideAlt = BARS_SIDE_ALT.upload(bars, "_side_alt", texture, this.modelCollector)
     this.blockStateCollector.accept(
         MultipartBlockStateSupplier.create(bars)
             .with(BlockStateVariant.create().put(VariantSettings.MODEL, postEnds))
@@ -171,7 +190,7 @@ fun BlockStateModelGenerator.chain(chain: Block, texture: Identifier = chain.mod
         .put(TextureKey.ALL, texture)
     val model = CHAIN.upload(chain, textureObj, this.modelCollector)
     this.registerAxisRotated(chain, model)
-    this.registerItemModel(chain)
+    this.registerItemModel(chain.asItem())
 }
 
 val CHAIN = vanillaBlockModel("chain", myb(), TextureKey.PARTICLE, TextureKey.ALL)
@@ -198,7 +217,7 @@ val ISOLATED_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Bloc
     BlockFamily.Variant.WALL to BlockStateModelGenerator::wall,
 )
 val FANCY_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Block) -> Unit> = mutableMapOf(
-    BlockFamily.Variant.SLAB to BlockStateModelGenerator::slab,
+    BlockFamily.Variant.SLAB to BlockStateModelGenerator::sidedSlab,
     BlockFamily.Variant.STAIRS to BlockStateModelGenerator::stairs,
     BlockFamily.Variant.WALL to BlockStateModelGenerator::wall,
 )
@@ -213,7 +232,7 @@ fun BlockStateModelGenerator.registerIsolatedBlockFamily(family: BlockFamily) {
     family.variants.forEach { (variant, block) ->
         val func = mapType[variant]
         if (func != null) func.invoke(this, block, root)
-        else log.info("No function for variant $variant in $root")
+        else log.info("Not found function for $variant in $root")
     }
 }
 
