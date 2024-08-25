@@ -1,19 +1,27 @@
 package org.teamvoided.dwarf_forged.init
 
-import net.minecraft.block.AbstractBlock
-import net.minecraft.block.Block
-import net.minecraft.block.Blocks
+import net.minecraft.block.*
 import net.minecraft.registry.Registries
+import net.minecraft.sound.BlockSoundGroup
 import org.teamvoided.dwarf_forged.block.*
+import org.teamvoided.dwarf_forged.block.extra.DFBlockFamilies
 import org.teamvoided.dwarf_forged.util.BlockItem
 import org.teamvoided.dwarf_forged.util.addAndGet
-import org.teamvoided.dwarf_forged.util.datage.cutout
-import org.teamvoided.dwarf_forged.util.datage.pickaxe
-import org.teamvoided.dwarf_forged.util.datage.silkTouchOrNothing
+import org.teamvoided.dwarf_forged.util.datage.*
 import org.teamvoided.dwarf_forged.util.register
 
 object DFBlocks {
     val BLOCKS = mutableSetOf<Block>()
+
+    val COPPER_SLAB = register("copper_slab", Blocks.COPPER_BLOCK.toSlab()).pickaxe().needsStone()
+    val COPPER_STAIRS = register("copper_stairs", Blocks.COPPER_BLOCK.toStair()).pickaxe().needsStone()
+    val COPPER_WALL = register("copper_wall", Blocks.COPPER_BLOCK.toWall()).pickaxe().needsStone()
+
+    val CUT_COPPER_WALL = register("cut_copper_wall", Blocks.CUT_COPPER.toWall()).pickaxe().needsStone()
+    val COPPER_BARS = register("copper_bars", PaneBlock(copy(Blocks.IRON_BARS).sounds(BlockSoundGroup.COPPER)))
+        .pickaxe().needsStone().cutout()
+    val COPPER_CHAIN = register("copper_chain", ChainBlock(copy(Blocks.CHAIN))).pickaxe().needsStone().cutout()
+
 
     // Rocks
     val ORBITAL_GRANITE = register("orbital_granite", Block(copy(Blocks.STONE))).pickaxe()
@@ -36,7 +44,9 @@ object DFBlocks {
         )
     ).pickaxe()
 
-    fun init() = Unit
+    fun init() {
+        DFBlockFamilies.init()
+    }
 
 
     fun copy(block: Block): AbstractBlock.Settings = AbstractBlock.Settings.copy(block)
