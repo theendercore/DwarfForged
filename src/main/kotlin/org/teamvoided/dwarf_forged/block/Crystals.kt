@@ -22,7 +22,7 @@ class BuddingCrystalBlock(settings: Settings, val budList: List<Block>, private 
     BuddingAmethystBlock(settings) {
     override fun randomTick(state: BlockState, world: ServerWorld, pos: BlockPos, random: RandomGenerator) {
         if (random.nextInt(growthChance) == 0) {
-            val direction = DIRECTIONS.random()
+            val direction = Direction.random(random)
             val offsetPos = pos.offset(direction)
             val existingState = world.getBlockState(offsetPos)
             var block: Block? = if (canGrowIn(existingState)) budList[0]
@@ -41,9 +41,4 @@ class BuddingCrystalBlock(settings: Settings, val budList: List<Block>, private 
             }
         }
     }
-
-    companion object {
-        val DIRECTIONS = Direction.entries.toList()
-    }
-
 }
