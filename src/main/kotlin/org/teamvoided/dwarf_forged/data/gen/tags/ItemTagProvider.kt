@@ -26,6 +26,7 @@ class ItemTagProvider(o: FabricDataOutput, r: CompletableFuture<HolderLookup.Pro
     private fun conventionalTags() {
         getOrCreateTagBuilder(DFItemTags.GEMS_BLUE_SKY).add(DFItems.BLUE_SKY_SHARD)
         getOrCreateTagBuilder(DFItemTags.COPPER_NUGGETS).add(DFItems.COPPER_NUGGET)
+        getOrCreateTagBuilder(ConventionalItemTags.NUGGETS).forceAddTag(DFItemTags.COPPER_NUGGETS)
     }
 
 
