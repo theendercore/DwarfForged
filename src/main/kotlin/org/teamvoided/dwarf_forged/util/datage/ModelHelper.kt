@@ -8,6 +8,8 @@ import net.minecraft.data.family.BlockFamily
 import net.minecraft.state.property.Properties
 import net.minecraft.util.Identifier
 import org.teamvoided.dwarf_forged.DwarfForged.log
+import org.teamvoided.dwarf_forged.block.extra.FamilyType
+import org.teamvoided.dwarf_forged.util.putAllAndGet
 import java.util.*
 import kotlin.jvm.optionals.getOrNull
 
@@ -131,7 +133,7 @@ fun BlockStateModelGenerator.bars(bars: Block) {
     val postEnds = BARS_POST_ENDS.upload(bars, "_post_ends", texture, this.modelCollector)
     val post = BARS_POST.upload(bars, "_post", texture, this.modelCollector)
     val cap = BARS_CAP.upload(bars, "_cap", texture, this.modelCollector)
-    val capAlt = BARS_CAP_ALT.upload(bars,"_cap_alt", texture, this.modelCollector)
+    val capAlt = BARS_CAP_ALT.upload(bars, "_cap_alt", texture, this.modelCollector)
     val side = BARS_SIDE.upload(bars, "_side", texture, this.modelCollector)
     val sideAlt = BARS_SIDE_ALT.upload(bars, "_side_alt", texture, this.modelCollector)
     this.blockStateCollector.accept(
@@ -211,11 +213,14 @@ val ISOLATED_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Bloc
     BlockFamily.Variant.TRAPDOOR to { trapdoor, _ -> registerTrapdoor(trapdoor) },
     BlockFamily.Variant.WALL to BlockStateModelGenerator::wall,
 )
-val FANCY_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Block) -> Unit> = mutableMapOf(
-    BlockFamily.Variant.SLAB to BlockStateModelGenerator::sidedSlab,
-    BlockFamily.Variant.STAIRS to BlockStateModelGenerator::stairs,
-    BlockFamily.Variant.WALL to BlockStateModelGenerator::wall,
-)
+val BASE_BLOCK_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Block) -> Unit> =
+    ISOLATED_MAP.putAllAndGet(
+        BlockFamily.Variant.SLAB to BlockStateModelGenerator::sidedSlab,
+        BlockFamily.Variant.STAIRS to BlockStateModelGenerator::stairs,
+        BlockFamily.Variant.WALL to BlockStateModelGenerator::wall,
+    )
+val CUT_BLOCK_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Block) -> Unit> =
+    ISOLATED_MAP.putAllAndGet(BlockFamily.Variant.WALL to BlockStateModelGenerator::wallOffset)
 
 fun BlockStateModelGenerator.empty(b: Block, r: Block) {
     log.info("No function for $b in $r")
@@ -223,7 +228,11 @@ fun BlockStateModelGenerator.empty(b: Block, r: Block) {
 
 fun BlockStateModelGenerator.registerIsolatedBlockFamily(family: BlockFamily) {
     val root = family.baseBlock
-    val mapType = if (family.group.getOrNull() == "fancy") FANCY_MAP else ISOLATED_MAP
+    val mapType = when (family.group.getOrNull()) {
+        FamilyType.BASE_BLOCK -> BASE_BLOCK_MAP
+        FamilyType.CUT_BLOCK -> CUT_BLOCK_MAP
+        else -> ISOLATED_MAP
+    }
     family.variants.forEach { (variant, block) ->
         val func = mapType[variant]
         if (func != null) func.invoke(this, block, root)

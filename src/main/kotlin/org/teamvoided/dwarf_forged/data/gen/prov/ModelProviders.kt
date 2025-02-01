@@ -32,7 +32,9 @@ class ModelProviders(o: FabricDataOutput) : FabricModelProvider(o) {
             (ISOLATED_BLOCK_FAMILIES + BLOCK_FAMILIES).flatMap { fam -> fam.variants.values }
 
     override fun generateBlockStateModels(gen: BlockStateModelGenerator) {
-//        BLOCK_FAMILIES.forEach(gen::registerCubeAllModelTexturePool)
+        BLOCK_FAMILIES.forEach {
+            gen.registerCubeAllModelTexturePool(it.baseBlock).family(it)
+        }
         ISOLATED_BLOCK_FAMILIES.filter(BlockFamily::shouldGenerateModels).forEach(gen::registerIsolatedBlockFamily)
 
         offsetWalls.forEach { (block, base) -> gen.wallOffset(block, base) }

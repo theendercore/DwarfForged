@@ -26,7 +26,13 @@ fun itemTag(id: Identifier) = RegistryKeys.ITEM.tag(id)
 
 fun String.text() = Text.translatable(this)
 
-fun <T : Any> MutableCollection<T>.addAndGet(entry: T): T {
+fun <T> MutableCollection<T>.addAndGet(entry: T): T {
     this.add(entry)
     return entry
+}
+
+fun <K, V> Map<K, V>.putAllAndGet(vararg pairs: Pair<K, V>): Map<K, V> {
+    val modifiedMap = this.toMutableMap()
+    modifiedMap.putAll(pairs)
+    return modifiedMap
 }
