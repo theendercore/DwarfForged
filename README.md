@@ -1,2 +1,61 @@
-# The TeamVoided Template
-Template mod by TeamVoided
+# My heart belong in the mines
+
+## Widget ideas
+
+- light level
+- time
+- item durability
+- moon phase?
+- whether?
+- x & z coords
+- y level
+- biome
+- biome stats?
+- structure and or stats?
+- color amalgamation (Myb more then one):
+    - average color of block
+    - color picker for blocks (includes opposite colors if needed)
+- jade skin + widget
+- ? damage indicator mod support + skin
+- block counter / measuring tool
+- hive inspector (check if there are bees and honey in hives)
+- Item Analyzer (Render item tooltip when looking at item entity)
+- Inventory sorter
+- Item Restocking
+- Growth Tracker (Checks if crops are fully growing)
+- Precision Miner (only lets you mine one block when holding down break button)
+- dps meter?
+- Fishing Radar (big indicator when fish reading to be caught)
+- Fishing chest (lets you see if u can fish treasure)
+- note / todo list
+- item tacker (you can make a list of items to collect, and it will live update)
+- Item Filter (Lets you find items more easily, aka emi special search)
+- Pin-able stats tracker tracker?
+- Armor hud (can customize everything)
+- litematica support?
+- time
+- Redstone WindClock:
+  - show if block is powered or not
+  - show power level
+- Deepstone Musicbox (Shows what song is playing)
+- Merchants seal (lets you add a seal to villager trade so every time you look at them, it renders the trade)
+- Drawen Abacus (A calculator, also has specifics for mc related math things, e.g. how many stack is 145)
+- Enemy Aggro Indicator (Shows which mobs are angry at you)
+- Advancement tracker (Lets you pin advancements to hud to keep track of completion)
+- Animal Breed Cooldown
+- Spawn Stats
+- Trail Spawner & Vault stats
+- Block Break display (Shows if you can break a block)
+- Mining Zone Indicator (Shows if you are in optimal y level for mining a specific ore)
+- Camera drone?
+- Ear mufflers (Just lets you mute specific sounds)
+- Mechanical spine (lets you a just the hurt cam)
+- Item Search (lets you find any item in containers near you)
+- Armor Stand Editor mod integration? or just a custom editor
+- Quick Unloader (Qucickstac to nearby chests)
+- build guides mod
+- Spedomiter
+- Armor tuffness indicator
+- Damage numbers?
+- lava goggles (lets you see under lava if you have fire resistance)
+- tool auto switcher
