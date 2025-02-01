@@ -33,7 +33,7 @@ object DFBlocks {
     val CUT_IRON_SLAB = register("cut_iron_slab", CUT_IRON.toSlab()).pickaxe().needsStone()
     val CUT_IRON_WALL = register("cut_iron_wall", CUT_IRON.toWall()).pickaxe().needsStone()
 
-    val IRON_GRATE = register("iron_grate", WaxedCopperGrateBlock(copy(Blocks.COPPER_GRATE))).pickaxe().needsStone()
+    val IRON_GRATE = register("iron_grate", WaxedCopperGrateBlock(copy(Blocks.COPPER_GRATE))).pickaxe().needsStone().cutout()
     val IRON_BULB = register("iron_bulb", WaxedCopperBulbBlock(copy(Blocks.COPPER_BULB))).pickaxe().needsStone()
 
 
