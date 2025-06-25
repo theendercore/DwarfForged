@@ -33,7 +33,6 @@
 - Pin-able stats tracker tracker?
 - Armor hud (can customize everything)
 - litematica support?
-- time
 - Redstone WindClock:
   - show if block is powered or not
   - show power level
@@ -48,7 +47,7 @@
 - Block Break display (Shows if you can break a block)
 - Mining Zone Indicator (Shows if you are in optimal y level for mining a specific ore)
 - Camera drone?
-- Ear mufflers (Just lets you mute specific sounds)
+- Ear mufflers (Just lets you mute specific sounds) (has voice chat support (so you can accidentally mute astra))
 - Mechanical spine (lets you a just the hurt cam)
 - Item Search (lets you find any item in containers near you)
 - Armor Stand Editor mod integration? or just a custom editor
@@ -59,3 +58,4 @@
 - Damage numbers?
 - lava goggles (lets you see under lava if you have fire resistance)
 - tool auto switcher
+- compass
