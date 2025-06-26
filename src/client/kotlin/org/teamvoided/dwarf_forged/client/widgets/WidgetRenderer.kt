@@ -11,13 +11,10 @@ import net.minecraft.client.render.DeltaTracker
 import net.minecraft.entity.ItemEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.registry.Holder
-import net.minecraft.text.Text
-import net.minecraft.util.Language
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.world.biome.Biome
-import org.teamvoided.creative_works.client.DebugWidgetRegistry.addButton
-import org.teamvoided.creative_works.client.DebugWidgetRegistry.addFloat
+import org.teamvoided.creative_works.client.DebugWidgetRegistry.addInt
 import org.teamvoided.dwarf_forged.client.gui.tooltip.drawHudTooltips
 import org.teamvoided.dwarf_forged.client.util.getBiomeName
 import org.teamvoided.dwarf_forged.client.util.getPlayerHit
@@ -44,7 +41,7 @@ object WidgetRenderer {
         val white = 0xff_ff_ff
 
 
-        if (Settings.onGroundItem.get()) {
+        if (Settings.onGroundItem.get() > 0) {
             val scan = getPlayerHit(player, delta.getTickDelta(true))
             val target = if (scan is EntityHitResult) scan.entity else null
             if (target is ItemEntity) {
@@ -52,7 +49,7 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.chiseledMonocle.get()) {
+        if (Settings.chiseledMonocle.get() > 0) {
             val hit = client.crosshairTarget
             if (hit is BlockHitResult) {
                 val entity = world.getBlockEntity(hit.blockPos)
@@ -76,22 +73,40 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.currentBiome.get()) {
+        if (Settings.currentBiome.get() > 0) {
             Data.currentBiome = world.getBiome(player.blockPos)
             Data.currentBiome?.let { biome ->
                 gui.drawCenteredShadowedText(font, getBiomeName(biome), width / 2, height - 80, white)
             }
         }
 
-        if (false){
+        if (Settings.redstoneInfo.get() > 0) {
+            val hit = client.crosshairTarget
+            if (hit is BlockHitResult) {
+                val pos = hit.blockPos
+                val state = world.getBlockState(pos)
 
+                val isPowerSource = state.isRedstonePowerSource
+                val received = world.getReceivedRedstonePower(pos)
+                val emitted = world.getEmittedRedstonePower(pos, hit.side)
+                val isPowered = world.isReceivingRedstonePower(pos)
+                if (isPowerSource)
+                    gui.drawCenteredShadowedText(font, "Power Source", width / 2, 16, white)
+                if (isPowered)
+                    gui.drawCenteredShadowedText(font, "Is Being powered", width / 2, 32, white)
+                if (isPowerSource || received > 0)
+                    gui.drawCenteredShadowedText(font, "Received: $received", width / 2, 48, white)
+                if (isPowerSource || emitted > 0)
+                    gui.drawCenteredShadowedText(font, "Emitted: $emitted", width / 2, 64, white)
+            }
         }
     }
 
     object Settings {
-        var onGroundItem = addButton("OnGroundItem")
-        var chiseledMonocle = addButton("ChiseledMonocle")
-        var currentBiome = addButton("CurrentBiome")
+        var onGroundItem = addInt("OnGroundItem")
+        var chiseledMonocle = addInt("ChiseledMonocle")
+        var currentBiome = addInt("CurrentBiome")
+        var redstoneInfo = addInt("RedstoneInfo")
     }
 
     object Data {
