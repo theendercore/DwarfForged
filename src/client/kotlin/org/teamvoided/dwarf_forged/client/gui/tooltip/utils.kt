@@ -21,3 +21,14 @@ fun GuiGraphics.drawTooltip(
     stack.tooltipData.ifPresent { list.add(if (list.isEmpty()) 0 else 1, TooltipComponent.of(it)) }
     (this as GuiGraphicsAccessor).wf_invokeDrawTooltip(textRenderer, list, x, y, positioner)
 }
+
+fun GuiGraphics.drawHudTooltips(
+    textRenderer: TextRenderer, stack: ItemStack, x: Int, y: Int,
+    positioner: TooltipPositioner = CenteredTooltipPositioner.INSTANCE,
+){
+    matrices.push()
+    matrices.translate(0f, 0f, -1000f)
+    drawTooltip(textRenderer, stack, x, y, positioner)
+    matrices.pop()
+
+}
