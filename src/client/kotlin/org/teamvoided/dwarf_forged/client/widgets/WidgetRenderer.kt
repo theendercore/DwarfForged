@@ -107,6 +107,7 @@ object WidgetRenderer {
         var chiseledMonocle = addInt("ChiseledMonocle")
         var currentBiome = addInt("CurrentBiome")
         var redstoneInfo = addInt("RedstoneInfo")
+        var paciFist= addInt("PaciFist")
     }
 
     object Data {

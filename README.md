@@ -15,7 +15,7 @@
 - color amalgamation (Myb more then one):
     - average color of block
     - color picker for blocks (includes opposite colors if needed)
-- jade skin + widget
+- jade skin + widget +  skin
 - ? damage indicator mod support + skin
 - block counter / measuring tool
 - hive inspector (check if there are bees and honey in hives)
@@ -63,3 +63,4 @@
 - Redstone WindClock:
   - show if block is powered or not
   - show power level
+- paci-fist (prevents you form attacking things, also remove Crimson time)

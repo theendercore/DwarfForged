@@ -4,8 +4,9 @@
   "package": "org.teamvoided.dwarf_forged.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "GuiGraphicsAccessor",
-    "ChiseledBookshelfBlockAccessor"
+    "ChiseledBookshelfBlockAccessor",
+    "GameRendererMixin",
+    "GuiGraphicsAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
