@@ -9,9 +9,9 @@
 - whether?
 - x & z coords
 - y level
-- biome
 - biome stats?
-- structure and or stats?
+- structure 
+- structure stats?
 - color amalgamation (Myb more then one):
     - average color of block
     - color picker for blocks (includes opposite colors if needed)
@@ -19,7 +19,6 @@
 - ? damage indicator mod support + skin
 - block counter / measuring tool
 - hive inspector (check if there are bees and honey in hives)
-- Item Analyzer (Render item tooltip when looking at item entity)
 - Inventory sorter
 - Item Restocking
 - Growth Tracker (Checks if crops are fully growing)
@@ -33,9 +32,6 @@
 - Pin-able stats tracker tracker?
 - Armor hud (can customize everything)
 - litematica support?
-- Redstone WindClock:
-  - show if block is powered or not
-  - show power level
 - Deepstone Musicbox (Shows what song is playing)
 - Merchants seal (lets you add a seal to villager trade so every time you look at them, it renders the trade)
 - Drawen Abacus (A calculator, also has specifics for mc related math things, e.g. how many stack is 145)
@@ -48,7 +44,7 @@
 - Mining Zone Indicator (Shows if you are in optimal y level for mining a specific ore)
 - Camera drone?
 - Ear mufflers (Just lets you mute specific sounds) (has voice chat support (so you can accidentally mute astra))
-- Mechanical spine (lets you a just the hurt cam)
+- Mechanical spine (lets you adjust the hurt cam)
 - Item Search (lets you find any item in containers near you)
 - Armor Stand Editor mod integration? or just a custom editor
 - Quick Unloader (Qucickstac to nearby chests)
@@ -59,3 +55,11 @@
 - lava goggles (lets you see under lava if you have fire resistance)
 - tool auto switcher
 - compass
+
+
+## Needs to be Styled:
+- biome
+- Item Analyzer (Render item tooltip when looking at item entity)
+- Redstone WindClock:
+  - show if block is powered or not
+  - show power level
