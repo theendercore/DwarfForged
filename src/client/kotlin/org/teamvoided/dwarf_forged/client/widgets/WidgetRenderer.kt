@@ -16,6 +16,8 @@ import net.minecraft.util.Language
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.world.biome.Biome
+import org.teamvoided.creative_works.client.DebugWidgetRegistry.addButton
+import org.teamvoided.creative_works.client.DebugWidgetRegistry.addFloat
 import org.teamvoided.dwarf_forged.client.gui.tooltip.drawHudTooltips
 import org.teamvoided.dwarf_forged.client.util.getBiomeName
 import org.teamvoided.dwarf_forged.client.util.getPlayerHit
@@ -42,7 +44,7 @@ object WidgetRenderer {
         val white = 0xff_ff_ff
 
 
-        if (Settings.onGroundItem) {
+        if (Settings.onGroundItem.get()) {
             val scan = getPlayerHit(player, delta.getTickDelta(true))
             val target = if (scan is EntityHitResult) scan.entity else null
             if (target is ItemEntity) {
@@ -50,7 +52,7 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.chiseledMonocle) {
+        if (Settings.chiseledMonocle.get()) {
             val hit = client.crosshairTarget
             if (hit is BlockHitResult) {
                 val entity = world.getBlockEntity(hit.blockPos)
@@ -74,18 +76,22 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.currentBiome) {
+        if (Settings.currentBiome.get()) {
             Data.currentBiome = world.getBiome(player.blockPos)
             Data.currentBiome?.let { biome ->
                 gui.drawCenteredShadowedText(font, getBiomeName(biome), width / 2, height - 80, white)
             }
         }
+
+        if (false){
+
+        }
     }
 
     object Settings {
-        var onGroundItem = false
-        var chiseledMonocle = false
-        var currentBiome = true
+        var onGroundItem = addButton("OnGroundItem")
+        var chiseledMonocle = addButton("ChiseledMonocle")
+        var currentBiome = addButton("CurrentBiome")
     }
 
     object Data {

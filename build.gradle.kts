@@ -20,8 +20,17 @@ val modrinth_id: String? by project
 val curse_id: String? by project
 
 repositories {
-    maven("https://teamvoided.org/releases")
-    maven("https://maven.terraformersmc.com/") { name = "Terraformers" }
+    maven("https://teamvoided.org/releases") { content { includeGroup("org.teamvoided") } }
+    maven("https://teamvoided.org/snapshots") { content { includeGroup("org.teamvoided") } }
+    maven("https://maven.fzzyhmstrs.me/") { name = "FzzyMaven"; content { includeGroup("me.fzzyhmstrs") } }
+    maven("https://maven.terraformersmc.com/") {
+        name = "Terraformers"
+        content {
+            includeGroup("com.terraformersmc")
+            includeGroup("dev.emi")
+        }
+    }
+    maven("https://api.modrinth.com/maven") { content { includeGroup("maven.modrinth") } }
     mavenCentral()
 }
 
@@ -39,10 +48,15 @@ modSettings {
 
 dependencies {
     modImplementation(fileTree("libs"))
+    // Dependencies
+    modImplementation(libs.fzzy.config)
+    // QoL
     modImplementation(libs.modmenu)
-
     modCompileOnly("${libs.emi.get()}:api")
     modLocalRuntime(libs.emi)
+    // Testing
+    modImplementation(libs.creative.works)
+    modImplementation(libs.imguimc)
 }
 
 loom {
