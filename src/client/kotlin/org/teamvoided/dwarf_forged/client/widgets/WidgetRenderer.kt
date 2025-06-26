@@ -10,9 +10,14 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.DeltaTracker
 import net.minecraft.entity.ItemEntity
 import net.minecraft.item.ItemStack
+import net.minecraft.registry.Holder
+import net.minecraft.text.Text
+import net.minecraft.util.Language
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
+import net.minecraft.world.biome.Biome
 import org.teamvoided.dwarf_forged.client.gui.tooltip.drawHudTooltips
+import org.teamvoided.dwarf_forged.client.util.getBiomeName
 import org.teamvoided.dwarf_forged.client.util.getPlayerHit
 import org.teamvoided.dwarf_forged.mixin.client.ChiseledBookshelfBlockAccessor
 import org.teamvoided.dwarf_forged.net.FetchBookStackPayload
@@ -44,6 +49,7 @@ object WidgetRenderer {
                 gui.drawHudTooltips(font, target.stack, width / 2, height / 2 + 20)
             }
         }
+
         if (Settings.chiseledMonocle) {
             val hit = client.crosshairTarget
             if (hit is BlockHitResult) {
@@ -67,14 +73,23 @@ object WidgetRenderer {
                 }
             }
         }
+
+        if (Settings.currentBiome) {
+            Data.currentBiome = world.getBiome(player.blockPos)
+            Data.currentBiome?.let { biome ->
+                gui.drawCenteredShadowedText(font, getBiomeName(biome), width / 2, height - 80, white)
+            }
+        }
     }
 
     object Settings {
-        var onGroundItem = true
-        var chiseledMonocle = true
+        var onGroundItem = false
+        var chiseledMonocle = false
+        var currentBiome = true
     }
 
     object Data {
         var bookshelfStack: ItemStack = ItemStack.EMPTY
+        var currentBiome: Holder<Biome>? = null
     }
 }
