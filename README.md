@@ -64,5 +64,4 @@
 - lava goggles (lets you see under lava if you have fire resistance)
 - x & z coords
 - y level
-
 - whether?

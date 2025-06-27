@@ -135,10 +135,33 @@ object WidgetRenderer {
         if (Settings.xzCoords.get() > 0) {
             gui.drawShadowedText(font, String.format("X: %.2f Z: %.2f", player.x, player.z), 10, height - 16, white)
         }
+
         if (Settings.yCoords.get() > 0) {
             gui.drawShadowedText(
                 font, String.format("Y: %.2f", player.y), 10, height - (16 + font.fontHeight + 1), white
             )
+        }
+
+        if (Settings.barometer.get() > 0) {
+            val biome = world.getBiome(player.blockPos).value()
+            val tickDelta = delta.getTickDelta(false)
+            val isThunder = world.getThunderGradient(tickDelta) > 0f
+            val text = if (world.getRainGradient(tickDelta) > 0f)
+                when (biome.getPrecipitationAt(player.blockPos)) {
+                    Biome.Precipitation.NONE -> {
+                        if (isThunder) "Thunderous Gloom" else "Gloom"
+                    }
+
+                    Biome.Precipitation.SNOW -> {
+                        if (isThunder) "Snow Storm" else "Snow"
+                    }
+
+                    Biome.Precipitation.RAIN -> {
+                        if (isThunder) "Storm" else "Rain"
+                    }
+                }
+            else "Sunny"
+            gui.drawShadowedText(font, "Weather: $text", 10, height - 16, white)
         }
     }
 
@@ -154,6 +177,7 @@ object WidgetRenderer {
         var lavaGoogles = addInt("LavaGoogles")
         var xzCoords = addInt("XZCoords")
         var yCoords = addInt("YCoords")
+        var barometer = addInt("Barometer")
     }
 
     object Data {
