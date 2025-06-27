@@ -120,7 +120,7 @@ object WidgetRenderer {
             gui.drawShadowedText(font, text, 10, 10, white)
         }
 
-        if (!isCreative && Settings.armorToughness.get() > 0) {
+        if (Settings.armorToughness.get() > 0 && !isCreative) {
             val health =
                 max(
                     player.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH).toInt(),
@@ -130,6 +130,15 @@ object WidgetRenderer {
             val uncappedMaxHealth = MathHelper.ceil((health + absorption) / 2.0f / 10.0f)
             val cappedMaxHealth = max(10 - (uncappedMaxHealth - 2), 3)
             gui.renderArmorBar(player, height - 49, width / 2 - 91, uncappedMaxHealth, cappedMaxHealth)
+        }
+
+        if (Settings.xzCoords.get() > 0) {
+            gui.drawShadowedText(font, String.format("X: %.2f Z: %.2f", player.x, player.z), 10, height - 16, white)
+        }
+        if (Settings.yCoords.get() > 0) {
+            gui.drawShadowedText(
+                font, String.format("Y: %.2f", player.y), 10, height - (16 + font.fontHeight + 1), white
+            )
         }
     }
 
@@ -143,6 +152,8 @@ object WidgetRenderer {
         var armorToughness = addInt("ArmorToughness")
         var spawnerInfo = addInt("SpawnerInfo")
         var lavaGoogles = addInt("LavaGoogles")
+        var xzCoords = addInt("XZCoords")
+        var yCoords = addInt("YCoords")
     }
 
     object Data {

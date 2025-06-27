@@ -48,6 +48,7 @@
 - Damage numbers?
 - tool auto switcher
 - compass (pointing north ui kind)
+- Mechanical spine (lets you adjust the hurt cam)
 
 
 ## Needs to be Styled:
@@ -61,8 +62,7 @@
 - Armor toughness indicator
 - Spawn Stats
 - lava goggles (lets you see under lava if you have fire resistance)
-
-- Mechanical spine (lets you adjust the hurt cam)
 - x & z coords
 - y level
+
 - whether?
