@@ -1,15 +1,24 @@
 package org.teamvoided.dwarf_forged.client.util
 
 import com.mojang.blaze3d.systems.RenderSystem
+import net.minecraft.block.entity.MobSpawnerBlockEntity
+import net.minecraft.client.MinecraftClient
+import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.gui.GuiGraphics
+import net.minecraft.client.render.VertexConsumerProvider
+import net.minecraft.client.util.math.MatrixStack
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.registry.Holder
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.Language
 import net.minecraft.util.math.MathHelper
+import net.minecraft.world.MobSpawnerLogic
 import net.minecraft.world.biome.Biome
 import org.teamvoided.dwarf_forged.DwarfForged.id
+import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer
+import org.teamvoided.dwarf_forged.mixin.client.MobSpawnerLogicAccessor
 
 fun getBiomeName(biome: Holder<Biome>): Text {
     val possibleId = biome.getKey()
@@ -39,4 +48,43 @@ fun GuiGraphics.renderArmorBar(player: PlayerEntity, y: Int, x: Int, uncappedMax
         }
         RenderSystem.disableBlend()
     }
+}
+
+fun renderSpawnerInfo(
+    be: MobSpawnerBlockEntity, mobSpawnerLogic: MobSpawnerLogic,
+    delta: Float, matrices: MatrixStack, vertexConsumers: VertexConsumerProvider,
+) {
+    if (WidgetRenderer.Settings.spawnerInfo.get() != 1) return
+
+    val access = mobSpawnerLogic as MobSpawnerLogicAccessor
+    val client = MinecraftClient.getInstance()
+
+    val textList = mapOf(
+        "Spawn Delay: " to access.df_getSpawnDelay(),
+        "Min Spawn Dealy: " to access.df_getMinSpawnDelay(),
+        "Max Spawn Dealy: " to access.df_getMaxSpawnDelay(),
+        "Spawn Count: " to access.df_getSpawnCount(),
+        "Max Nearby Entities: " to access.df_getMaxNearbyEntities(),
+        "Required Player Range: " to access.df_getRequiredPlayerRange(),
+        "Spawn Range: " to access.df_getSpawnRange(),
+    )
+    matrices.push()
+    matrices.translate(.5f, 1.3f, .5f)
+    matrices.rotate(client.entityRenderDispatcher.rotation)
+    matrices.scale(0.025f, -0.025f, 0.025f)
+
+
+    val color = 0xff_ff_ff_ff.toInt()
+    val font = client.textRenderer
+    for ((idx, rawText) in textList.toList().withIndex()) {
+        val text = Text.literal(rawText.first)
+            .append(Text.literal("${rawText.second}").formatted(Formatting.GREEN))
+        font.draw(
+            text, font.getWidth(text) / -2f, idx * -(1f + font.fontHeight), color,
+            true, matrices.peek().model, vertexConsumers,
+            TextRenderer.TextLayerType.NORMAL, 0, 15728880
+        )
+    }
+
+    matrices.pop()
 }

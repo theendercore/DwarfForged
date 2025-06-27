@@ -141,6 +141,7 @@ object WidgetRenderer {
         var paciFist = addInt("PaciFist")
         var speedometer = addInt("Speedometer")
         var armorToughness = addInt("ArmorToughness")
+        var spawnerInfo = addInt("SpawnerInfo")
     }
 
     object Data {

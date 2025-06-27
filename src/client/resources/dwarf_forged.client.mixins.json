@@ -6,7 +6,9 @@
   "client": [
     "ChiseledBookshelfBlockAccessor",
     "GameRendererMixin",
-    "GuiGraphicsAccessor"
+    "GuiGraphicsAccessor",
+    "MobSpawnerBlockEntityRendererMixin",
+    "MobSpawnerLogicAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
