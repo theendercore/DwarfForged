@@ -13,13 +13,16 @@ import net.minecraft.item.ItemStack
 import net.minecraft.registry.Holder
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
+import net.minecraft.util.math.MathHelper.lengthSquared
 import net.minecraft.world.biome.Biome
 import org.teamvoided.creative_works.client.DebugWidgetRegistry.addInt
+import org.teamvoided.creative_works.client.DebugWidgetRegistry.addString
 import org.teamvoided.dwarf_forged.client.gui.tooltip.drawHudTooltips
 import org.teamvoided.dwarf_forged.client.util.getBiomeName
 import org.teamvoided.dwarf_forged.client.util.getPlayerHit
 import org.teamvoided.dwarf_forged.mixin.client.ChiseledBookshelfBlockAccessor
 import org.teamvoided.dwarf_forged.net.FetchBookStackPayload
+import kotlin.math.abs
 
 object WidgetRenderer {
     fun init() = HudRenderCallback.EVENT.register(::renderWidgetLayer)
@@ -100,6 +103,16 @@ object WidgetRenderer {
                     gui.drawCenteredShadowedText(font, "Emitted: $emitted", width / 2, 64, white)
             }
         }
+
+        if (Settings.speedometer.get() > 0) {
+            val x = player.x - player.lastRenderX
+            val y = player.y - player.lastRenderY
+            val z = player.z - player.lastRenderZ
+            val text =
+                if (Data.speedType.get() == "ALL") String.format("Speed: %.3f b/s", lengthSquared(x, y, z) * 20)
+                else String.format("Speed: x: %.3f y: %.3f z: %.3f b/s", abs(x * 20), abs(y * 20), abs(z * 20))
+            gui.drawShadowedText(font, text, 10, 10, white)
+        }
     }
 
     object Settings {
@@ -107,11 +120,13 @@ object WidgetRenderer {
         var chiseledMonocle = addInt("ChiseledMonocle")
         var currentBiome = addInt("CurrentBiome")
         var redstoneInfo = addInt("RedstoneInfo")
-        var paciFist= addInt("PaciFist")
+        var paciFist = addInt("PaciFist")
+        var speedometer = addInt("Speedometer")
     }
 
     object Data {
         var bookshelfStack: ItemStack = ItemStack.EMPTY
         var currentBiome: Holder<Biome>? = null
+        var speedType = addString("SpeedType", "ALL")
     }
 }
