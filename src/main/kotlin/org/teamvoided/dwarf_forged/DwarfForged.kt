@@ -23,6 +23,7 @@ object DwarfForged {
         DFNetworking.init()
     }
 
-    fun id(path: String) = Identifier.of(MODID, path)
-    fun id(namespace: String, path: String) = Identifier.of(namespace, path)
+    fun id(path: String) = id(MODID, path)
+    fun id(namespace: String, path: String): Identifier = Identifier.of(namespace, path)
+    fun mc(path: String): Identifier = Identifier.ofDefault(path)
 }
