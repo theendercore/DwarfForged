@@ -5,9 +5,13 @@ import net.minecraft.block.entity.MobSpawnerBlockEntity
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.gui.GuiGraphics
+import net.minecraft.client.render.Camera
+import net.minecraft.client.render.CameraSubmersionType
 import net.minecraft.client.render.VertexConsumerProvider
 import net.minecraft.client.util.math.MatrixStack
+import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.attribute.EntityAttributes
+import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.registry.Holder
 import net.minecraft.text.Text
@@ -87,4 +91,28 @@ fun renderSpawnerInfo(
     }
 
     matrices.pop()
+}
+
+fun getCustomFogStart(original: Float, camera: Camera, viewDistance: Float, cameraType: CameraSubmersionType): Float? {
+    if (WidgetRenderer.Settings.lavaGoogles.get() > 0 && cameraType == CameraSubmersionType.LAVA) {
+        val entity = camera.focusedEntity
+        if (entity.isSpectator) return null
+        if (entity is LivingEntity && entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {
+            return -1f
+        }
+        return 0f
+    }
+    return null
+}
+
+fun getCustomFogEnd(original: Float, camera: Camera, viewDistance: Float, cameraType: CameraSubmersionType): Float? {
+    if (WidgetRenderer.Settings.lavaGoogles.get() > 0 && cameraType == CameraSubmersionType.LAVA) {
+        val entity = camera.focusedEntity
+        if (entity.isSpectator) return null
+        if (entity is LivingEntity && entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {
+            return (viewDistance / 3.5f)
+        }
+        return 16f
+    }
+    return null
 }

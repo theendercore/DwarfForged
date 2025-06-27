@@ -142,6 +142,7 @@ object WidgetRenderer {
         var speedometer = addInt("Speedometer")
         var armorToughness = addInt("ArmorToughness")
         var spawnerInfo = addInt("SpawnerInfo")
+        var lavaGoogles = addInt("LavaGoogles")
     }
 
     object Data {

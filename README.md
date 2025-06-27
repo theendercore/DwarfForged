@@ -6,9 +6,6 @@
 - time
 - item durability
 - moon phase?
-- whether?
-- x & z coords
-- y level
 - biome stats?
 - structure 
 - structure stats?
@@ -38,20 +35,19 @@
 - Enemy Aggro Indicator (Shows which mobs are angry at you)
 - Advancement tracker (Lets you pin advancements to hud to keep track of completion)
 - Animal Breed Cooldown
-- Trail Spawner & Vault stats
+- Trail Spawner Info
+- Vault Info
 - Block Break display (Shows if you can break a block)
 - Mining Zone Indicator (Shows if you are in optimal y level for mining a specific ore)
 - Camera drone?
 - Ear mufflers (Just lets you mute specific sounds) (has voice chat support (so you can accidentally mute astra))
-- Mechanical spine (lets you adjust the hurt cam)
 - Item Search (lets you find any item in containers near you)
 - Armor Stand Editor mod integration? or just a custom editor
 - Quick Unloader (Qucickstac to nearby chests)
 - build guides mod
 - Damage numbers?
-- lava goggles (lets you see under lava if you have fire resistance)
 - tool auto switcher
-- compass
+- compass (pointing north ui kind)
 
 
 ## Needs to be Styled:
@@ -64,3 +60,9 @@
 - Speedometer
 - Armor toughness indicator
 - Spawn Stats
+- lava goggles (lets you see under lava if you have fire resistance)
+
+- Mechanical spine (lets you adjust the hurt cam)
+- x & z coords
+- y level
+- whether?
