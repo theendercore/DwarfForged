@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer;
 
 @Mixin(GameRenderer.class)
-public class GameRendererMixin {
+public abstract class GameRendererMixin {
 
     @ModifyExpressionValue(method = "updateCrosshairTarget", at= @At(value = "INVOKE", target = "Lnet/minecraft/util/hit/EntityHitResult;getEntity()Lnet/minecraft/entity/Entity;"))
     Entity preventCrosshairEntity(Entity original){

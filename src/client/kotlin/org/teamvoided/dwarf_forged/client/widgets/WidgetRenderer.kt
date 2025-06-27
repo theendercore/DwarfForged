@@ -9,10 +9,12 @@ import net.minecraft.client.gui.GuiGraphics
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.render.DeltaTracker
 import net.minecraft.entity.ItemEntity
+import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.ItemStack
 import net.minecraft.registry.Holder
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
+import net.minecraft.util.math.MathHelper
 import net.minecraft.util.math.MathHelper.lengthSquared
 import net.minecraft.world.biome.Biome
 import org.teamvoided.creative_works.client.DebugWidgetRegistry.addInt
@@ -20,9 +22,11 @@ import org.teamvoided.creative_works.client.DebugWidgetRegistry.addString
 import org.teamvoided.dwarf_forged.client.gui.tooltip.drawHudTooltips
 import org.teamvoided.dwarf_forged.client.util.getBiomeName
 import org.teamvoided.dwarf_forged.client.util.getPlayerHit
+import org.teamvoided.dwarf_forged.client.util.renderArmorBar
 import org.teamvoided.dwarf_forged.mixin.client.ChiseledBookshelfBlockAccessor
 import org.teamvoided.dwarf_forged.net.FetchBookStackPayload
 import kotlin.math.abs
+import kotlin.math.max
 
 object WidgetRenderer {
     fun init() = HudRenderCallback.EVENT.register(::renderWidgetLayer)
@@ -40,6 +44,8 @@ object WidgetRenderer {
         val width = gui.scaledWindowWidth
         val height = gui.scaledWindowHeight
         val matrices = gui.matrices
+
+        val isCreative = player.isCreative
 
         val white = 0xff_ff_ff
 
@@ -113,6 +119,18 @@ object WidgetRenderer {
                 else String.format("Speed: x: %.3f y: %.3f z: %.3f b/s", abs(x * 20), abs(y * 20), abs(z * 20))
             gui.drawShadowedText(font, text, 10, 10, white)
         }
+
+        if (!isCreative && Settings.armorToughness.get() > 0) {
+            val health =
+                max(
+                    player.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH).toInt(),
+                    MathHelper.ceil(player.health)
+                )
+            val absorption = MathHelper.ceil(player.absorptionAmount).toFloat()
+            val uncappedMaxHealth = MathHelper.ceil((health + absorption) / 2.0f / 10.0f)
+            val cappedMaxHealth = max(10 - (uncappedMaxHealth - 2), 3)
+            gui.renderArmorBar(player, height - 49, width / 2 - 91, uncappedMaxHealth, cappedMaxHealth)
+        }
     }
 
     object Settings {
@@ -122,6 +140,7 @@ object WidgetRenderer {
         var redstoneInfo = addInt("RedstoneInfo")
         var paciFist = addInt("PaciFist")
         var speedometer = addInt("Speedometer")
+        var armorToughness = addInt("ArmorToughness")
     }
 
     object Data {

@@ -49,8 +49,6 @@
 - Armor Stand Editor mod integration? or just a custom editor
 - Quick Unloader (Qucickstac to nearby chests)
 - build guides mod
-
-- Armor tuffness indicator
 - Damage numbers?
 - lava goggles (lets you see under lava if you have fire resistance)
 - tool auto switcher
@@ -65,3 +63,4 @@
   - show power level
 - paci-fist (prevents you form attacking things, also remove Crimson time)
 - Speedometer
+- Armor toughness indicator
