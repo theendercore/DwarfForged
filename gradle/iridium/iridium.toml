@@ -1,13 +1,15 @@
 projectTitle = "DwarfForged"
 modId = "dwarf_forged"
+modVersion = "1.0.0"
+group = "org.teamvoided"
 githubRepo = "TheEnderCore/DwarfForged"
 discordServerInviteId = "KZ5Q364hEg"
-authors = [ "WiredTomato", "TheEnderCore" ]
-majorMinecraftVersion = "1.21"
+authors = [ "TheEnderCore" ]
+majorMinecraftVersion = ">=1.21"
 minecraftVersion = "1.21.1"
-fabricLoaderVersion = "0.16.10"
-fabricApiVersion = "0.115.0+1.21.1"
-fabricLangKotlinVersion = "1.12.1+kotlin.2.0.20"
+fabricLoaderVersion = "0.17.2"
+fabricApiVersion = "0.116.6+1.21.1"
+fabricLangKotlinVersion = "1.13.6+kotlin.2.2.20"
 license = "MIT"
 modules = [ ]
 modDescription = "DwarfForged Description"
