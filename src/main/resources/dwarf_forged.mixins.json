@@ -3,9 +3,7 @@
   "minVersion": "0.8",
   "package": "org.teamvoided.dwarf_forged.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": [
-    "ChiseledBookshelfBlockEntityMixin"
-  ],
+  "mixins": [ ],
   "injectors": {
     "defaultRequire": 1
   }
