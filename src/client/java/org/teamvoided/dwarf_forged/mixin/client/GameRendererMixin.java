@@ -5,7 +5,6 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer;
 
 import static org.teamvoided.dwarf_forged.DwarfForgedClient.config;
 

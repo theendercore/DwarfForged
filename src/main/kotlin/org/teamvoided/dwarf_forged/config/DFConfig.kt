@@ -2,6 +2,7 @@ package org.teamvoided.dwarf_forged.config
 
 import me.fzzyhmstrs.fzzy_config.config.Config
 import org.teamvoided.dwarf_forged.DwarfForged.id
+import org.teamvoided.dwarf_forged.util.isDev
 
 class DFConfig : Config(id("client")) {
     var onGroundItem = false
@@ -17,4 +18,7 @@ class DFConfig : Config(id("client")) {
     var xzCoords = false
     var yCoords = false
     var barometer = false
+
+    @JvmField
+    var debug = isDev()
 }

@@ -35,7 +35,7 @@ modSettings {
     entrypoint("fabric-datagen", "org.teamvoided.dwarf_forged.data.gen.DwarfForgedData")
 
     mixinFile("${modId()}.client.mixins.json")
-//    mixinFile("${modId()}.mixins.json")
+    mixinFile("${modId()}.mixins.json")
 //    accessWidener("${modId()}.accesswidener")
 }
 

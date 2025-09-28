@@ -22,7 +22,6 @@ import net.minecraft.world.MobSpawnerLogic
 import net.minecraft.world.biome.Biome
 import org.teamvoided.dwarf_forged.DwarfForged.id
 import org.teamvoided.dwarf_forged.DwarfForgedClient.config
-import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer
 import org.teamvoided.dwarf_forged.mixin.client.MobSpawnerLogicAccessor
 
 fun getBiomeName(biome: Holder<Biome>): Text {

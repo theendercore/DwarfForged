@@ -15,6 +15,7 @@ object WidgetEvents {
     }
 
 
+    @Suppress("unused")
     fun attackEntity(
         player: PlayerEntity, world: World, hand: Hand, entity: Entity, hitResult: EntityHitResult?,
     ): ActionResult {

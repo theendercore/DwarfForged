@@ -12,6 +12,8 @@ import net.minecraft.entity.ItemEntity
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.ItemStack
 import net.minecraft.registry.Holder
+import net.minecraft.text.Text
+import net.minecraft.util.Formatting
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.util.math.MathHelper
@@ -162,6 +164,30 @@ object WidgetRenderer {
                 }
             else "Sunny"
             gui.drawShadowedText(font, "Weather: $text", 10, height - 16, white)
+        }
+
+
+        if (!config.debug) return
+        val hit = client.crosshairTarget
+        if (hit is BlockHitResult) {
+            val be = world.getBlockEntity(hit.blockPos) ?: return
+            val nbt = be.toNbt(be.world?.registryManager)
+            val texts = mutableMapOf("Nbt" to "")
+            for (key in nbt.keys) {
+                texts[key] = nbt.get(key).toString()
+            }
+            for ((idx, pair) in texts.toList().reversed().withIndex()) {
+                gui.drawCenteredShadowedText(
+                    font,
+                    Text.literal("${pair.first}: ").formatted(Formatting.GRAY).append(
+
+                        Text.literal(pair.second).formatted(Formatting.WHITE)
+                    ),
+                    width / 2, (height / 2) - 32 - (idx * font.fontHeight),
+                    white
+                )
+            }
+
         }
     }
 
