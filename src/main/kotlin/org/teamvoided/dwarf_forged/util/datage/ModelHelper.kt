@@ -8,10 +8,8 @@ import net.minecraft.data.family.BlockFamily
 import net.minecraft.state.property.Properties
 import net.minecraft.util.Identifier
 import org.teamvoided.dwarf_forged.DwarfForged.log
-import org.teamvoided.dwarf_forged.block.extra.FamilyType
 import org.teamvoided.dwarf_forged.util.putAllAndGet
 import java.util.*
-import kotlin.jvm.optionals.getOrNull
 
 
 val BARS: TextureKey = TextureKey.of("bars")
@@ -224,20 +222,6 @@ val CUT_BLOCK_MAP: Map<BlockFamily.Variant, BlockStateModelGenerator.(Block, Blo
 
 fun BlockStateModelGenerator.empty(b: Block, r: Block) {
     log.info("No function for $b in $r")
-}
-
-fun BlockStateModelGenerator.registerIsolatedBlockFamily(family: BlockFamily) {
-    val root = family.baseBlock
-    val mapType = when (family.group.getOrNull()) {
-        FamilyType.BASE_BLOCK -> BASE_BLOCK_MAP
-        FamilyType.CUT_BLOCK -> CUT_BLOCK_MAP
-        else -> ISOLATED_MAP
-    }
-    family.variants.forEach { (variant, block) ->
-        val func = mapType[variant]
-        if (func != null) func.invoke(this, block, root)
-        else log.info("Not found function for $variant in $root")
-    }
 }
 
 

@@ -21,6 +21,7 @@ import net.minecraft.util.math.MathHelper
 import net.minecraft.world.MobSpawnerLogic
 import net.minecraft.world.biome.Biome
 import org.teamvoided.dwarf_forged.DwarfForged.id
+import org.teamvoided.dwarf_forged.DwarfForgedClient.config
 import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer
 import org.teamvoided.dwarf_forged.mixin.client.MobSpawnerLogicAccessor
 
@@ -58,7 +59,7 @@ fun renderSpawnerInfo(
     be: MobSpawnerBlockEntity, mobSpawnerLogic: MobSpawnerLogic,
     delta: Float, matrices: MatrixStack, vertexConsumers: VertexConsumerProvider,
 ) {
-    if (WidgetRenderer.Settings.spawnerInfo.get() != 1) return
+    if (!config.spawnerInfo) return
 
     val access = mobSpawnerLogic as MobSpawnerLogicAccessor
     val client = MinecraftClient.getInstance()
@@ -94,7 +95,7 @@ fun renderSpawnerInfo(
 }
 
 fun getCustomFogStart(original: Float, camera: Camera, viewDistance: Float, cameraType: CameraSubmersionType): Float? {
-    if (WidgetRenderer.Settings.lavaGoogles.get() > 0 && cameraType == CameraSubmersionType.LAVA) {
+    if (config.lavaGoogles && cameraType == CameraSubmersionType.LAVA) {
         val entity = camera.focusedEntity
         if (entity.isSpectator) return null
         if (entity is LivingEntity && entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {
@@ -106,7 +107,7 @@ fun getCustomFogStart(original: Float, camera: Camera, viewDistance: Float, came
 }
 
 fun getCustomFogEnd(original: Float, camera: Camera, viewDistance: Float, cameraType: CameraSubmersionType): Float? {
-    if (WidgetRenderer.Settings.lavaGoogles.get() > 0 && cameraType == CameraSubmersionType.LAVA) {
+    if (config.lavaGoogles && cameraType == CameraSubmersionType.LAVA) {
         val entity = camera.focusedEntity
         if (entity.isSpectator) return null
         if (entity is LivingEntity && entity.hasStatusEffect(StatusEffects.FIRE_RESISTANCE)) {

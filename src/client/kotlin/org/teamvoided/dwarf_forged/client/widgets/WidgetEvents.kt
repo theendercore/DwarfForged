@@ -7,6 +7,7 @@ import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.world.World
+import org.teamvoided.dwarf_forged.DwarfForgedClient.config
 
 object WidgetEvents {
     fun init() {
@@ -17,7 +18,7 @@ object WidgetEvents {
     fun attackEntity(
         player: PlayerEntity, world: World, hand: Hand, entity: Entity, hitResult: EntityHitResult?,
     ): ActionResult {
-        if (WidgetRenderer.Settings.paciFist.get() > 0) {
+        if (config.paciFist) {
             return ActionResult.FAIL
         }
         return ActionResult.PASS

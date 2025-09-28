@@ -17,8 +17,8 @@ import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.util.math.MathHelper
 import net.minecraft.util.math.MathHelper.lengthSquared
 import net.minecraft.world.biome.Biome
-import org.teamvoided.creative_works.client.DebugWidgetRegistry.addInt
 import org.teamvoided.creative_works.client.DebugWidgetRegistry.addString
+import org.teamvoided.dwarf_forged.DwarfForgedClient.config
 import org.teamvoided.dwarf_forged.client.gui.tooltip.drawHudTooltips
 import org.teamvoided.dwarf_forged.client.util.getBiomeName
 import org.teamvoided.dwarf_forged.client.util.getPlayerHit
@@ -50,7 +50,7 @@ object WidgetRenderer {
         val white = 0xff_ff_ff
 
 
-        if (Settings.onGroundItem.get() > 0) {
+        if (config.onGroundItem) {
             val scan = getPlayerHit(player, delta.getTickDelta(true))
             val target = if (scan is EntityHitResult) scan.entity else null
             if (target is ItemEntity) {
@@ -58,7 +58,7 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.chiseledMonocle.get() > 0) {
+        if (config.chiseledMonocle) {
             val hit = client.crosshairTarget
             if (hit is BlockHitResult) {
                 val entity = world.getBlockEntity(hit.blockPos)
@@ -82,14 +82,14 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.currentBiome.get() > 0) {
+        if (config.currentBiome) {
             Data.currentBiome = world.getBiome(player.blockPos)
             Data.currentBiome?.let { biome ->
                 gui.drawCenteredShadowedText(font, getBiomeName(biome), width / 2, height - 80, white)
             }
         }
 
-        if (Settings.redstoneInfo.get() > 0) {
+        if (config.redstoneInfo) {
             val hit = client.crosshairTarget
             if (hit is BlockHitResult) {
                 val pos = hit.blockPos
@@ -110,7 +110,7 @@ object WidgetRenderer {
             }
         }
 
-        if (Settings.speedometer.get() > 0) {
+        if (config.speedometer) {
             val x = player.x - player.lastRenderX
             val y = player.y - player.lastRenderY
             val z = player.z - player.lastRenderZ
@@ -120,7 +120,7 @@ object WidgetRenderer {
             gui.drawShadowedText(font, text, 10, 10, white)
         }
 
-        if (Settings.armorToughness.get() > 0 && !isCreative) {
+        if (config.armorToughness && !isCreative) {
             val health =
                 max(
                     player.getAttributeValue(EntityAttributes.GENERIC_MAX_HEALTH).toInt(),
@@ -132,17 +132,17 @@ object WidgetRenderer {
             gui.renderArmorBar(player, height - 49, width / 2 - 91, uncappedMaxHealth, cappedMaxHealth)
         }
 
-        if (Settings.xzCoords.get() > 0) {
+        if (config.xzCoords) {
             gui.drawShadowedText(font, String.format("X: %.2f Z: %.2f", player.x, player.z), 10, height - 16, white)
         }
 
-        if (Settings.yCoords.get() > 0) {
+        if (config.yCoords) {
             gui.drawShadowedText(
                 font, String.format("Y: %.2f", player.y), 10, height - (16 + font.fontHeight + 1), white
             )
         }
 
-        if (Settings.barometer.get() > 0) {
+        if (config.barometer) {
             val biome = world.getBiome(player.blockPos).value()
             val tickDelta = delta.getTickDelta(false)
             val isThunder = world.getThunderGradient(tickDelta) > 0f
@@ -163,21 +163,6 @@ object WidgetRenderer {
             else "Sunny"
             gui.drawShadowedText(font, "Weather: $text", 10, height - 16, white)
         }
-    }
-
-    object Settings {
-        var onGroundItem = addInt("OnGroundItem")
-        var chiseledMonocle = addInt("ChiseledMonocle")
-        var currentBiome = addInt("CurrentBiome")
-        var redstoneInfo = addInt("RedstoneInfo")
-        var paciFist = addInt("PaciFist")
-        var speedometer = addInt("Speedometer")
-        var armorToughness = addInt("ArmorToughness")
-        var spawnerInfo = addInt("SpawnerInfo")
-        var lavaGoogles = addInt("LavaGoogles")
-        var xzCoords = addInt("XZCoords")
-        var yCoords = addInt("YCoords")
-        var barometer = addInt("Barometer")
     }
 
     object Data {

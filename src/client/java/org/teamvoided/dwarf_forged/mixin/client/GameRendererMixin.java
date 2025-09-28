@@ -7,12 +7,14 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer;
 
+import static org.teamvoided.dwarf_forged.DwarfForgedClient.config;
+
 @Mixin(GameRenderer.class)
 public abstract class GameRendererMixin {
 
     @ModifyExpressionValue(method = "updateCrosshairTarget", at= @At(value = "INVOKE", target = "Lnet/minecraft/util/hit/EntityHitResult;getEntity()Lnet/minecraft/entity/Entity;"))
     Entity preventCrosshairEntity(Entity original){
-        if (WidgetRenderer.Settings.INSTANCE.getPaciFist().get() > 0) {
+        if (config.paciFist) {
             return null;
         }
         return original;
