@@ -30,5 +30,4 @@ fun GuiGraphics.drawHudTooltips(
     matrices.translate(0f, 0f, -1000f)
     drawTooltip(textRenderer, stack, x, y, positioner)
     matrices.pop()
-
 }
