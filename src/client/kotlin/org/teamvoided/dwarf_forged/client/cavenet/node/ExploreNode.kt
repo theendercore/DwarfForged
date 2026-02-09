@@ -35,7 +35,7 @@ class ExploreNode(var state: ExploreState = ExploreState.EXPLORING) : INode {
         }
     }
 
-//    override fun shouldRender(): Boolean = false
+    override fun shouldRender(): Boolean = false
 
     companion object {
         enum class ExploreState {

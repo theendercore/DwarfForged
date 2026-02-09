@@ -1,18 +1,18 @@
 package org.teamvoided.dwarf_forged.client.cavenet
 
-import com.mojang.blaze3d.systems.RenderSystem
-import com.mojang.blaze3d.vertex.*
+import com.mojang.blaze3d.vertex.Tessellator
+import com.mojang.blaze3d.vertex.VertexConsumer
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents
-import net.minecraft.client.render.GameRenderer
 import net.minecraft.client.render.OverlayTexture
+import net.minecraft.client.render.RenderLayer
 import net.minecraft.client.render.WorldRenderer.getLightmapCoordinates
-import net.minecraft.client.world.ClientWorld
-import net.minecraft.particle.ParticleTypes.*
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.Direction
 import net.minecraft.util.math.Vec3d
 import org.joml.Matrix4f
+import org.teamvoided.dwarf_forged.client.cavenet.node.DoorNode
 import kotlin.math.max
 
 object CNRenderer {
@@ -22,146 +22,99 @@ object CNRenderer {
 
     val GLASS: Identifier = Identifier.ofDefault("textures/block/blue_stained_glass.png")
     fun renderCustom(ctx: WorldRenderContext) {
-        val matrix = ctx.matrixStack() ?: return
+        val posStack = ctx.matrixStack() ?: return
         val profiler = ctx.profiler()
         profiler.push("DwarfForgedRenderer")
 
         val tessellator = Tessellator.getInstance()
         val world = ctx.world()
-        matrix.push()
+        posStack.push()
         // Steel this code
 //        ctx.worldRenderer().renderClouds()
         if (CaveNet.nodes.isNotEmpty()) {
-            RenderSystem.setShader(GameRenderer::getRenderTypeEntityTranslucentCullShader)
-            val tempTexture = GLASS
-//            tempTexture = Identifier.ofDefault("textures/block/bookshelf.png")
-            RenderSystem.setShaderTexture(0, tempTexture)
-            ctx.lightmapTextureManager().enable()
-//            RenderSystem.disableCull()
-            RenderSystem.enableBlend()
 
-            val mtx = matrix.peek().model
-            val buffer = tessellator.begin(
-                VertexFormat.DrawMode.QUADS,
-                VertexFormats.POSITION_COLOR_TEXTURE_OVERLAY_LIGHT_NORMAL
-            )
+            val mtx = posStack.peek().model
+            val buffer = ctx.consumers()!!.getBuffer(RenderLayer.getEntityTranslucent(GLASS))
             val camPos = ctx.camera().pos
 
-
             val color = 0xff_ff_ff_ff.toInt()
-            for (nodePos in CaveNet.nodes.keys) {
-                val light = max(getLightmapCoordinates(world, nodePos), 7 shl 4)
-                // Bottom
-                buffer.cube(mtx, nodePos, camPos, color, light, world)
+
+            for ((nodePos, node) in CaveNet.nodes.toList()) {
+                if (node.shouldRender() && node is DoorNode) {
+                    val light = max(getLightmapCoordinates(world, nodePos), 7 shl 4)
+                    buffer.faceFromDir(mtx, nodePos, camPos, color, light, node.direction)
+                }
             }
-            BufferRenderer.drawWithShader(buffer.endOrThrow())
-            RenderSystem.disableBlend()
-            RenderSystem.enableCull()
         }
 
-        matrix.pop()
+        posStack.pop()
         profiler.pop()
-        Thread.yield()
     }
 
-    private fun BufferBuilder.cube(
+    fun VertexConsumer.faceFromDir(
         mtx: Matrix4f,
         nodePos: BlockPos,
         camPos: Vec3d,
         color: Int,
         light: Int,
-        world: ClientWorld,
+        dir: Direction,
     ) {
-        val x1 = nodePos.x
+        val x1 = nodePos.x  + (dir.vector.x * 0.5)
         val y1 = nodePos.y
-        val z1 = nodePos.z
+        val z1 = nodePos.z + (dir.vector.z * 0.5)
 
-        val x2 = nodePos.x + 1
-        val y2 = nodePos.y + 1
-        val z2 = nodePos.z + 1
+        val x2 = x1 + 1
+        val y2 = y1 + 1
+        val z2 = z1 + 1
+        when (dir) {
+            Direction.DOWN -> {}
+            Direction.UP -> {}
+            Direction.SOUTH,
+                -> face(mtx, x2, y2, z1, x1, y1, z1, camPos, color, light, vec3d(0, 1, 0))
 
-        world.addParticle(VAULT_CONNECTION, x1 + 0.5, y1 + 0.5, z1 + 0.5, 0.0, 0.0, 0.0)
+            Direction.NORTH,
+                -> face(mtx, x1, y2, z2, x2, y1, z2, camPos, color, light, vec3d(0, 1, 0))
 
+            Direction.EAST,
+                -> face(mtx, x1, y2, z1, x1, y1, z2, camPos, color, light, vec3d(0, 1, 0))
 
-//        face(
-//            mtx,
-//            x2, y1, z2, x1, y1, z1,
-//            camPos, color, light, vec3d(0, 1, 0),world
-//        )
-//        face(
-//            mtx,
-//             x2, y2, z2, x1, y2, z1,
-//            camPos, color, light, vec3d(0, 1, 0),world
-//        )
-
-        face(
-            mtx,
-            x1, y2, z1, x1, y1, z2,
-            camPos, color, light, vec3d(0, 1, 0), world
-        )
-        face(
-            mtx,
-            x2, y2, z2, x2, y1, z1,
-            camPos, color, light, vec3d(0, 1, 0), world
-        )
-        face(
-            mtx,
-            x2, y2, z1, x1, y1, z1,
-            camPos, color, light, vec3d(0, 1, 0), world
-        )
-        face(
-            mtx,
-            x1, y2, z2, x2, y1, z2,
-            camPos, color, light, vec3d(0, 1, 0), world
-        )
+            Direction.WEST,
+                -> face(mtx, x2, y2, z2, x2, y1, z1, camPos, color, light, vec3d(0, 1, 0))
+        }
     }
 
     fun VertexConsumer.face(
-        mtx: Matrix4f,
-        x1: Int,
-        y1: Int,
-        z1: Int,
-        x2: Int,
-        y2: Int,
-        z2: Int,
-        camPos: Vec3d, color: Int, light: Int, normal: Vec3d, world: ClientWorld,
+        mtx: Matrix4f, x1: Number, y1: Number, z1: Number, x2: Number, y2: Number, z2: Number,
+        camPos: Vec3d, color: Int, light: Int, normal: Vec3d,
     ) {
 
         xyz(mtx, vec3d(x1, y1, z1), camPos)
             .color(color)
             .uv0(0.0F, 0.0F)
-            .uv1(OverlayTexture.WHITE_V)
+            .uv1(OverlayTexture.DEFAULT_UV)
             .uv2(light)
             .normal(normal)
-//        world.addParticle(WAX_OFF, x1.toDouble(), y1.toDouble(), z1.toDouble(), 0.0, 0.0, 0.0)
 
         xyz(mtx, vec3d(x1, y2, z1), camPos)
             .color(color)
             .uv0(1.0F, 0.0F)
-            .uv1(OverlayTexture.WHITE_V)
+            .uv1(OverlayTexture.DEFAULT_UV)
             .uv2(light)
             .normal(normal)
-//        if (world.random.nextInt(60) == 0) {
-//            world.addParticle(OMINOUS_SPAWNING, x1.toDouble(), y2.toDouble(), z1.toDouble(), 0.0, 0.0, 0.0)
-//        }
 
         xyz(mtx, vec3d(x2, y2, z2), camPos)
             .color(color)
             .uv0(1.0F, 1.0F)
-            .uv1(OverlayTexture.WHITE_V)
+            .uv1(OverlayTexture.DEFAULT_UV)
             .uv2(light)
             .normal(normal)
-//        world.addParticle(WAX_ON, x2.toDouble(), y2.toDouble(), z2.toDouble(), 0.0, 0.0, 0.0)
 
         xyz(mtx, vec3d(x2, y1, z2), camPos)
             .color(color)
             .uv0(0.0F, 1.0F)
-            .uv1(OverlayTexture.WHITE_V)
+            .uv1(OverlayTexture.DEFAULT_UV)
             .uv2(light)
             .normal(normal)
-//        if (world.random.nextInt(60) == 0) {
-//            world.addParticle(MYCELIUM, x2.toDouble(), y1.toDouble(), z2.toDouble(), 0.0, 0.0, 0.0)
-//        }
     }
 
     fun VertexConsumer.xyz(model: Matrix4f, vec: Vec3d, camera: Vec3d): VertexConsumer =

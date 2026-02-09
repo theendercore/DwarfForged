@@ -16,7 +16,7 @@ object CaveNet {
     val nodes = mutableMapOf<BlockPos, INode>()
     var TicksPerTick = -1
     fun init() {
-//        CNRenderer.init()
+        CNRenderer.init()
         CNLogic.init()
 
         ClientCommandRegistrationCallback.EVENT.register { dispatcher, ctx ->
@@ -26,9 +26,8 @@ object CaveNet {
             val addNode = literal("add_node").executes(::addNode).build()
             root.addChild(addNode)
 
-            val clear = literal("clear").executes { nodes.clear(); 0 }.build()
+            val clear = literal("clear").executes(::clearNodes).build()
             root.addChild(clear)
-
 
             val ticks = literal("ticks").build()
             root.addChild(ticks)
@@ -47,6 +46,14 @@ object CaveNet {
 
         nodes[player.blockPos.up()] = DoorNode(player.horizontalFacing)
         src.sendFeedback(Text.literal("Added Node ${player.blockPos}!"))
+        return Command.SINGLE_SUCCESS
+    }
+
+    fun clearNodes(ctx: CommandContext<FabricClientCommandSource>): Int {
+        val src = ctx.source ?: return -1
+        val count = nodes.size
+        nodes.clear()
+        src.sendFeedback(Text.literal("$count nodes cleared"))
         return Command.SINGLE_SUCCESS
     }
 }
