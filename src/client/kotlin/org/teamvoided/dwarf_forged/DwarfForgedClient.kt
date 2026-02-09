@@ -1,7 +1,6 @@
 package org.teamvoided.dwarf_forged
 
 import me.fzzyhmstrs.fzzy_config.api.ConfigApi
-import org.teamvoided.dwarf_forged.client.cavenet.CaveNet
 import org.teamvoided.dwarf_forged.client.init.DFClientNetworking
 import org.teamvoided.dwarf_forged.client.widgets.WidgetEvents
 import org.teamvoided.dwarf_forged.client.widgets.WidgetRenderer
@@ -17,6 +16,5 @@ object DwarfForgedClient {
         WidgetRenderer.init()
         WidgetTicker.init()
         WidgetEvents.init()
-        CaveNet.init()
     }
 }
