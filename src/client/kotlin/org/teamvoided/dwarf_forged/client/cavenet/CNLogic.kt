@@ -39,7 +39,7 @@ object CNLogic {
         }
 
         for ((pos, node) in CaveNet.nodes.toList()) {
-            if (world.time % 4 == 0L && node.shouldRender()) {
+            if (node.shouldRender()) {
                 renderNode(pos, node, world)
             }
 
@@ -68,7 +68,11 @@ object CNLogic {
         var nodeColor: Int? = null
         when (node) {
             is DoorNode -> {
-                nodeColor = 0x46_76_ca
+//                nodeColor = 0x46_76_ca
+                if (world.time % 80 == 0L) world.particle(
+                    BlockStateParticleEffect(ParticleTypes.BLOCK_MARKER, Blocks.BLUE_STAINED_GLASS.defaultState),
+                    x1 + 0.5, y1 + 0.5, z1 + 0.5
+                )
                 val dir = node.direction.vector
                 repeat(4) {
                     val r = it / 4f
@@ -87,7 +91,7 @@ object CNLogic {
 
             else -> {
                 world.particle(
-                    BlockStateParticleEffect(ParticleTypes.BLOCK, Blocks.BARRIER.defaultState),
+                    BlockStateParticleEffect(ParticleTypes.BLOCK_MARKER, Blocks.BARRIER.defaultState),
                     x1 + 0.5, y1 + 0.5, z1 + 0.5
                 )
             }
